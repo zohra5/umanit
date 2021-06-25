@@ -1,0 +1,35 @@
+body,html {
+
+    height: 100%;
+    background-color: #3D98C6;
+}
+
+#profile-img {
+    height: 15em;
+    margin-top: 3em;
+    margin-bottom: 5em;
+}
+/* l'image est à retoucher pour retirer les bordures blanches et corriger les proportions */
+.h-80 {
+    height: 80% !important;
+}
+.login {
+
+    border: solid 1px #052854;
+}
+.password{
+    margin-top: 2em;
+    border: solid 1px #052854;
+}
+/* la border de .login et .password (les champs) disparait quand on clique dessus, à corriger */
+.button {
+    background-color: #052854;
+    border: solid 2px #042144;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+.copyright {
+    text-align: center;
+    margin-top: 6em;
+    font-weight: bold;
+}

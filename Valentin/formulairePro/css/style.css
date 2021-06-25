@@ -1,0 +1,18 @@
+body {
+    background-color: rgba(206, 197, 197, 0.342);
+}
+
+h2 {
+    text-align: center;
+}
+
+
+legend {
+text-align: center;
+
+}
+
+fieldset {
+    margin-bottom: 5em;
+    margin-top: 2em;
+}

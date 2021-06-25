@@ -1,0 +1,429 @@
+<!doctype html>
+<html class="no-js" lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Entretien professionnel</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/formulairePro/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/formulairePro/css/main.css">
+    <link rel="stylesheet" href="/formulairePro/css/normalize.css">
+    <link rel="stylesheet" href="/formulairePro/css/style.css">
+
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+
+<body>
+
+    <div class="header-container">
+        <header class="wrapper clearfix">
+            <h1 class="title">Entretien professionnel</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">nav </a></li>
+                    <li><a href="#">nav </a></li>
+                    <li><a href="#">nav </a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <!-- La nav a un style et une color (orange) par défaut, et est vide en attendant -->
+
+
+    <main>
+        <!-- RADIO  -->
+        <fieldset >
+            <legend>Avez vous bénéficié d'une progression salariale ?</legend>
+            <div class="form-check form-check-inline text-center">
+                <input class="form-check-input" type="radio" name="progSalarialeOUI" id="progSalarialeOui" value="Oui">
+                <label class="form-check-label" for="progSalarialeOui">Oui</label>
+ 
+                <input class="form-check-input" type="radio" name="progSalarialeNon" id="progSalarialeNon" value="Non">
+                <label class="form-check-label" for="progSalarialeNo">Non</label>
+            </div>
+
+            <legend>Avez vous bénéficié d'une progression professionnelle?</legend>
+
+            <div class="form-check form-check-inline text-center">
+                <input class="form-check-input" type="radio" name="progProOui" id="progProOui" value="Oui">
+                <label class="form-check-label" for="progProOui">Oui</label>
+
+                <input class="form-check-input" type="radio" name="progProNon" id="progProNon" value="Non">
+                <label class="form-check-label" for="progProNo">Non</label>
+            </div>
+        </fieldset>
+
+
+        <!-- Tableau/formulaire -->
+       <fieldset>
+        <h2>Besoins en formation/certifications (pour les 2 ans à venir)</h2>
+        <form>
+            <div class="form-group">
+                <p>Objectif visé</p>
+                <textarea class="form-control" id="souhaitsCourt" rows="3" cols="30"></textarea>
+            </div>
+
+            <div class="form-group">
+                <p>Intitulé de la formation ou certification souhaitée</p>
+                <textarea class="form-control" id="souhaitsCourt" rows="3" cols="30"></textarea>
+            </div>
+
+
+            <!-- Sur le papier "Avis du responsable" et "Delai de réalisation" suivait, ces derniers relevant du formulaire manager, il n'apparaissent pas ici  -->
+
+
+        </form>
+        </fieldset>
+
+
+<fieldset>
+        <h2>Perspectives professionnelles</h2>
+        <form>
+            <div class="form-group">
+                <h3>Souhaits du collaborateur</h3>
+                <p>A court terme</p>
+                <textarea class="form-control" id="souhaitsCourt" rows="3" cols="30"></textarea>
+            </div>
+
+            <p>A long terme</p>
+            <textarea class="form-control" id="souhaitsLong" rows="3" cols="30"></textarea>
+            </div>
+
+        </form>
+    </fieldset>
+
+        <!-- La synthèse étant à remplir avec le collaborateur et le manager, il me parrait étrange et compliqué de faire seul une synthese du formulaire, à discuter avec Ronan (je l'ai quand même mise cela dit) -->
+        <fieldset>
+        <h2>Synthèse</h2>
+        <form>
+            <div class="form-group">
+
+                <p>Commentaires du collaborateur</p>
+                <textarea class="form-control" id="commentaires" rows="3" cols="30"></textarea>
+            </div>
+        </form>
+    </fieldset>
+
+    <fieldset>
+        <h2>État des lieux récapitulatif</h2>
+
+
+        
+            <p>Durant les 6 dernières années, avez-vous bénéficié d'au moins 3
+                entretiens professionnels (incluant celui-ci) ?</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="entretiensOui" id="entretiensOui" value="Oui">
+                <label class="form-check-label" for="entretiensOui">Oui</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="entretiensNon" id="entretiensNon" value="Non">
+                <label class="form-check-label" for="entretiensNon">Non</label>
+            </div>
+
+            <div class="form-group">
+                <label for="dateEntretien1">Date de l'entretien 1</label>
+                <div>
+                    <input class="form-control" type="date" value="2021-01-01" id="dateEntretien1">
+                </div>
+
+                <label for="dateEntretien2" class="">Date de l'entretien 2</label>
+                <div>
+                    <input class="form-control" type="date" value="2021-01-01" id="dateEntretien2">
+                </div>
+
+                <label for="dateEntretien3" class="">Date de l'entretien 3</label>
+                <div>
+                    <input class="form-control" type="date" value="2021-01-01" id="dateEntretien3">
+                </div>
+            </div>
+            <!-- Ici, si l'on supprime "value="2021-01-01" cela affiche "jj/mm/yyyy" dans le champs à la place de la date prédéfinie  -->
+
+        
+
+
+        
+            <p>Durant les 6 dernières années, avez vous suivi au moins une formation ?</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="formationOui" id="formationOui" value="Oui">
+                <label class="form-check-label" for="formationOui">Oui</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="formationNon" id="formationNon" value="Oui">
+                <label class="form-check-label" for="formationNon">Non</label>
+            </div>
+
+
+            <form>
+                <p>Intitulé de la formation</p>
+                <div>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Formation 1">
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Formation 2">
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Formation 3">
+                    </div>
+                </div>
+            </form>
+
+
+
+            <div>
+                <!-- radio "obligatoire" -->
+
+                <div class="form-check form-check-inline">
+                    <p>Obligatoire ?</p>
+                    <input class="form-check-input" type="radio" name="formation-obligatoire-Oui-1"
+                        id="formation-obligatoire-Oui-1" value="Oui">
+                    <label class="form-check-label" for="formation-obligatoire-Oui-1">Oui</label>
+                </div>
+                <!--Radio oui 1-->
+
+                <div class="form-check form-check-inline">
+
+                    <input class="form-check-input" type="radio" name="formation-obligatoire-Oui-2"
+                        id="formation-obligatoire-Oui-2" value="Oui">
+                    <label class="form-check-label" for="formation-obligatoire-Oui-2">Oui</label>
+                </div>
+                <!--Radio oui 2-->
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="formation-obligatoire-3"
+                        id="formation-obligatoire-Oui-3" value="Oui">
+                    <label class="form-check-label" for="formation-obligatoire-Oui-3">Oui</label>
+                </div>
+                <!--Radio oui 3-->
+            </div>
+
+            <div>
+                <div class="form-check form-check-inline">
+
+                    <input class="form-check-input" type="radio" name="formation-obligatoire-Non-1"
+                        id="formation-obligatoire-Non-1" value="Oui">
+                    <label class="form-check-label" for="formation-obligatoire-Non-1">Non</label>
+                </div>
+                <!--RAdio non 1-->
+
+                <div class="form-check form-check-inline">
+
+                    <input class="form-check-input" type="radio" name="formation-obligatoire-Non-2"
+                        id="formation-obligatoire-Non-2" value="Oui">
+                    <label class="form-check-label" for="formation-obligatoire-Non-2">Non</label>
+                </div>
+                <!--Radio non 2-->
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="formation-obligatoire-Non-3"
+                        id="formation-obligatoire-Non-3" value="Oui">
+                    <label class="form-check-label" for="formation-obligatoire-Non-3">Non</label>
+                </div>
+                <!--Radio non 3-->
+            </div>
+
+            <div>
+                <label>Date de début</label>
+                <div>
+                    <input class="form-control" type="date" value="2021-01-01" id="dateDebutFormation1">
+                </div>
+
+                <div>
+                    <input class="form-control" type="date" value="2021-01-01" id="dateDebutFormation2">
+                </div>
+
+                <div>
+                    <input class="form-control" type="date" value="2021-01-01" id="dateDebutFormation3">
+                </div>
+            </div>
+
+            <div>
+                <label>Date de fin</label>
+                <div>
+                    <input class="form-control" type="date" value="2021-01-01" id="dateFinFormation1">
+                </div>
+
+                <div>
+                    <input class="form-control" type="date" value="2021-01-01" id="dateFinFormation2">
+                </div>
+
+                <div>
+                    <input class="form-control" type="date" value="2021-01-01" id="dateFinFormation3">
+                </div>
+            </div>
+
+        </fieldset>
+        <!-- Ici, il faudrais faire un tableau avec ces forms, radios et dates comme dans le formulaire papier, page 6 (les afficher en ligne) -->
+
+
+
+
+        <fieldset>
+            <p>Durant les 6 dernières années, avez vous acquis un des éléments de certification professionnelle
+                (diplôme, titre professionnel...) par la formation ou par une validation des acquis de l'expérience
+                (VAE) ?</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="certificationOui" id="certificationOui" value="Oui">
+                <label class="form-check-label" for="certificationOui">Oui</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="certificationNon" id="certificationNon" value="Oui">
+                <label class="form-check-label" for="certificationNon">Non</label>
+            </div>
+
+            <form>
+                <p>Élément de certification</p>
+                <div>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Élément de certification 1">
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Élément de certification 2">
+                    </div>
+                </div>
+
+                <p>Intitulé</p>
+                <div>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Intitulé 1">
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Intitulé 2">
+                    </div>
+                </div>
+
+                <p>Niveau</p>
+                <div>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Niveau">
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Niveau">
+                    </div>
+                </div>
+
+                <label>Date d'obtention</label>
+                <div>
+                    <input class="form-control" type="date" value="2021-01-01" id="dateObtentionElement1">
+                </div>
+                <div>
+                    <input class="form-control" type="date" value="2021-01-01" id="dateObtentionElement1">
+                </div>
+
+
+                <p>Dispositif mobilisé (formation ou VAE ?)</p>
+                <div>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Dispositif utilisé 1">
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Dispositif utilisé 2">
+                    </div>
+                </div>
+                <!-- Demander à Ronan si Formation et VAE sont les seuls dispositifs possibles, nous pourrons alors changer ces forms par des radios, et raccourcir le titre de la partie  -->
+                <!-- Ici, il faudrais aussi faire un tableau avec ces forms, radios et dates comme dans le formulaire papier, page 6 (les afficher en ligne) -->
+
+
+
+                
+                    <legend>Durant les 6 dernières années, avez vous bénéficié d'une progression salariale ou
+                        professionnelle ?</legend>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="progressionOui" id="progressionOui"
+                            value="Oui">
+                        <label class="form-check-label" for="progressionOui">Oui</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="progressionNon" id="progressionNon"
+                            value="Oui">
+                        <label class="form-check-label" for="progressionNon">Non</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dateAugmentation1">Date de l'augmentation</label>
+                        <div>
+                            <input class="form-control" type="date" value="2021-01-01" id="dateAugmentation1">
+
+                        </div>
+
+                        <div>
+                            <input type="text" class="form-control" placeholder="Pourcentage d'augmentation"
+                                id="pourcentage1">
+                        </div>
+
+                        <label for="dateAugmentation2" class="">Date de l'augmentation</label>
+                        <div>
+                            <input class="form-control" type="date" value="2021-01-01" id="dateAugmentation2">
+                        </div>
+
+                        <div>
+                            <input type="text" class="form-control" placeholder="Pourcentage d'augmentation"
+                                id="pourcentage2">
+                        </div>
+
+
+                        <label for="dateAugmentation3" class="">Date de l'augmentation</label>
+                        <div>
+                            <input class="form-control" type="date" value="2021-01-01" id="dateAugmentation3">
+                        </div>
+
+                        <div>
+                            <input type="text" class="form-control" placeholder="Pourcentage d'augmentation"
+                                id="pourcentage3">
+                        </div>
+
+
+                        <label for="dateAugmentation4" class="">Date de l'augmentation</label>
+                        <div>
+                            <input class="form-control" type="date" value="2021-01-01" id="dateAugmentation4">
+                        </div>
+
+                        <div>
+                            <input type="text" class="form-control" placeholder="Pourcentage d'augmentation"
+                                id="pourcentage4">
+                        </div>
+
+                    </div>
+
+                </fieldset>
+
+
+<!-- Ici, la signature était demandée -->
+
+
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer>
+
+    </footer>
+
+
+</body>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+</script>
+
+<script src="js/main.js"></script>
+<!-- Je ne pense pas que ces script servent encore, mais je les ai laissé pour l'instant, à voir plus tard si on les retire -->
+
+</html>
