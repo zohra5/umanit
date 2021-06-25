@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="icon" type="image/png" href="img/FAVICONE_UMANIT.png">
+    
+        <!-- Feuilles de style -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    
+        <title>UmanIT | Accueil</title>
+    </head>
+    
+    <body>
+        
+        <header>
+            <!-- Navigation -->
+                <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                    <div class="container-fluid">
+                    <!-- Logo + Lien page d'accueil -->
+                      <a class="navbar-brand" href="index.html"><img src="img/LOGO_UmanIT_Nav.png"></a>
+    
+                    <!-- Bouton Déconnexion -->
+                        <div class="navbar-nav">
+                          <a class="nav-link active" aria-current="page" href="login.html">Déconnexion</a>
+                        </div>
+                    </div>
+                </nav>
+        </header>
+
+    <main>
+        <section>
+            <h1>Ajout d'un utilisateur</h1>
+
+            <form action="#">
+                <h2>Informations personnelles :</h2>
+                <hr>
+                <table>
+                    <tr>
+                        <td>
+                            <div>
+                                <label for="name">Nom :</label>
+                                <input type="text" id="name" name="user_name">
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label for="firstname">Prénom :</label>
+                                <input type="text" id="firstname" name="user_firstname">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <label for="birthday">Date de naissance :</label>
+                                <input type="date" id="birthday" name="user_birthday">
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label for="mail">Email :</label>
+                                <input type="mail" id="mail" name="user_mail">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <label for="password">Mot de passe :</label>
+                                <input type="password" id="password" name="user_password">
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label for="verif_password">Vérification du mot de passe :</label>
+                                <input type="password" id="verif_password" name="user_verif_password">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <h2>Informations relatives au poste :</h2>
+                <hr>
+                <table>
+                    <tr>
+                        <td>
+                            <div>
+                                <label for="service">Service :</label>
+                                <input type="text" id="service" name="user_service">
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label for="hiring_date">Date d'embauche :</label>
+                                <input type="date" id="hiring_date" name="user_hiring_date">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <label for="job_title">Intitulé de poste : </label>
+                                <input type="text" id="job_title" name="user_job_title">
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label for="accession_date">Date d'accession à ce poste :</label>
+                                <input type="date" id="accession_date" name="user_accession_date">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <button type="submit">Valider</button>
+                <button type="submit">Annuler</button>
+            </form>
+        </section>
+    </main>
+
+</body>
+
+</html>
