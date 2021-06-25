@@ -8,28 +8,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UmanIT | Login</title>
 
-
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <main>
-        <img src="img/LOGO_UmanIT.png">
+    <main class="container d-flex vh-100">
+        <div class="row align-self-center mx-auto">
+            <!-- Logo -->
+            <div class="text-center mb-5">
+                <img class="img-fluid" src="img/LOGO_UmanIT.png">
+            </div>
+            <!-- Formulaire de connexion -->
+            <form class="mt-5 col-6 mx-auto">
+                <div class="mb-3">
+                    <label for="email" class="form-label">email :</label>
+                    <input type="email" placeholder="entrer votre email" class="form-control" id="email">
+                </div>
 
-        <form action="verification.php" method="POST">
-            <h1>Connexion</h1>
-            
-            <label><b>Nom d'utilisateur :</b></label>
-            <input type="text" placeholder="Entrer votre email" name="username" required>
+                <div class="mb-3">
+                    <label for="password" class="form-label">mot de passe :</label>
+                    <input type="password" placeholder="entrer votre mot de passe" class="form-control" id="password">
+                </div>
 
-            <label><b>Mot de passe :</b></label>
-            <input type="password" placeholder="Entrer votre mot de passe" name="password" required>
+                <div class="mb-5 text-center">
+                    <a href="#">mot de passe oublié ?</a>
+                </div>
 
-            <a href="#">Mot de passe oublié ?</a>
-
-            <input type="submit" id="submit" value="Connexion" >
-        </form>
+                <!-- Bouton de connexion -->
+                <div class="text-center mt-5">
+                    <button type="submit" id="submit" value="Connexion" class="btn btn-primary">Se connecter</button>
+                </div>
+            </form>
+        </div>
     </main>
 
 </body>
