@@ -6,7 +6,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UmanIT | Login</title>
+    <title>UmanIT | Connexion</title>
+
+    <!-- Icone onglet -->
+    <link rel="icon" type="image/png" href="img/FAVICONE_UMANIT.png">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -16,17 +19,22 @@
 
     <main class="container d-flex vh-100">
         <div class="row align-self-center mx-auto">
+
             <!-- Logo -->
             <div class="text-center mb-5">
                 <img class="img-fluid" src="img/LOGO_UmanIT.png">
             </div>
+
             <!-- Formulaire de connexion -->
-            <form class="mt-5 col-6 mx-auto">
+            <form class="col-4 mx-auto">
+
+                <!-- Email -->
                 <div class="mb-3">
                     <label for="email" class="form-label">email :</label>
                     <input type="email" placeholder="entrer votre email" class="form-control" id="email">
                 </div>
 
+                <!-- Password -->
                 <div class="mb-3">
                     <label for="password" class="form-label">mot de passe :</label>
                     <input type="password" placeholder="entrer votre mot de passe" class="form-control" id="password">
@@ -40,6 +48,7 @@
                 <div class="text-center mt-5">
                     <button type="submit" id="submit" value="Connexion" class="btn btn-primary">Se connecter</button>
                 </div>
+
             </form>
         </div>
     </main>
