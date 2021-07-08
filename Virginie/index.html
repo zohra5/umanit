@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <title>UmanIT | Accueil</title>
+    <title>UmanIT - Accueil</title>
 </head>
 
 <body>
@@ -22,9 +22,9 @@
     <header>
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-            <div class="container-fluid px-3">
+            <div class="container-fluid">
                 <!-- Logo + Lien page d'accueil -->
-                <a class="navbar-brand" href="index.html"><img src="img/LOGO_UmanIT_Nav.png"></a>
+                <a class="navbar-brand" href="index.html"><img src="img/LOGO_UmanIT_Nav.png" class="align-middle"></a>
 
                 <!-- Boutons nav à droite -->
                 <div class="d-flex justify-content-end">
@@ -32,13 +32,13 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
                             <div class="navbar-nav">
-                                <a class="nav-link active" aria-current="page" href="index.html">accueil</a>
+                                <a class="first nav-link px-3 py-3" aria-current="page" href="index.html">accueil</a>
                             </div>
                         </li>
                         <!-- Bouton Formulaires -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">formulaires</a>
+                            <a class="second nav-link dropdown-toggle px-3 py-3" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">formulaires</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li>
                                     <a class="dropdown-item" href="#">professionnel</a>
@@ -51,26 +51,29 @@
                         <!-- Bouton Historique -->
                         <li class="nav-item dropdown">
                             <div class="navbar-nav">
-                                <a class="nav-link" aria-current="page" href="historique.html">historique</a>
+                                <a class="first nav-link px-3 py-3" aria-current="page"
+                                    href="historique.html">historique</a>
                             </div>
                         </li>
                         <!-- Bouton Gestion des utilisateurs -->
                         <li class="nav-item dropdown">
                             <div class="navbar-nav">
-                                <a class="nav-link" aria-current="page" href="user_index.html">gestion des
+                                <a class="gestion nav-link px-3 py-3" aria-current="page" href="user_index.html">gestion
+                                    des
                                     utilisateurs</a>
                             </div>
                         </li>
                         <!-- Bouton Ouvrir une session -->
                         <li class="nav-item dropdown">
                             <div class="navbar-nav">
-                                <a class="nav-link" aria-current="page" href="session_index.html">ouvrir une session</a>
+                                <a class="session nav-link px-3 py-3" aria-current="page"
+                                    href="session_index.html">ouvrir une session</a>
                             </div>
                         </li>
                         <!-- Bouton Déconnexion -->
                         <li class="nav-item dropdown">
                             <div class="navbar-nav">
-                                <a class="nav-link" aria-current="page" href="login.html">déconnexion</a>
+                                <a class="last px-3 py-3" aria-current="page" href="login.html">déconnexion</a>
                             </div>
                         </li>
                     </ul>
@@ -79,20 +82,42 @@
         </nav>
     </header>
 
-    <main>
-        <section>
-            <!-- Visible par tous -->
-            <a href="#">Formulaire Professionnel | FERMÉ</a>
-            <a href="#">Formulaire de Progression | FERMÉ</a>
-            <a href="historique.html">Historique</a>
+    <main class="container d-flex accueil">
+        <section class="justify-content-center mx-auto">
 
-            <!-- Visible que par les managers et le RH -->
-            <a href="#">Ouvrir une Session</a>
-            <a href="#">Formulaire Équipe</a>
+            <!-- Boutons Formulaires -->
+            <div class="row text-center ">
+                <div class="col">
+                    <div class="row my-4">
+                        <div class="col">
+                            <a class="image" href="#"><img src="/img/FORM.png" alt="Formulaire professionnel" /></a>
+                        </div>
+                        <div class="col">
+                            <a class="image" href="#"><img src="/img/FORM.png" alt="Formulaire progression" /></a>
+                        </div>
+                    </div>
+                    <!-- Bouton Historique -->
+                    <div class="row text-center">
+                            <a href="historique.html">Historique</a>
+                    </div>
 
-            <!-- Visible que par le RH -->
-            <a href="user_interface.html">Gestion des utilisateurs</a>
-            <a href="#">Tous les formulaires</a>
+                    <!-- Bouton Session et Gestion -->
+                    <div class="row text-center my-4">
+                        <div class="col">
+                            <a href="#">Ouvrir une Session</a>
+                        </div>
+                        <div class="col">
+                            <a href="user_interface.html">Gestion des utilisateurs</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 equipe">
+                    <p>Formulaire Équipe</p>
+                </div>
+            </div>
+
+
+
         </section>
     </main>
 
