@@ -99,7 +99,7 @@ nav .last:hover, .dropdown-item:hover {
 }
 
 .dropdown-item {
-    padding: 12px 16px;
+    padding: 12px 25px;
     text-align: center;
     background-color: white;
     color: #052854;
@@ -132,12 +132,12 @@ main section img {
 }
 
 .accueil {
-    margin-top: 140px;
+    margin-top: 150px;
 }
 
 main section .formulaire {
     background-color: #3D98C6;
-    padding: 80px 25px;
+    padding: 80px 0px;
 }
 
 main section .equipe {
