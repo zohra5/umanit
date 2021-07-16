@@ -122,6 +122,7 @@ main h1 {
 }
 
 main h2 {
+    font-size: 1.7em;
     text-transform: lowercase;
     color: #052854;
 }
