@@ -15,6 +15,7 @@ class FormProgress
 
     public function __construct() {
         $this->objectives = new ArrayCollection();
+        $this->competencesResult = new ArrayCollection();
     }
 
     /**
@@ -59,6 +60,22 @@ class FormProgress
     public function setObjectives($objectives): self
     {
         $this->objectives = $objectives;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\OneToMany(targetEntity="CompetenceResult", mappedBy="formProgress")
+     */
+    private $competencesResult;
+
+    public function getCompetencesResult(): Collection
+    {
+        return $this->competencesResult;
+    }
+    public function setCompetencesResult($competencesResult): self
+    {
+        $this->competencesResult = $competencesResult;
 
         return $this;
     }
