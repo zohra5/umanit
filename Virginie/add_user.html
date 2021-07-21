@@ -66,7 +66,7 @@
                             <li class="nav-item dropdown">
                                 <div class="navbar-nav">
                                     <a class="session nav-link px-3 py-3" aria-current="page"
-                                        href="session_index.html">ouvrir une session</a>
+                                        href="session.html">ouvrir une session</a>
                                 </div>
                             </li>
                             <!-- Bouton Déconnexion -->
@@ -86,87 +86,64 @@
             <h1 class="mt-5 mb-3">Ajout d'un utilisateur</h1>
 
             <form action="#">
-                <h2>Informations personnelles :</h2>
+                <h2 class="mt-5">Informations personnelles :</h2>
                 <hr>
-                <table>
-                    <tr>
-                        <td>
+
                             <div>
                                 <label for="name">Nom :</label>
                                 <input  class="form-control" type="text" id="name" name="user_name">
                             </div>
-                        </td>
-                        <td>
+                      
                             <div>
                                 <label for="firstname">Prénom :</label>
                                 <input  class="form-control" type="text" id="firstname" name="user_firstname">
                             </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+                 
                             <div>
                                 <label for="birthday">Date de naissance :</label>
                                 <input  class="form-control" type="date" id="birthday" name="user_birthday">
                             </div>
-                        </td>
-                        <td>
+         
                             <div>
                                 <label for="mail">Email :</label>
                                 <input  class="form-control" type="mail" id="mail" name="user_mail">
                             </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+
                             <div>
                                 <label for="password">Mot de passe :</label>
                                 <input  class="form-control" type="password" id="password" name="user_password">
                             </div>
-                        </td>
-                        <td>
+ 
                             <div>
                                 <label for="verif_password">Vérification du mot de passe :</label>
                                 <input  class="form-control" type="password" id="verif_password" name="user_verif_password">
                             </div>
-                        </td>
-                    </tr>
-                </table>
 
-                <h2>Informations relatives au poste :</h2>
+
+                <h2 class="mt-5">Informations relatives au poste :</h2>
                 <hr>
-                <table>
-                    <tr>
-                        <td>
+
                             <div>
                                 <label for="service">Service :</label>
                                 <input class="form-control"  type="text" id="service" name="user_service">
                             </div>
-                        </td>
-                        <td>
+
                             <div>
                                 <label for="hiring_date">Date d'embauche :</label>
                                 <input  class="form-control" type="date" id="hiring_date" name="user_hiring_date">
                             </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+
                             <div>
                                 <label for="job_title">Intitulé de poste : </label>
                                 <input  class="form-control" type="text" id="job_title" name="user_job_title">
                             </div>
-                        </td>
-                        <td>
+
                             <div>
                                 <label for="accession_date">Date d'accession à ce poste :</label>
                                 <input  class="form-control" type="date" id="accession_date" name="user_accession_date">
                             </div>
-                        </td>
-                    </tr>
-                </table>
 
-                <div class="mt-4">
+                <div class="mt-4 mb-5">
                     <button type="submit">Valider</button>
                     <button type="submit">Annuler</button>
                 </div>

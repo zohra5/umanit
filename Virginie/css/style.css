@@ -64,7 +64,8 @@ header nav .container-fluid {
     width: 180px;
 }
 
-.nav-link:hover, .dropdown-toggle:hover {
+.nav-link:hover, 
+.dropdown-toggle:hover {
     background-color: #3D98C6;
     color: #052854;
     font-weight: 600;
@@ -83,7 +84,8 @@ nav .last {
     width: 135px;
 }
 
-nav .last:hover, .dropdown-item:hover {
+nav .last:hover, 
+.dropdown-item:hover {
     background-color: #3D98C6;
     font-weight: 600;
     color: #052854;
@@ -127,10 +129,13 @@ main h2 {
     color: #052854;
 }
 
-main section a:not(.image), main form .btn, button {
+main section a:not(.image), 
+main form .btn, 
+button {
     background-color: white;
     text-decoration: none;
     text-transform: uppercase;
+    transition: none;
     font-weight: bold;
     color: #3D98C6;
     border: 1px solid #052854;
@@ -139,10 +144,18 @@ main section a:not(.image), main form .btn, button {
     display: inline-block;
 }
 
-main section a:hover:not(.image), main form .btn:hover, button:hover {
+main section a:hover:not(.image), 
+main form .btn:hover, 
+button:hover {
+    transition: none;
     color: #052854;
     background-color: #3D98C6;
     border: 1px solid #3D98C6;
+}
+
+main :active:not(.image), 
+main :visited:not(.image) {
+    box-shadow: none;
 }
 
 main section img {
@@ -154,7 +167,7 @@ main section img {
 }
 
 main section .formulaire {
-    background-color: #3D98C6;
+    background-color: #e2e3f2;
     padding: 80px 0px;
 }
 
@@ -198,7 +211,11 @@ table {
     font-size: 0.9em;
 }
 
-main table thead {
+table tbody tr:nth-child(odd){
+    background-color:#edf2ff;
+}
+
+main table thead, main table tbody {
     color: #052854;
 }
 
