@@ -206,18 +206,37 @@ main .form-control:focus {
 
 /*** TABLEAU ***/
 
-table {
+main section table {
     margin-top: 0px;
     font-size: 0.9em;
 }
 
-table tbody tr:nth-child(odd){
+
+main section .table {
+    border-color: none;
+    border: 1px solid #052854;
+}
+
+main section table tbody tr:nth-child(odd){
     background-color:#edf2ff;
 }
 
 main table thead, main table tbody {
     color: #052854;
 }
+
+main section table tbody tr:hover {
+    background-color: #c6ecff;
+}
+
+main section table tr {
+    vertical-align: middle;
+}
+
+main section table tr td:last-of-type {
+    text-align: right;
+}
+
 
 /******************************************************************
                             FOOTER
