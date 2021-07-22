@@ -1,0 +1,206 @@
+/******************************************************************
+                            FONTS
+******************************************************************/
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+/******************************************************************
+                            GLOBAL
+******************************************************************/
+
+* {
+    font-family: 'Open Sans', Verdana, sans-serif;
+}
+
+.row > * {
+    padding: 0;
+}
+
+/******************************************************************
+                            HEADER
+******************************************************************/
+
+header {
+    box-shadow: 0px 2px 5px -5px #052854;
+}
+
+header nav .container-fluid {
+    padding: 0;
+}
+
+.navbar {
+    padding: 0;
+    font-size: 1em;
+}
+
+.navbar-light .navbar-nav .nav-link, 
+.dropdown, 
+.navbar-light .navbar-nav .navlink:active,
+.navbar-light .navbar-nav .nav-link:focus, 
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #052854;
+}
+
+.nav-link, .last {
+    text-align: center;
+    transition: none;
+}
+
+/** Class box size **/
+
+.first {
+    width: 110px;
+}
+
+.second {
+    width: 160px;
+}
+
+.gestion {
+    width: 230px;
+}
+
+.session {
+    width: 180px;
+}
+
+.nav-link:hover, 
+.dropdown-toggle:hover {
+    background-color: #3D98C6;
+    color: #052854;
+    font-weight: 600;
+    transition: none;
+}
+
+nav img {
+    vertical-align: middle;
+    margin-left: 1em;
+}
+
+nav .last {
+    text-decoration: none;
+    background-color: #052854;
+    color: white;
+    width: 135px;
+}
+
+nav .last:hover, 
+.dropdown-item:hover {
+    background-color: #3D98C6;
+    font-weight: 600;
+    color: #052854;
+}
+
+/** Dropdown Formulaire **/
+
+.dropdown-menu {
+    border-radius: 0;
+    border: none;
+    padding: 0;
+    margin-top: -5px;
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-item {
+    padding: 12px 25px;
+    text-align: center;
+    background-color: white;
+    color: #052854;
+}
+
+
+/******************************************************************
+                            MAIN
+******************************************************************/
+
+main h1 {
+    font-size: 2.2em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #3D98C6;
+}
+
+main h2 {
+    font-size: 1.7em;
+    text-transform: lowercase;
+    color: #052854;
+}
+
+main section a:not(.image), 
+main form .btn, 
+button {
+    background-color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: none;
+    font-weight: bold;
+    color: #3D98C6;
+    border: 1px solid #052854;
+    border-radius: 0;
+    padding: 15px;
+    display: inline-block;
+}
+
+main section a:hover:not(.image), 
+main form .btn:hover, 
+button:hover {
+    transition: none;
+    color: #052854;
+    background-color: #3D98C6;
+    border: 1px solid #3D98C6;
+}
+
+main :active:not(.image), 
+main :visited:not(.image) {
+    box-shadow: none;
+}
+
+/*** TABLEAU ***/
+
+main section table {
+    margin-top: 0px;
+    font-size: 0.9em;
+}
+
+main section table input {
+    border: 1px lightgray;
+    width: 100%;
+    padding: 5px;
+    border-radius: none;
+}
+
+main section table input :focus :active {
+    outline: none;
+    background-color: none;
+}
+
+main section .table {
+    border-color: none;
+    border: 1px solid #052854;
+}
+
+main section table tbody td:nth-child(odd){
+    background-color:#edf2ff;
+}
+
+main table thead {
+    font-size: 1.2em;
+    color: white;
+    background-color: #052854;
+    border: #052854;
+}
+
+main section table tr {
+    vertical-align: middle;
+}
+
+main section table tr td:last-of-type {
+    text-align: right;
+}
+
+/******************************************************************
+                            FOOTER
+******************************************************************/

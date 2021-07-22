@@ -12,7 +12,7 @@
 
     <!-- Feuilles de style -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-form.css">
 
     <title>UmanIT - Formulaire Professionnel</title>
 </head>
@@ -86,12 +86,13 @@
     <main class="container w-50">
         <section>
             <h1 class="mt-5 mb-5">Formulaire Professionnel</h1>
-            
-            <p>Date de l'entretien : JJ/MM/AAAA</p>
-            <p>
-                Motif :
-                    <input type="radio" id="professionnel" name="drone" value="professionnel"
-                           checked>
+
+            <form action="">
+                <p>Date de l'entretien : JJ/MM/AAAA</p>
+                <p>
+                    Motif :
+                    <input type="radio" id="professionnel" name="drone" value="professionnel" checked>
+
                     <label for="professionnel">Entretien professionnel</label>
 
                     <input type="radio" id="conge" name="drone" value="conge">
@@ -99,66 +100,67 @@
 
                     <input type="radio" id="autre" name="drone" value="autre">
                     <label for="autre">Autre :</label>
-                    <input type="text">           
-            </p>
-            <p>Date du précédent entretien professionnel : JJ/MM/AAAA</p>
+                    <input type="text">
+                </p>
+                <p>Date du précédent entretien professionnel : JJ/MM/AAAA</p>
 
-            <!-- Tableau formulaire-->
-            <table class="table" style="table-layout : fixed;">
+                <!-- Tableau formulaire-->
+                <table class="table mt-4" style="table-layout : fixed;">
 
-                <thead class="text-center">
-                    <th colspan="2">Collaborateur</th>
-                    <th colspan="2">Responsable de l'entretien</th>
-                </thead>
+                    <thead class="text-center">
+                        <th colspan="2">Collaborateur</th>
+                        <th colspan="2">Responsable de l'entretien</th>
+                    </thead>
 
-                <tbody>
-                   <tr>
-                       <td>Nom :</td>
-                       <td><input  class="form-control" type="text" id="name" name="user_name"></td>
-                       <td>Nom :</td>
-                       <td><input  class="form-control" type="text" id="name" name="user_name"></td>
-                   </tr>
-                   <tr>
-                       <td>Prénom :</td>
-                       <td><input  class="form-control" type="text" id="name" name="user_name"></td>
-                       <td>Prénom :</td>
-                       <td><input  class="form-control" type="text" id="name" name="user_name"></td>
-                   </tr>
-                   <tr>
-                       <td>Date de naissance :</td>
-                       <td><input  class="form-control" type="text" id="name" name="user_name"></td>
-                       <td>Fonction :</td>
-                       <td><input  class="form-control" type="text" id="name" name="user_name"></td>
-                   </tr>
-                   <tr>
-                       <td>Service :</td>
-                       <td><input  class="form-control" type="text" id="name" name="user_name"></td>
-                       <td class="text-left" colspan="2">En présence de :</td>
-                   </tr>
-                   <tr>
-                       <td>Intitulé du poste :</td>
-                       <td><input  class="form-control" type="text" id="name" name="user_name"></td>
-                       <td>Nom :</td>
-                       <td><input  class="form-control" type="text" id="name" name="user_name"></td>
-                   </tr>
-                   <tr>
-                       <td>Date d'embauche :</td>
-                       <td><input  class="form-control" type="text" id="name" name="user_name"></td>
-                       <td>Prénom :</td>
-                       <td><input  class="form-control" type="text" id="name" name="user_name"></td>
-                   </tr>
-                   <tr>
-                       <td>Date d'accession à ce poste :</td>
-                       <td><input  class="form-control" type="text" id="name" name="user_name"></td>
-                       <td>Fonction :</td>
-                       <td><input  class="form-control" type="text" id="name" name="user_name"></td>
-                   </tr>
-                </tbody>
+                    <tbody>
+                        <tr>
+                            <td>Nom :</td>
+                            <td><input type="text" id="name" name="user_name"></td>
+                            <td>Nom :</td>
+                            <td><input type="text" id="name" name="user_name"></td>
+                        </tr>
+                        <tr>
+                            <td>Prénom :</td>
+                            <td><input type="text" id="name" name="user_name"></td>
+                            <td>Prénom :</td>
+                            <td><input type="text" id="name" name="user_name"></td>
+                        </tr>
+                        <tr>
+                            <td>Date de naissance :</td>
+                            <td><input type="text" id="name" name="user_name"></td>
+                            <td>Fonction :</td>
+                            <td><input type="text" id="name" name="user_name"></td>
+                        </tr>
+                        <tr>
+                            <td>Service :</td>
+                            <td><input type="text" id="name" name="user_name"></td>
+                            <td colspan="2">En présence de :</td>
+                        </tr>
+                        <tr>
+                            <td>Intitulé du poste :</td>
+                            <td><input type="text" id="name" name="user_name"></td>
+                            <td>Nom :</td>
+                            <td><input type="text" id="name" name="user_name"></td>
+                        </tr>
+                        <tr>
+                            <td>Date d'embauche :</td>
+                            <td><input type="text" id="name" name="user_name"></td>
+                            <td>Prénom :</td>
+                            <td><input type="text" id="name" name="user_name"></td>
+                        </tr>
+                        <tr>
+                            <td>Date d'accession à ce poste :</td>
+                            <td><input type="text" id="name" name="user_name"></td>
+                            <td>Fonction :</td>
+                            <td><input type="text" id="name" name="user_name"></td>
+                        </tr>
+                    </tbody>
 
-            </table>
-            <div class="text-center mt-5">
-                <button type="submit">Remplir le formulaire</button>
-            </div>
+                </table>
+                <div class="text-center mt-5">
+                    <button type="submit">Remplir le formulaire</button>
+                </div>
+            </form>
         </section>
     </main>
 
