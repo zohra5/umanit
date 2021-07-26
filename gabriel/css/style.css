@@ -1,0 +1,121 @@
+/******************************************************************
+                            FONTS
+******************************************************************/
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+/******************************************************************
+                            GLOBAL
+******************************************************************/
+
+* {
+    font-family: 'Open Sans', Verdana, sans-serif;
+}
+
+.row > * {
+    padding: 0;
+}
+
+/******************************************************************
+                            HEADER
+******************************************************************/
+
+header {
+    box-shadow: 0px 2px 5px -5px #052854;
+}
+
+header nav .container-fluid {
+    padding: 0;
+}
+
+.navbar {
+    padding: 0;
+    font-size: 1em;
+}
+
+.navbar-light .navbar-nav .nav-link, 
+.dropdown, 
+.navbar-light .navbar-nav .navlink:active,
+.navbar-light .navbar-nav .nav-link:focus, 
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #052854;
+}
+
+.nav-link, .last {
+    text-align: center;
+    transition: none;
+}
+
+/** Class box size **/
+
+.first {
+    width: 110px;
+}
+
+.second {
+    width: 160px;
+}
+
+.gestion {
+    width: 230px;
+}
+
+.session {
+    width: 180px;
+}
+
+.nav-link:hover, 
+.dropdown-toggle:hover {
+    background-color: #3D98C6;
+    color: #052854;
+    font-weight: 600;
+    transition: none;
+}
+
+nav img {
+    vertical-align: middle;
+    margin-left: 1em;
+}
+
+nav .last {
+    text-decoration: none;
+    background-color: #052854;
+    color: white;
+    width: 135px;
+}
+
+nav .last:hover, 
+.dropdown-item:hover {
+    background-color: #3D98C6;
+    font-weight: 600;
+    color: #052854;
+}
+
+/** Dropdown Formulaire **/
+
+.dropdown-menu {
+    border-radius: 0;
+    border: none;
+    padding: 0;
+    margin-top: -5px;
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-item {
+    padding: 12px 25px;
+    text-align: center;
+    background-color: white;
+    color: #052854;
+}
+
+
+/******************************************************************
+                            MAIN
+******************************************************************/
+thead{
+    background-color: #052854;
+    color: white;
+}
