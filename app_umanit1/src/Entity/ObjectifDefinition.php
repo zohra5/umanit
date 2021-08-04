@@ -37,12 +37,6 @@ class ObjectifDefinition
      */
     private $delaisDeRealisation;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=FormulaireProgression::class, inversedBy="objectifDefinitions")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $formulaireProgression;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -107,4 +101,10 @@ class ObjectifDefinition
 
         return $this;
     }
+
+    /**
+     * @ORM\ManyToOne(targetEntity="FormulaireProgression", inversedBy="objectifDefinition")
+     */
+    private $formulaireProgression;
 }
+
