@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <title>Formulaire de progression</title>
+</head>
+
+<body>
+    <header>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+            <div class="container-fluid">
+                <!-- Logo + Lien page d'accueil -->
+                <a class="navbar-brand" href="index.html"><img src="img/LOGO_UmanIT_Nav.png" class="align-middle"></a>
+
+                <!-- Boutons nav à droite -->
+                <div class="d-flex justify-content-end">
+                    <!-- Bouton Accueil -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <div class="navbar-nav">
+                                <a class="first nav-link px-3 py-3" aria-current="page" href="index.html">accueil</a>
+                            </div>
+                        </li>
+                        <!-- Bouton Formulaires -->
+                        <li class="nav-item dropdown">
+                            <a class="second nav-link dropdown-toggle px-3 py-3" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">formulaires</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="form_professionnel.html">professionnel</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="form_progression.html">progression</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Bouton Historique -->
+                        <li class="nav-item dropdown">
+                            <div class="navbar-nav">
+                                <a class="first nav-link px-3 py-3" aria-current="page"
+                                    href="historique.html">historique</a>
+                            </div>
+                        </li>
+                        <!-- Bouton Gestion des utilisateurs -->
+                        <li class="nav-item dropdown">
+                            <div class="navbar-nav">
+                                <a class="gestion nav-link px-3 py-3" aria-current="page"
+                                    href="user_interface.html">gestion
+                                    des
+                                    utilisateurs</a>
+                            </div>
+                        </li>
+                        <!-- Bouton Ouvrir une session -->
+                        <li class="nav-item dropdown">
+                            <div class="navbar-nav">
+                                <a class="session nav-link px-3 py-3" aria-current="page" href="session.html">ouvrir une
+                                    session</a>
+                            </div>
+                        </li>
+                        <!-- Bouton Déconnexion -->
+                        <li class="nav-item dropdown">
+                            <div class="navbar-nav">
+                                <a class="last px-3 py-3" aria-current="page" href="login.html">déconnexion</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="container">
+        <section>
+            <h1 class="mt-5 mb-5">Entretien de progression</h1>
+
+            <form action="">
+                <div>
+                    <label for="dateToday">Date de l'entretien :</label>
+                    <input type="date" id="dateToday" name="dateToday">
+                </div>
+                <div>
+                    <label for="datePrecedent">Date du précédent entretien :</label>
+                    <input type="date" id="datePrecedent" name="datePrecedent">
+                </div>
+
+
+                <!-- Tableau formulaire-->
+                <table class="table mt-4" style="table-layout : fixed;">
+
+                    <thead class="text-center">
+                        <th colspan="2" class="bg-info">Collaborateur</th>
+                        <th colspan="2" class="bg-secondary">Responsable de l'entretien</th>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Nom :</td>
+                            <td><input type="text" id="name" name="collab_name"></td>
+                            <td>Nom :</td>
+                            <td><input type="text" id="name" name="manager_name"></td>
+                        </tr>
+                        <tr>
+                            <td>Prénom :</td>
+                            <td><input type="text" id="surname" name="collab_surname"></td>
+                            <td>Prénom :</td>
+                            <td><input type="text" id="surname" name="manager_surname"></td>
+                        </tr>
+                        <tr>
+                            <td>Date de naissance :</td>
+                            <td><input type="date" id="birthdate" name="birthdate"></td>
+                            <td>Fonction :</td>
+                            <td><input type="text" id="fonction" name="fonction_manager"></td>
+                        </tr>
+                        <tr>
+                            <td>Service :</td>
+                            <td><input type="text" id="service" name="service"></td>
+                            <td>En présence de :</td>
+                        </tr>
+                        <tr>
+                            <td>Intitulé du poste :</td>
+                            <td><input type="text" id="post" name="post_name"></td>
+                            <td>Nom :</td>
+                            <td><input type="text" id="name" name="collab_name"></td>
+                        </tr>
+                        <tr>
+                            <td>Date d'embauche :</td>
+                            <td><input type="date" id="date_hire" name="date_hire"></td>
+                            <td>Prénom :</td>
+                            <td><input type="text" id="surname" name="collab_surname"></td>
+                        </tr>
+                        <tr>
+                            <td>Date d'accession à ce poste :</td>
+                            <td><input type="date" id="date_access_post" name="date_access_post"></td>
+                            <td>Fonction :</td>
+                            <td><input type="text" id="fonction" name="fonction_collab"></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+
+                <h2 class="bg-info text-white p-1">Bien-être et QVT (Qualité de Vie au Travail)</h2>
+                <p>Sur une échelle de 1 à 10 (10 étant la note la plus positive)</p>
+                <h3>Comment te sens-tu dans ton travail ?</h3>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1_1"
+                        value="option1">
+                    <label class="form-check-label" for="inlineRadio1_1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1_2"
+                        value="option2">
+                    <label class="form-check-label" for="inlineRadio1_2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1_3"
+                        value="option3">
+                    <label class="form-check-label" for="inlineRadio1_3">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1_4"
+                        value="option4">
+                    <label class="form-check-label" for="inlineRadio1_4">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1_5"
+                        value="option5">
+                    <label class="form-check-label" for="inlineRadio1_5">5</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1_6"
+                        value="option6">
+                    <label class="form-check-label" for="inlineRadio1_6">6</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1_7"
+                        value="option7">
+                    <label class="form-check-label" for="inlineRadio1_7">7</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1_8"
+                        value="option8">
+                    <label class="form-check-label" for="inlineRadio1_8">8</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1_9"
+                        value="option9">
+                    <label class="form-check-label" for="inlineRadio1_9">9</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1_10"
+                        value="option10">
+                    <label class="form-check-label" for="inlineRadio1_10">10</label>
+                </div>
+
+                <h3>Le poste que tu occupes te plaît-il ?</h3>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2_1"
+                        value="option1">
+                    <label class="form-check-label" for="inlineRadio2_1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2_2"
+                        value="option2">
+                    <label class="form-check-label" for="inlineRadio2_2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2_3"
+                        value="option3">
+                    <label class="form-check-label" for="inlineRadio2_3">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2_4"
+                        value="option4">
+                    <label class="form-check-label" for="inlineRadio2_4">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2_5"
+                        value="option5">
+                    <label class="form-check-label" for="inlineRadio2_5">5</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2_6"
+                        value="option6">
+                    <label class="form-check-label" for="inlineRadio2_6">6</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2_7"
+                        value="option7">
+                    <label class="form-check-label" for="inlineRadio2_7">7</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2_8"
+                        value="option8">
+                    <label class="form-check-label" for="inlineRadio2_8">8</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2_9"
+                        value="option9">
+                    <label class="form-check-label" for="inlineRadio2_9">9</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2_10"
+                        value="option10">
+                    <label class="form-check-label" for="inlineRadio2_10">10</label>
+                </div>
+
+                <h3>Les relations avec les autres membres de ton équipe sont-elles bonnes ?</h3>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadio3_1"
+                        value="option1">
+                    <label class="form-check-label" for="inlineRadio3_1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadio3_2"
+                        value="option2">
+                    <label class="form-check-label" for="inlineRadio3_2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadio3_3"
+                        value="option3">
+                    <label class="form-check-label" for="inlineRadio3_3">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadio3_4"
+                        value="option4">
+                    <label class="form-check-label" for="inlineRadio3_4">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadio3_5"
+                        value="option5">
+                    <label class="form-check-label" for="inlineRadio3_5">5</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadio3_6"
+                        value="option6">
+                    <label class="form-check-label" for="inlineRadio3_6">6</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadio3_7"
+                        value="option7">
+                    <label class="form-check-label" for="inlineRadio3_7">7</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadio3_8"
+                        value="option8">
+                    <label class="form-check-label" for="inlineRadio3_8">8</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadio3_9"
+                        value="option9">
+                    <label class="form-check-la3bel" for="inlineRadio_9">9</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadio3_10"
+                        value="option10">
+                    <label class="form-check-la3el" for="inlineRadio1_10">10</label>
+                </div>
+
+                <h3>Les relations avec les autres membres de l'entreprise sont-elles bonnes ?</h3>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineRadio4_1"
+                        value="option1">
+                    <label class="form-check-label" for="inlineRadio4_1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineRadio4_2"
+                        value="option2">
+                    <label class="form-check-label" for="inlineRadio4_2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineRadio4_3"
+                        value="option3">
+                    <label class="form-check-label" for="inlineRadio4_3">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineRadio4_4"
+                        value="option4">
+                    <label class="form-check-label" for="inlineRadio4_4">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineRadio4_5"
+                        value="option5">
+                    <label class="form-check-label" for="inlineRadio4_5">5</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineRadio4_6"
+                        value="option6">
+                    <label class="form-check-label" for="inlineRadio4_6">6</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineRadio4_7"
+                        value="option7">
+                    <label class="form-check-label" for="inlineRadio4_7">7</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineRadio4_8"
+                        value="option8">
+                    <label class="form-check-label" for="inlineRadio4_8">8</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineRadio4_9"
+                        value="option9">
+                    <label class="form-check-label" for="inlineRadio4_9">9</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineRadio4_10"
+                        value="option10">
+                    <label class="form-check-label" for="inlineRadio4_10">10</label>
+                </div>
+
+                <div class="mb-3 col-6">
+                    <label for="comments" class="form-label">Commentaires</label>
+                    <textarea class="form-control" id="comments" rows="3"></textarea>
+                </div>
+
+                <h2 class="bg-info text-white p-1">Bilan de l'année écoulée</h2>
+                <h3>Mission principales du poste :</h3>
+                <div class="mb-3 col-6">
+                    <label for="missions" class="form-label"></label>
+                    <textarea class="form-control" id="missions" rows="3"></textarea>
+                </div>
+
+                <h3 class="mb-3 mt-3">Quels sont les activités réalisées et faits marquants ?</h3>
+
+                <table class="table table-striped">
+
+                    <thead>
+                        <th>Réalisations (parmi les plus représentatives)</th>
+                        <th>Réussites / Satisfactions rencontrées</th>
+                        <th>Difficultés rencontrées</th>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><input type="textarea" class="form-control" id="real"></td>
+                            <td><input type="textarea" class="form-control" id="success"></td>
+                            <td><input type="textarea" class="form-control" id="difficulty"></td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="textarea" class="form-control" id="real"></td>
+                            <td><input type="textarea" class="form-control" id="success"></td>
+                            <td><input type="textarea" class="form-control" id="difficulty"></td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="textarea" class="form-control" id="real"></td>
+                            <td><input type="textarea" class="form-control" id="success"></td>
+                            <td><input type="textarea" class="form-control" id="difficulty"></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+                <h3 class="mb-3 mt-3">Évaluation des objectifs de l'année écoulée :</h3>
+
+                <table class="table table-striped">
+
+                    <thead>
+                        <th>Objectifs</th>
+                        <th>Niveau de réalisation</th>
+                        <th>Moyens (prévus et attribués)</th>
+                        <th>Commentaires (collaborateur)</th>
+                        <th>Commentaires (manager)</th>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><input type="textarea" class="form-control" id="objectif"></td>
+                            <td><input type="textarea" class="form-control" id="lvlReal"></td>
+                            <td><input type="textarea" class="form-control" id="means"></td>
+                            <td><input type="textarea" class="form-control" id="comCollab"></td>
+                            <td><input type="textarea" class="form-control" id="comManager"></td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="textarea" class="form-control" id="objectif"></td>
+                            <td><input type="textarea" class="form-control" id="lvlReal"></td>
+                            <td><input type="textarea" class="form-control" id="means"></td>
+                            <td><input type="textarea" class="form-control" id="comCollab"></td>
+                            <td><input type="textarea" class="form-control" id="comManager"></td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="textarea" class="form-control" id="objectif"></td>
+                            <td><input type="textarea" class="form-control" id="lvlReal"></td>
+                            <td><input type="textarea" class="form-control" id="means"></td>
+                            <td><input type="textarea" class="form-control" id="comCollab"></td>
+                            <td><input type="textarea" class="form-control" id="comManager"></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <p>Évaluation: dépassé / atteint / partiellement atteint / non réalisé</p>
+
+                <h2 class="bg-info text-white p-1">Bilan des compétences attendues pour le poste occupé</h2>
+                <h3>Que réussis-tu le mieux dans ton poste actuel ?</h3>
+                <div class="mb-3 col-6">
+                    <label for="postSuccess" class="form-label"></label>
+                    <textarea class="form-control" id="postSuccess" rows="3"></textarea>
+                </div>
+
+                <h3>Qu'aimes-tu le plus dans tes fonctions actuelles ?</h3>
+                <div class="mb-3 col-6">
+                    <label for="fonctionsLike" class="form-label"></label>
+                    <textarea class="form-control" id="fonctionsLike" rows="3"></textarea>
+                </div>
+
+                <h3>Quels sont tes points d'améliorations ou compétences à acquérir ?</h3>
+                <div class="mb-3 col-6">
+                    <label for="improvement" class="form-label"></label>
+                    <textarea class="form-control" id="improvement" rows="3"></textarea>
+                </div>
+
+                <h3>Bilan des compétences attendues</h3>
+                <p>Se référer à la fiche de poste</p>
+
+                <table class="table table-striped">
+
+                    <thead>
+                        <th>Compétences</th>
+                        <th>Evaluation</th>
+                        <th>Commentaire</th>
+                        <th>Action à mener</th>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><input type="textarea" class="form-control" id="competences"></td>
+                            <td><select name="eval" id="eval-select">
+                                <option value="">Choisir une note</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                </select>
+                            </td>
+                            <td><input type="textarea" class="form-control" id="com"></td>
+                            <td><input type="textarea" class="form-control" id="action"></td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="textarea" class="form-control" id="competences"></td>
+                            <td><select name="eval" id="eval-select">
+                                <option value="">Choisir une note</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                </select>
+                            </td>
+                            <td><input type="textarea" class="form-control" id="com"></td>
+                            <td><input type="textarea" class="form-control" id="action"></td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="textarea" class="form-control" id="competences"></td>
+                            <td><select name="eval" id="eval-select">
+                                <option value="">Choisir une note</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                </select>
+                            </td>
+                            <td><input type="textarea" class="form-control" id="com"></td>
+                            <td><input type="textarea" class="form-control" id="action"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                    <p>Echelle d'évaluation : 0 à 4 (où 4 est la note la plus positive)</p>
+                    <p>As-tu des compétences non utilisées susceptibles d'être mises à profit dans ta vie
+                        progessionnelle ?</p>
+                    <div class="mb-3 col-6">
+                        <label for="profitCompetence" class="form-label"></label>
+                        <textarea class="form-control" id="profitCompetence" rows="3"></textarea>
+                    </div>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+
+    </footer>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
