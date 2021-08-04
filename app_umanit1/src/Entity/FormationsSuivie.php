@@ -42,11 +42,6 @@ class FormationsSuivie
      */
     private $misEnPratique;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=FormulaireProgression::class, inversedBy="formationsSuivies")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $formulaireProgression;
 
     public function getId(): ?int
     {
@@ -124,4 +119,9 @@ class FormationsSuivie
 
         return $this;
     }
+
+    /**
+     * @ORM\ManyToOne(targetEntity="FormulaireProgression", inversedBy="formationsSuivie")
+     */
+    private $formulaireProgression;
 }

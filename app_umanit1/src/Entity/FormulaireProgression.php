@@ -386,6 +386,53 @@ class FormulaireProgression
     }
 
     /**
+     * @ORM\OneToMany(targetEntity="FormationsSuivie", mappedBy="formulaireProgression")
+     */
+    private $formationsSuivie;
+
+    public function getFormationsSuivie(): Collection
+    {
+        return $this->formationsSuivie;
+    }
+    public function setFormationsSuivie($formationsSuivie): self
+    {
+        $this->formationsSuivie = $formationsSuivie;
+
+        return $this;
+    }
+    /**
+     * @ORM\OneToMany(targetEntity="FormationsSouhaitees", mappedBy="formulaireProgression")
+     */
+
+    private $formationsSouhaitees;
+
+    public function getFormationsSouhaitees(): Collection
+    {
+        return $this->formationsSouhaitees;
+    }
+    public function setFormationsSouhaitees($formationsSouhaitees): self
+    {
+        $this->formationsSouhaitees = $formationsSouhaitees;
+
+        return $this;
+    }
+       /**
+     * @ORM\OneToMany(targetEntity="ObjectifDefinition", mappedBy="formulaireProgression")
+     */
+
+    private $objectifDefinition;
+
+    public function getObjectifDefinition(): Collection
+    {
+        return $this->objectifDefinition;
+    }
+    public function setObjectifDefinition($objectifDefinition): self
+    {
+        $this->objectifDefinition = $objectifDefinition;
+
+        return $this;
+    }
+        /**
      * @ORM\OneToMany(targetEntity="BilanCompetences", mappedBy="formulaireProgression")
      */
     private $bilanCompetences;
@@ -400,5 +447,4 @@ class FormulaireProgression
 
         return $this;
     }
-
 }

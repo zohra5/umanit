@@ -110,6 +110,5 @@ class EvaluationObjectifs
     /**
      * @ORM\ManyToOne(targetEntity="FormulaireProgression", inversedBy="evaluationObjectifs")
      */
-
     private $formulaireProgression;
 }
