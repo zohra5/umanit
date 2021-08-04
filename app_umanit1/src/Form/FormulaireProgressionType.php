@@ -4,7 +4,6 @@ namespace App\Form;
 
 
 use App\Entity\FormationsSuivie;
-use App\Entity\FormulaireProgression;
 use App\Entity\ObjectifDefinition;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -55,8 +54,8 @@ class FormulaireProgressionType extends AbstractType
                 "allow_add"=>true,
                 "allow_delete"=>true]
                 )/**GAB */
-            ->add('formationSouhaitees', CollectionType::class, [
-                "entry_type"=>FormationSouhaiteesType::class,
+            ->add('formationsSouhaitees', CollectionType::class, [
+                "entry_type"=>FormationsSouhaiteesType::class,
                 "entry_options"=>["label"=>false],
                 "allow_add"=>true,
                 "allow_delete"=>true]
