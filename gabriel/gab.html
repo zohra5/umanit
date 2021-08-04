@@ -5,203 +5,224 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 ​    <title>Formulaire de progression</title>
 </head>
 ​
 <body>
 <header>
-    
+     <!-- Navigation -->
+     <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <div class="container-fluid">
+            <!-- Logo + Lien page d'accueil -->
+            <a class="navbar-brand" href="index.html"><img src="img/LOGO_UmanIT_Nav.png" class="align-middle"></a>
+
+            <!-- Boutons nav à droite -->
+            <div class="d-flex justify-content-end">
+                <!-- Bouton Accueil -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <div class="navbar-nav">
+                            <a class="first nav-link px-3 py-3" aria-current="page" href="index.html">accueil</a>
+                        </div>
+                    </li>
+                    <!-- Bouton Formulaires -->
+                    <li class="nav-item dropdown">
+                        <a class="second nav-link dropdown-toggle px-3 py-3" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">formulaires</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="form_professionnel.html">professionnel</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">progression</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Bouton Historique -->
+                    <li class="nav-item dropdown">
+                        <div class="navbar-nav">
+                            <a class="first nav-link px-3 py-3" aria-current="page"
+                                href="historique.html">historique</a>
+                        </div>
+                    </li>
+                    <!-- Bouton Gestion des utilisateurs -->
+                    <li class="nav-item dropdown">
+                        <div class="navbar-nav">
+                            <a class="gestion nav-link px-3 py-3" aria-current="page" href="user_interface.html">gestion
+                                des
+                                utilisateurs</a>
+                        </div>
+                    </li>
+                    <!-- Bouton Ouvrir une session -->
+                    <li class="nav-item dropdown">
+                        <div class="navbar-nav">
+                            <a class="session nav-link px-3 py-3" aria-current="page"
+                                href="session.html">ouvrir une session</a>
+                        </div>
+                    </li>
+                    <!-- Bouton Déconnexion -->
+                    <li class="nav-item dropdown">
+                        <div class="navbar-nav">
+                            <a class="last px-3 py-3" aria-current="page" href="login.html">déconnexion</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>
 ​
 ​
 <main class="container">
-    ​    <h2>Perspective pour l'année a venir </h2>
-        <h3>Définition des objectifs</h3><br>
-        <div class="form-group row">
-            <label for="text" class="col col-md-2 p-0 col-form-label">Objectifs</label>
-            <label for="text" class="col col-md-2 p-0 col-form-label">Niveau de réalisation</label>
-            <label for="text" class="col col-md-2 p-0 col-form-label">Moyens (prévus et attribués)</label>
-            <label for="text" class="col col-md-2 p-0 col-form-label">Commentaires (collaborateur)</label>
-            <label for="text" class="col col-md-2 p-0 col-form-label">Commentaires (manager)</label>
-        </div>
-        <div class="form-group row">
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-        </div>    
-        <div class="form-group row">
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
+    ​    <h2 class="bg-info text-white p-1">Perspectives pour l'année a venir </h2>
+        <h3>Définition des objectifs :</h3><br>
+        <table class="table table-striped">
+
+            <thead>
+                <th>Objectifs</th>
+                <th>Indicateur de réalisation</th>
+                <th>Moyens à mettre en oeuvre</th>
+                <th>Délais de réalisation</th>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><input type="textarea" class="form-control" id="objectifs"></td>
+                    <td><input type="textarea" class="form-control" id="indicateur_de_réalisations"></td>
+                    <td><input type="textarea" class="form-control" id="Moyens_à_mettre_en_oeuvre"></td>
+                    <td><input type="textarea" class="form-control" id="Délais de réalisation"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="textarea" class="form-control" id="objectifs"></td>
+                    <td><input type="textarea" class="form-control" id="indicateur_de_réalisations"></td>
+                    <td><input type="textarea" class="form-control" id="Moyens_à_mettre_en_oeuvre"></td>
+                    <td><input type="textarea" class="form-control" id="Délais de réalisation"></td>
+                </tr>
+                <tr>
+                    <td><input type="textarea" class="form-control" id="objectifs"></td>
+                    <td><input type="textarea" class="form-control" id="indicateur_de_réalisations"></td>
+                    <td><input type="textarea" class="form-control" id="Moyens_à_mettre_en_oeuvre"></td>
+                    <td><input type="textarea" class="form-control" id="Délais de réalisation"></td>
+                </tr>
+            </tbody>
+
+        </table>
+       
         </div><br>
-    ​    <h2>Formations</h2>
-        <h3>Formations suivies depuis le dernier entretien</h3><br>
-        <div class="form-group row">
-            <label for="text" class="col col-md-2 p-0 col-form-label">Intitulé</label>
-            <label for="text" class="col col-md-2 p-0 col-form-label">Durée</label>
-            <label for="text" class="col col-md-2 p-0 col-form-label">Onjectifs de la formation</label>
-            <label for="text" class="col col-md-2 p-0 col-form-label">A-t-elle répondue a vos attentes ?</label>
-            <label for="text" class="col col-md-2 p-0 col-form-label">Est-elle mise en pratique ?</label>
-        </div>
-        <div class="form-group row">
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-2 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-        </div><br>
-        <h3>Formations souhaitées pour cette nouvelle année</h3><br>
-        <div class="form-group row">
-            <label for="text" class="col-md-4 p-0">Par le salarié</label>
-            <label for="text" class="col-md-4 p-0">Objectifs a atteindre</label>
-        </div>
-        <div class="form-group row">
-            <div class="col-md-4 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-4 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-md-4 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-4 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-        </div><br>
-        ​<h2>Condition d'activité et charge de travail</h2>
-        <h3>Quelles sont tes remarques, points d'amélioraation ou suggestions d'amélioration lié a tes conditions d'activité ?</h3>
+    ​    <h2 class="bg-info text-white p-1">Formations</h2>
+        <h3>Formations suivies depuis le dernier entretien :</h3><br>
+        <table class="table table-striped">
+
+            <thead>
+                <th>Intitulé</th>
+                <th>Durée</th>
+                <th>Objectif de la formation</th>
+                <th>A-t-elle repondue a vos attentes</th>
+                <th>Est-elle mise en pratique ?</th>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><input type="textarea" class="form-control" id="intitulé"></td>
+                    <td><input type="textarea" class="form-control" id="durée"></td>
+                    <td><input type="textarea" class="form-control" id="objectif_formation"></td>
+                    <td><input type="textarea" class="form-control" id="attentes_formation"></td>
+                    <td><input type="textarea" class="form-control" id="pratique_formation"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="textarea" class="form-control" id="intitulé"></td>
+                    <td><input type="textarea" class="form-control" id="durée"></td>
+                    <td><input type="textarea" class="form-control" id="objectif_formation"></td>
+                    <td><input type="textarea" class="form-control" id="attentes_formation"></td>
+                    <td><input type="textarea" class="form-control" id="pratique_formation"></td>
+                </tr>
+                <tr>
+                    <td><input type="textarea" class="form-control" id="intitulé"></td>
+                    <td><input type="textarea" class="form-control" id="durée"></td>
+                    <td><input type="textarea" class="form-control" id="objectif_formation"></td>
+                    <td><input type="textarea" class="form-control" id="attentes_formation"></td>
+                    <td><input type="textarea" class="form-control" id="pratique_formation"></td>
+                </tr>
+            </tbody>
+        </table>
+       <br>
+       
+        <h3>Formations souhaitées pour cette nouvelle année :</h3><br>
+        <table class="table table-striped">
+            <thead>
+                <th>Par le salarié</th>
+                <th>Objectif a atteindre</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="textarea" class="form-control" id="mar_le_salarié"></td>
+                    <td><input type="textarea" class="form-control" id="objectif_a_atteindre"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-striped">
+            <thead>
+                <th>Par le manager</th>
+                <th>Objectif a atteindre</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="textarea" class="form-control" id="par_le_manager"></td>
+                    <td><input type="textarea" class="form-control" id="objectif_a_atteindre"></td>
+                </tr>
+            </tbody>
+        </table><br>
+       
+        ​<h2 class="bg-info text-white p-1">Condition d'activité et charge de travail</h2>
+        <h3>Quelles sont tes remarques, points d'amélioration ou suggestions d'amélioration liés à tes conditions d'activité ?</h3>
         <p>(Environement de travail,communication,etc.)</p>
-        <div class="mb-3 col-6">
-            <label for="exampleFormControlTextarea1" class="form-label"></label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3     "></textarea>
+        <div class="col-12">
+            <label for="remarques" class="form-label"></label>
+            <textarea class="form-control" id="remarques" rows="3     "></textarea>
         </div>
         ​<h3>Comment évalues-tu ta charge de travail</h3>
         <p>(Adéquation de la charge de travail avec le nombre de jours travaillés, variabilité de l'activité, dépassement de forfait, atteinte des objectifs,etc.)</p>
-        <div class="mb-3 col-6">
-            <label for="exampleFormControlTextarea1" class="form-label"></label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3     "></textarea>
+        <div class="col-12">
+            <label for="evaluation_charge" class="form-label"></label>
+            <textarea class="form-control" id="evaluation_charge" rows="3     "></textarea>
         </div>
-        ​<h3>Quel est ton ressenti quant a l'articulation</h3>
-        <p>(Conciliation vie professionnelles et vie personnelle, déconnexion, déplacements, etc.)</p>
-        <div class="mb-3 col-6">
-            <label for="exampleFormControlTextarea1" class="form-label"></label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3     "></textarea>
+        ​<h3>Quel est ton ressenti quant à l'articulation de ta vie privée vie professionnelle</h3>
+        <p>(Conciliation vie professionnelle et vie personnelle, déconnexion, déplacements, etc.)</p>
+        <div class="col-12">
+            <label for="ressenti_articulation" class="form-label"></label>
+            <textarea class="form-control" id="ressenti_articulation" rows="3     "></textarea>
         </div><br>
-        <h2>Synthèse</h2>
-        <h3>Commentaires du collaborateur</h3>
+        <h2 class="bg-info text-white p-1">Synthèse</h2>
+        <h3 class="bg-info text-white p-1">Commentaires du collaborateur</h3>
         <p>(Points fort de l'entretien, réponses et propositions aux commentaires du manager)</p>
+        <div class="col-12">
+            <label for="commentaires_collaborateur" class="form-label"></label>
+            <textarea class="form-control" id="commentaires_collaborateur" rows="3     "></textarea>
+        </div><br>
+        <h3 class="bg-secondary text-white p-1">Commentaires du manager</h3>
+        <p>(Points forts de l'entretien, éléments de motivation et de satisfaction du collaborateur, demandes en termes d'évolution professionnelle,etc.)</p>
         <div class="mb-3 col-6">
-            <label for="exampleFormControlTextarea1" class="form-label"></label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3     "></textarea>
+            <label for="commentaires_manager" class="form-label"></label>
+            <textarea class="form-control" id="commentaires_manager" rows="3     "></textarea>
         </div><br>
-        <h3>Commentaires du manager</h3>
-        <p>(Points forts de l'entretien, éléments de motivation et de satisfaction du collaborateur, demande en termes d'évolution professionnelles,etc.)</p>
-        <div class="mb-3 col-6">
-            <label for="exampleFormControlTextarea1" class="form-label"></label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3     "></textarea>
-        </div><br>
-        <h2>Signature</h2><br>
-        <div class="form-group row">
-            <label for="text" class="col-md-4 p-0">Nom et signature du collaborateur </label>
-            <label for="text" class="col-md-4 p-0">Nom et signature du manager</label>
-        </div><br>
-        <div class="form-group row">
-            <div class="col-md-4 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-            <div class="col-md-4 p-0">
-                <input type="textarea" class="form-control" id="textarea">
-            </div>
-        </div>
-        <p>Ce document vise a constater la tenue de l'entretien et ne vaut pas engagement de réalisation des Perspective et souhait évoqués.</p>
+        <h2 class="bg-info text-white p-1">Signature</h2><br>
+        <table class="table table-striped">
+            <thead>
+                <th class="bg-info">Nom et signature du collaborateur</th>
+                <th class="bg-secondary">Nom et signature du manager</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="textarea" class="form-control" id="signature_collaborateur"></td>
+                    <td><input type="textarea" class="form-control" id="signature_manager"></td>
+                </tr>
+                
+            </tbody>
+        </table>
+         <p class="border p-1">Ce document vise a constater la tenue de l'entretien et ne vaut pas engagement de rréalisation des perspectives et souhaits évoqués.</p>
 </main>
 ​
 <footer>
