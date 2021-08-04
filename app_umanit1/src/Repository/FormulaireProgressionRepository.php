@@ -19,6 +19,12 @@ class FormulaireProgressionRepository extends ServiceEntityRepository
         parent::__construct($registry, FormulaireProgression::class);
     }
 
+    public function persist($formulaireProgression){
+        $this->_em->persist($formulaireProgression);
+    }
+
+
+    
     // /**
     //  * @return FormulaireProgression[] Returns an array of FormulaireProgression objects
     //  */

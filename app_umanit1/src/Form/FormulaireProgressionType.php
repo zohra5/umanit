@@ -7,6 +7,7 @@ use App\Entity\EvaluationObjectifs;
 use App\Entity\FormulaireProgression;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,8 +16,14 @@ class FormulaireProgressionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('dateEntretien')
-            ->add('datePrecedentEntretien')
+            ->add('dateEntretien', DateType::class, [
+                'html5' => true,
+                'widget' => 'single_text'
+            ])
+            ->add('datePrecedentEntretien', DateType::class, [
+                'html5' => true,
+                'widget' => 'single_text'
+            ])
             ->add('ressentiTravail')
             ->add('aimesTuPoste')
             ->add('relationsEquipe')

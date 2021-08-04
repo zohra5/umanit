@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\FormulaireProgressionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,6 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class FormulaireProgression
 {
+    public function __construct() {
+        $this->activites = new ArrayCollection();
+        $this->evaluationObjectifs = new ArrayCollection();
+        $this->bilanCompetences = new ArrayCollection();
+    }
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -28,22 +36,22 @@ class FormulaireProgression
     private $datePrecedentEntretien;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
-    private $feelingWork;
+    private $ressentiTravail;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $aimesTuPoste;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $relationsEquipe;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $relationsEntreprise;
 
@@ -53,62 +61,62 @@ class FormulaireProgression
     private $commentairesQVT;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $missionsPrincipales;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $reussitePoste;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $aimesTuFonctions;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $pointsAmeliorations;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $competencesNonUtilisees;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $remarquesActivites;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $evalTravail;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $vieProPerso;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $syntheseCollab;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $syntheseManager;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $signatureCollab;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $signatureManager;
 
@@ -141,14 +149,14 @@ class FormulaireProgression
         return $this;
     }
 
-    public function getFeelingWork(): ?int
+    public function getRessentiTravail(): ?int
     {
-        return $this->feelingWork;
+        return $this->ressentiTravail;
     }
 
-    public function setFeelingWork(int $feelingWork): self
+    public function setRessentiTravail(int $ressentiTravail): self
     {
-        $this->feelingWork = $feelingWork;
+        $this->ressentiTravail = $ressentiTravail;
 
         return $this;
     }
@@ -341,6 +349,54 @@ class FormulaireProgression
     public function setSignatureManager(string $signatureManager): self
     {
         $this->signatureManager = $signatureManager;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\OneToMany(targetEntity="Activites", mappedBy="formulaireProgression")
+     */
+    private $activites;
+
+    public function getActivites(): Collection
+    {
+        return $this->activites;
+    }
+    public function setActivites($activites): self
+    {
+        $this->activites = $activites;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\OneToMany(targetEntity="EvaluationObjectifs", mappedBy="formulaireProgression")
+     */
+    private $evaluationObjectifs;
+
+    public function getEvaluationObjectifs(): Collection
+    {
+        return $this->evaluationObjectifs;
+    }
+    public function setEvaluationObjectifs($evaluationObjectifs): self
+    {
+        $this->evaluationObjectifs = $evaluationObjectifs;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\OneToMany(targetEntity="BilanCompetences", mappedBy="formulaireProgression")
+     */
+    private $bilanCompetences;
+
+    public function getBilanCompetences(): Collection
+    {
+        return $this->bilanCompetences;
+    }
+    public function setBilanCompetences($bilanCompetences): self
+    {
+        $this->bilanCompetences = $bilanCompetences;
 
         return $this;
     }

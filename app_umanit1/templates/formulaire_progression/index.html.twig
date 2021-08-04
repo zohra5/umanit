@@ -3,18 +3,81 @@
 {% block title %}Hello FormulaireProgressionController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<section>
+            <h1 class="mt-5 mb-5">Entretien de progression</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+            {{form_start(form)}}
+                <div>
+                    <label for="dateToday">Date de l'entretien :</label>
+                    {{form_widget(form.dateEntretien)}}
+                </div>
+                <div>
+                    <label for="datePrecedent">Date du précédent entretien :</label>
+                    {{form_widget(form.datePrecedentEntretien)}}
+                </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/superadmin/umanit/app_umanit1/src/Controller/FormulaireProgressionController.php'|file_link(0) }}">src/Controller/FormulaireProgressionController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/superadmin/umanit/app_umanit1/templates/formulaire_progression/index.html.twig'|file_link(0) }}">templates/formulaire_progression/index.html.twig</a></code></li>
-    </ul>
-</div>
+{#
+                <!-- Tableau formulaire-->
+                <table class="table mt-4" style="table-layout : fixed;">
+
+                    <thead class="text-center">
+                        <th colspan="2" class="bg-info">Collaborateur</th>
+                        <th colspan="2" class="bg-secondary">Responsable de l'entretien</th>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Nom :</td>
+                            <td><input type="text" id="name" name="collab_name"></td>
+                            <td>Nom :</td>
+                            <td><input type="text" id="name" name="manager_name"></td>
+                        </tr>
+                        <tr>
+                            <td>Prénom :</td>
+                            <td><input type="text" id="surname" name="collab_surname"></td>
+                            <td>Prénom :</td>
+                            <td><input type="text" id="surname" name="manager_surname"></td>
+                        </tr>
+                        <tr>
+                            <td>Date de naissance :</td>
+                            <td><input type="date" id="birthdate" name="birthdate"></td>
+                            <td>Fonction :</td>
+                            <td><input type="text" id="fonction" name="fonction_manager"></td>
+                        </tr>
+                        <tr>
+                            <td>Service :</td>
+                            <td><input type="text" id="service" name="service"></td>
+                            <td>En présence de :</td>
+                        </tr>
+                        <tr>
+                            <td>Intitulé du poste :</td>
+                            <td><input type="text" id="post" name="post_name"></td>
+                            <td>Nom :</td>
+                            <td><input type="text" id="name" name="collab_name"></td>
+                        </tr>
+                        <tr>
+                            <td>Date d'embauche :</td>
+                            <td><input type="date" id="date_hire" name="date_hire"></td>
+                            <td>Prénom :</td>
+                            <td><input type="text" id="surname" name="collab_surname"></td>
+                        </tr>
+                        <tr>
+                            <td>Date d'accession à ce poste :</td>
+                            <td><input type="date" id="date_access_post" name="date_access_post"></td>
+                            <td>Fonction :</td>
+                            <td><input type="text" id="fonction" name="fonction_collab"></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+#}
+            <input type="submit" />
+            {{ form_widget(form._token) }}
+            {{form_end(form, {'render_rest': false})}}
+</section>
+{% if data is not null %}
+{{dump(data)}}
+{% else  %}
+pas de data
+{% endif %}
 {% endblock %}
