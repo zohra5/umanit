@@ -1,20 +1,47 @@
-{% extends 'base.html.twig' %}
+{% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bootstrap.min.css')}}" />
+            <link rel="stylesheet" href="{{ asset('style.css')}}" />
+            {#{{ encore_entry_link_tags('app') }}#}
+{% endblock %}
 
-{% block title %}Log in!{% endblock %}
+{# {% block title %}Log in!{% endblock %} #}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+    <main class="container d-flex vh-100">
+        <div class="row align-self-center mx-auto">
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <!-- Logo -->
+            <div class="text-center mb-5">
+                <img class="img-fluid" src="img/LOGO_UmanIT.png">
+            </div>
+
+            <!-- Formulaire de connexion -->
+            <form method="post" class="col-4 mx-auto">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                {% if app.user %}
+                    <div class="mb-3">
+                        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    </div>
+                {% endif %}
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <input type="email" placeholder="entrer votre email" class="form-control" id="email">
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                    <input type="password" placeholder="entrer votre password" class="form-control" id="password">
+                </div>
+
+                <div class="mb-5 text-center">
+                    <a href="#">mot de passe oublié ?</a>
+                </div>
+
     <label for="inputEmail">Email</label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
     <label for="inputPassword">Password</label>
@@ -35,8 +62,13 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
+<!-- Bouton de connexion -->
+                <div class="text-center mt-5">
+                    <button type="submit" id="submit" class="btn">Se connecter</button>
+                </div>
+
+            </form>
+        </div>
+    </main>
 </form>
 {% endblock %}
