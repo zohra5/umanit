@@ -30,26 +30,19 @@
 
                 <!-- Email -->
                 <div class="mb-3">
-                    <input type="email" placeholder="entrer votre email" class="form-control" id="email">
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" placeholder="entrer votre email" required autofocus>
                 </div>
 
                 <!-- Password -->
                 <div class="mb-3">
-                    <input type="password" placeholder="entrer votre password" class="form-control" id="password">
+                    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" placeholder="entrer votre password" required>
                 </div>
 
                 <div class="mb-5 text-center">
                     <a href="#">mot de passe oublié ?</a>
                 </div>
 
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -62,7 +55,7 @@
         </div>
     #}
 
-<!-- Bouton de connexion -->
+                <!-- Bouton de connexion -->
                 <div class="text-center mt-5">
                     <button type="submit" id="submit" class="btn">Se connecter</button>
                 </div>

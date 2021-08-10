@@ -16,6 +16,10 @@
     padding: 0;
 }
 
+p {
+    color: #052854;
+}
+
 /******************************************************************
                             HEADER
 ******************************************************************/
@@ -115,7 +119,52 @@ nav .last:hover,
 /******************************************************************
                             MAIN
 ******************************************************************/
-thead{
+
+thead {
     background-color: #052854;
     color: white;
 } 
+
+main section a:not(.image), 
+main form .btn, 
+button {
+    background-color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: none;
+    font-weight: bold;
+    color: #3D98C6;
+    border: 1px solid #052854;
+    border-radius: 0;
+    padding: 15px;
+    display: inline-block;
+}
+
+main section a:hover:not(.image), 
+main form .btn:hover, 
+button:hover {
+    transition: none;
+    color: #052854;
+    background-color: #3D98C6;
+    border: 1px solid #3D98C6;
+}
+
+/*** FORMULAIRE LOGIN ***/ 
+
+main form a {
+    color: #052854;
+    text-decoration: none;
+}
+
+main form a:hover {
+    color: #3D98C6;
+}
+
+main .form-control {
+    border-radius: 0;
+} 
+
+main .form-control:focus {
+    border: 1px solid #052854;
+    box-shadow: none;
+}
