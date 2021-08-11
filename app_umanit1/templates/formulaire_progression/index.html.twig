@@ -3,6 +3,7 @@
 {% block title %}Hello FormulaireProgressionController!{% endblock %}
 
 {% block body %}
+
 <section>
             <h1 class="mt-5 mb-5">Entretien de progression</h1>
 
@@ -75,9 +76,11 @@
             {{ form_widget(form._token) }}
             {{form_end(form, {'render_rest': false})}}
 </section>
+
 {% if data is not null %}
-{{dump(data)}}
-{% else  %}
-pas de data
+        {{dump(data)}}
+    {% else  %}
+        pas de data
 {% endif %}
+
 {% endblock %}
