@@ -1,0 +1,26 @@
+{% block _formulaire_progression_activites_entry_widget %} 
+<tr class="activite">
+    <td>{{ form_widget(form.realisations) }}</td>
+    <td>{{ form_widget(form.reussites) }}</td>
+    <td>{{ form_widget(form.difficultes) }}</td>
+</tr>
+{% endblock %}
+
+{% block _formulaire_progression_evaluationObjectifs_entry_widget %} 
+<tr class="evaluationObjectif">
+    <td>{{ form_widget(form.objectifsEval) }}</td>
+    <td>{{ form_widget(form.realisationLvlEval) }}</td>
+    <td>{{ form_widget(form.moyensEval) }}</td>
+    <td>{{ form_widget(form.commentCollabEval) }}</td>
+    <td>{{ form_widget(form.commentManagerEval) }}</td>
+</tr>
+{% endblock %}
+
+{% block _formulaire_progression_bilanCompetences_entry_widget %} 
+<tr class="evaluationObjectif">
+    <td>{{ form_widget(form.competencesBilan) }}</td>
+    <td>{{ form_widget(form.evaluationBilan) }}</td>
+    <td>{{ form_widget(form.commentaireBilan) }}</td>
+    <td>{{ form_widget(form.actionsBilan) }}</td>
+</tr>
+{% endblock %}
