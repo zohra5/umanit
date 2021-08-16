@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 class FormulaireProgressionController extends AbstractController
 {
     /**
-     * @Route("/formulaire/progression/{id}", name="formulaire_progression")
+     * @Route("/home/formulaire/progression/{id}", name="formulaire_progression")
      */
     public function index(Request $request, $id = 'create', FormulaireProgressionRepository $formulaireProgressionRepository): Response
     {

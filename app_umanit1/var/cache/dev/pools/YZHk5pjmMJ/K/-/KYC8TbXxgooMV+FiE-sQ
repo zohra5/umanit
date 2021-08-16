@@ -8,7 +8,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     [
         'Symfony\\Component\\Routing\\Annotation\\Route' => [
             'path' => [
-                '/formulaire/progression/{id}',
+                '/home/formulaire/progression/{id}',
             ],
             'name' => [
                 'formulaire_progression',

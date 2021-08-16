@@ -5,6 +5,8 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,16 +16,19 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email')
+            ->add('email', EmailType::class)
             ->add('roles', ChoiceType::class, [
                 'choices' => [
-                    'ADMIN' => 'ROLE_ADMIN',
                     'RH' => 'ROLE_RH',
-                    'CONTRIBUTEUR' => 'ROLE_CONTRIBUTOR'
+                    'MANAGER' => 'ROLE_MANAGER',
+                    'CONTRIBUTEUR' => 'ROLE_CONTRIBUTEUR'
                 ],
                 'multiple' => 'true'
             ])
-            ->add('password')
+            ->add('password', PasswordType::class,
+            [
+                'required' => $options['is_create'],
+            ])
             ->add('name')
             ->add('firstname')
             ->add('birthday')
@@ -38,6 +43,7 @@ class UserType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'is_create' => true,
         ]);
     }
 }

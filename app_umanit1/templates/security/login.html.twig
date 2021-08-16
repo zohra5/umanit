@@ -1,10 +1,11 @@
-{% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('bootstrap.min.css')}}" />
-            <link rel="stylesheet" href="{{ asset('style.css')}}" />
-            {#{{ encore_entry_link_tags('app') }}#}
-{% endblock %}
-
-{# {% block title %}Log in!{% endblock %} #}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}UmanIT - Connexion{% endblock %}</title>
+    {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}" />
+            <link rel="stylesheet" href="{{ asset('css/style.css')}}" />
+    {% endblock %}
+</head>
 
 {% block body %}
 
@@ -24,7 +25,7 @@
 
                 {% if app.user %}
                     <div class="mb-3">
-                        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                        Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">DÉCONNEXION</a>
                     </div>
                 {% endif %}
 
@@ -42,18 +43,18 @@
                     <a href="#">mot de passe oublié ?</a>
                 </div>
 
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
+                {#
+                    Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                    See https://symfony.com/doc/current/security/remember_me.html
 
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" name="_remember_me"> Remember me
+                        </label>
+                    </div>
+                #}
 
                 <!-- Bouton de connexion -->
                 <div class="text-center mt-5">
@@ -63,5 +64,5 @@
             </form>
         </div>
     </main>
-</form>
+
 {% endblock %}

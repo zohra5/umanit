@@ -65,7 +65,7 @@ class __TwigTemplate_3eb85d5ee8bf00b1c0716bd8b72b88889e4d99203b5045a5813c315f020
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "New User";
+        echo "UmanIT - Ajout d'un utilisateur";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -85,17 +85,24 @@ class __TwigTemplate_3eb85d5ee8bf00b1c0716bd8b72b88889e4d99203b5045a5813c315f020
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Create new User</h1>
+        echo "
+    <main>
+        <section>
 
-    ";
-        // line 8
+    <h1 class=\"mt-5 mb-4\">Ajout d'un utilisateur</h1>
+
+        ";
+        // line 12
         echo twig_include($this->env, $context, "user/_form.html.twig");
         echo "
-
-    <a href=\"";
-        // line 10
+        <a href=\"";
+        // line 13
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_index");
-        echo "\">back to list</a>
+        echo "\" class=\"btn\">Annuler</a>
+
+        </section>
+    </main>
+    
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -117,21 +124,28 @@ class __TwigTemplate_3eb85d5ee8bf00b1c0716bd8b72b88889e4d99203b5045a5813c315f020
 
     public function getDebugInfo()
     {
-        return array (  97 => 10,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  100 => 13,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}New User{% endblock %}
+{% block title %}UmanIT - Ajout d'un utilisateur{% endblock %}
 
 {% block body %}
-    <h1>Create new User</h1>
 
-    {{ include('user/_form.html.twig') }}
+    <main>
+        <section>
 
-    <a href=\"{{ path('user_index') }}\">back to list</a>
+    <h1 class=\"mt-5 mb-4\">Ajout d'un utilisateur</h1>
+
+        {{ include('user/_form.html.twig') }}
+        <a href=\"{{ path('user_index') }}\" class=\"btn\">Annuler</a>
+
+        </section>
+    </main>
+    
 {% endblock %}
 ", "user/new.html.twig", "/home/superadmin/Documents/Projet WEB/umanit/app_umanit1/templates/user/new.html.twig");
     }

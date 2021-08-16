@@ -1,34 +1,83 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}UmanIT - Consulter un utilisateur{% endblock %}
 
 {% block body %}
-    <h1>User</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ user.email }}</td>
-            </tr>
-            <tr>
-                <th>Roles</th>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ user.password }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <main>
+        <section>
 
-    <a href="{{ path('user_index') }}">back to list</a>
+            <h1 class="mt-5 mb-4">Consultation de {{ user.firstname }} {{ user.name }} </h1>
 
-    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+            Rôle : {{ user.roles ? user.roles|json_encode : '' }}
 
-    {{ include('user/_delete_form.html.twig') }}
+            <!-- Informations personnelles -->
+            <h2 class="mt-5">Informations personnelles :</h2>
+                <hr>
+
+                <!-- Nom & Prénom -->
+                <div class="row px-3 mb-4 mt-4">
+                    <div class="col">
+                        <label for="name">Nom :</label>
+                        {{ user.name }}        
+                    </div>
+
+                    <div class="col">
+                        <label for="firstname">Prénom :</label>
+                        {{ user.firstname }}
+                    </div>
+                </div>
+
+                <!-- Anniversaire & Email -->
+                <div class="row px-3 mb-4">
+                    <div class="col">
+                        <label for="birthday">Date de naissance :</label>
+                        {{ user.birthday|date("m/d/Y") }}
+                    </div>
+
+                    <div class="col">
+                        <label for="mail">Email :</label>
+                        {{ user.email }}
+                    </div>
+                </div>
+
+            <!-- Informations relatives au poste -->
+            <h2 class="mt-5">Informations relatives au poste :</h2>
+                <hr>
+
+                <!-- Service & Date d'embauche -->
+                <div class="row px-3 mb-4 mt-4">
+                    <div class="col">
+                        <label for="service">Service :</label>
+                        {{ user.service }}        
+                    </div>
+
+                    <div class="col">
+                        <label for="dateHire">Date d'embauche :</label>
+                        {{ user.dateHire|date("m/d/Y") }}
+                    </div>
+                </div>
+
+                <!-- Anniversaire & Mail -->
+                <div class="row px-3 mb-4">
+                    <div class="col">
+                        <label for="jobTitle">Intitulé du poste :</label>
+                        {{ user.jobTitle }}
+                    </div>
+
+                    <div class="col">
+                        <label for="accesssionDate">Date d'accession au poste :</label>
+                        {{ user.accessionDate|date("m/d/Y") }}
+                    </div>
+                </div>
+
+            <div class="pt-3">
+                <a href="{{ path('user_index') }}" class="btn">Annuler</a>
+                <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn">Éditer</a>
+                {{ include('user/_delete_form.html.twig') }}
+            </div>
+        
+        </section>
+    </main>
+
 {% endblock %}
