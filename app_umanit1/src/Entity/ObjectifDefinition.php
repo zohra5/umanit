@@ -54,38 +54,38 @@ class ObjectifDefinition
         return $this;
     }
 
-    public function getIndicateurRealisation(): ?string
+    public function getIndicateurDeRealisation(): ?string
     {
-        return $this->indicateurRealisation;
+        return $this->indicateurDeRealisation;
     }
 
-    public function setIndicateurRealisation(string $indicateurRealisation): self
+    public function setIndicateurDeRealisation(string $indicateurDeRealisation): self
     {
-        $this->indicateurRealisation = $indicateurRealisation;
+        $this->indicateurDeRealisation = $indicateurDeRealisation;
 
         return $this;
     }
 
-    public function getMoyensOeuvre(): ?string
+    public function getMoyensAMettreEnOeuvre(): ?string
     {
-        return $this->moyensOeuvre;
+        return $this->moyensAMettreEnOeuvre;
     }
 
-    public function setMoyensOeuvre(string $moyensOeuvre): self
+    public function setMoyensAMettreEnOeuvre(string $moyensAMettreEnOeuvre): self
     {
-        $this->moyensOeuvre = $moyensOeuvre;
+        $this->moyensAMettreEnOeuvre = $moyensAMettreEnOeuvre;
 
         return $this;
     }
 
-    public function getDelaisRealisation(): ?string
+    public function getDelaisDeRealisation(): ?string
     {
-        return $this->delaisRealisation;
+        return $this->delaisDeRealisation;
     }
 
-    public function setDelaisRealisation(string $delaisRealisation): self
+    public function setDelaisDeRealisation(string $delaisDeRealisation): self
     {
-        $this->delaisRealisation = $delaisRealisation;
+        $this->delaisDeRealisation = $delaisDeRealisation;
 
         return $this;
     }

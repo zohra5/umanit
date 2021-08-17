@@ -17,10 +17,38 @@
 {% endblock %}
 
 {% block _formulaire_progression_bilanCompetences_entry_widget %} 
-<tr class="evaluationObjectif">
+<tr class="bilanCompetence">
     <td>{{ form_widget(form.competencesBilan) }}</td>
     <td>{{ form_widget(form.evaluationBilan) }}</td>
     <td>{{ form_widget(form.commentaireBilan) }}</td>
     <td>{{ form_widget(form.actionsBilan) }}</td>
+</tr>
+{% endblock %}
+
+{% block _formulaire_progression_objectifDefinition_entry_widget %} 
+<tr class="objectifDefinitionn">
+    <td>{{ form_widget(form.objectifs) }}</td>
+    <td>{{ form_widget(form.indicateurDeRealisation) }}</td>
+    <td>{{ form_widget(form.moyensAMettreEnOeuvre) }}</td>
+    <td>{{ form_widget(form.delaisDeRealisation) }}</td>
+</tr>
+{% endblock %}
+
+{% block _formulaire_progression_formationsSuivie_entry_widget %} 
+<tr class="formationSuivie">
+    <td>{{ form_widget(form.intitule) }}</td>
+    <td>{{ form_widget(form.duree) }}</td>
+    <td>{{ form_widget(form.objectifsFormation) }}</td>
+    <td>{{ form_widget(form.attenteFormation) }}</td>
+    <td>{{ form_widget(form.misEnPratique) }}</td>
+</tr>
+{% endblock %}
+
+{% block _formulaire_progression_formationsSouhaitees_entry_widget %} 
+<tr class="formationSouhaitee">
+    <td>{{ form_widget(form.parLeSalarie) }}</td>
+    <td>{{ form_widget(form.objectifsAAtteindre) }}</td>
+    <td>{{ form_widget(form.parLeManager) }}</td>
+    <td>{{ form_widget(form.objectifsAAtteindreManager) }}</td>
 </tr>
 {% endblock %}

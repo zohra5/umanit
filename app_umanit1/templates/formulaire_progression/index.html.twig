@@ -189,6 +189,110 @@
                    {{ form_widget(form.competencesNonUtilisees) }}
                 </div>
 
+                <h2 class="bg-info text-white p-1">Perspectives pour l'année a venir </h2>
+        <h3>Définition des objectifs :</h3><br>
+   
+<table class="objectifDefinition table table-striped"
+                    data-prototype="{{ form_widget(form.objectifDefinition.vars.prototype)|e('html_attr') }}">
+
+                    <thead>
+                        <th>Objectifs</th>
+                        <th>Indicateur de réalisation</th>
+                        <th>Moyen a mettre en oeuvre </th>
+                        <th>Délais de réalisation</th>
+                    </thead>
+
+                    {% for objectifDefinitionn in form.objectifDefinition %}
+                    {{ form_widget(objectifDefinitionn) }}
+                    {% endfor %}            
+        </table>
+         <button type="button" class="add_item_link" data-collection-holder-class="objectifDefinition">Ajouter un objectif</button>
+
+          <br>
+    ​    <h2 class="bg-info text-white p-1">Formations</h2>
+        <h3>Formations suivies depuis le dernier entretien :</h3><br>
+
+        <table class="formationsSuivie table table-striped"
+        data-prototype="{{ form_widget(form.formationsSuivie.vars.prototype)|e('html_attr') }}">
+
+
+            <thead>
+                <th>Intitulé</th>
+                <th>Durée</th>
+                <th>Objectif de la formation</th>
+                <th>A-t-elle repondue a vos attentes</th>
+                <th>Est-elle mise en pratique ?</th>
+            </thead>
+
+                {% for formationSuivie in form.formationsSuivie %}
+                {{ form_widget(formationSuivie) }}
+                {% endfor %}
+        </table>
+            <button type="button" class="add_item_link" data-collection-holder-class="formationsSuivie">Ajouter une formation </button>
+
+                    <table class="formationsSouhaitees table table-striped"
+                      data-prototype="{{ form_widget(form.formationsSouhaitees.vars.prototype)|e('html_attr') }}">
+                <thead>
+                    <th>Par le salarié</th>
+                    <th>Objectif a atteindre</th>
+                    <th>Par le manager</th>
+                    <th>Objectif a atteindre</th>
+                </thead>
+            
+        </table>
+           <button type="button" class="add_item_link" data-collection-holder-class="formationsSouhaitees">Ajouter une formation </button><br>
+
+            ​<h2 class="bg-info text-white p-1">Condition d'activité et charge de travail</h2>
+        <h3>Quelles sont tes remarques, points d'amélioration ou suggestions d'amélioration liés à tes conditions d'activité ?</h3>
+        <p>(Environement de travail,communication,etc.)</p>
+        <div class="col-12">
+            <label for="remarques" class="form-label"></label>
+            <textarea class="form-control" id="remarques" rows="3     "></textarea>
+        </div>
+        ​<h3>Comment évalues-tu ta charge de travail</h3>
+        <p>(Adéquation de la charge de travail avec le nombre de jours travaillés, variabilité de l'activité, dépassement de forfait, atteinte des objectifs,etc.)</p>
+        <div class="col-12">
+            <label for="evaluation_charge" class="form-label"></label>
+            <textarea class="form-control" id="evaluation_charge" rows="3     "></textarea>
+        </div>
+        ​<h3>Quel est ton ressenti quant à l'articulation de ta vie privée vie professionnelle</h3>
+        <p>(Conciliation vie professionnelle et vie personnelle, déconnexion, déplacements, etc.)</p>
+        <div class="col-12">
+            <label for="ressenti_articulation" class="form-label"></label>
+            <textarea class="form-control" id="ressenti_articulation" rows="3     "></textarea>
+        </div><br>
+
+         <h2 class="bg-info text-white p-1">Synthèse</h2>
+        <h3 class="bg-info text-white p-1">Commentaires du collaborateur</h3>
+        <p>(Points fort de l'entretien, réponses et propositions aux commentaires du manager)</p>
+        <div class="col-12">
+            <label for="commentaires_collaborateur" class="form-label"></label>
+            <textarea class="form-control" id="commentaires_collaborateur" rows="3     "></textarea>
+        </div><br>
+        <h3 class="bg-secondary text-white p-1">Commentaires du manager</h3>
+        <p>(Points forts de l'entretien, éléments de motivation et de satisfaction du collaborateur, demandes en termes d'évolution professionnelle,etc.)</p>
+        <div class="mb-3 col-6">
+            <label for="commentaires_manager" class="form-label"></label>
+            <textarea class="form-control" id="commentaires_manager" rows="3     "></textarea>
+        </div><br>
+        <h2 class="bg-info text-white p-1">Signature</h2><br>
+        <table class="table table-striped">
+            <thead>
+                <th class="bg-info">Nom et signature du collaborateur</th>
+                <th class="bg-secondary">Nom et signature du manager</th>
+            </thead>
+            <tbody>
+                <tr> 
+                    <td><input type="file" id="signature_collaborateur" name="avatar" accept="image/png, image/jpeg"></td>
+                    <td><input type="file" id="signature_manager" name="avatar" accept="image/png, image/jpeg"></td>
+                </tr>
+                
+            </tbody>
+        </table>
+         <p class="border p-1">Ce document vise a constater la tenue de l'entretien et ne vaut pas engagement de rréalisation des perspectives et souhaits évoqués.</p>
+          {% for formationSouhaitee in form.formationsSouhaitees %}
+                {{ form_widget(formationSouhaitee) }}
+                {% endfor %}
                 <input type="submit" />
                 {{ form_widget(form._token) }}
                 {{form_end(form, {'render_rest': false})}}
@@ -207,15 +311,14 @@
                     jQuery(document).ready(function () {
 
                         // Get the ul that holds the collection of tags
-                        var $objectivesCollectionHolder = $('table.objectives');
-                        var $activitesCollectionHolder = $('table.activites');
+                        var $CollectionHolder = $('table');
+                      
                         // count the current form inputs we have (e.g. 2), use that as the new
                         // index when inserting a new item (e.g. 2)
 
-                        $objectivesCollectionHolder.data('index', $objectivesCollectionHolder.find('.objective')
+                        $CollectionHolder.data('index', $CollectionHolder.find('')
                             .length);
-                        $activitesCollectionHolder.data('index', $activitesCollectionHolder.find('.activites')
-                            .length);
+                        
 
                         $('body').on('click', '.add_item_link', function (e) {
                             var $collectionHolderClass = $(e.currentTarget).data(
