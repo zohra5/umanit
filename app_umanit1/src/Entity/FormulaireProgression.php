@@ -357,7 +357,7 @@ class FormulaireProgression
     }
 
     /**
-     * @ORM\OneToMany(targetEntity="Activites", mappedBy="formulaireProgression")
+     * @ORM\OneToMany(targetEntity="Activites", mappedBy="formulaireProgression", cascade={"persist"})
      */
     private $activites;
 
@@ -373,7 +373,7 @@ class FormulaireProgression
     }
 
     /**
-     * @ORM\OneToMany(targetEntity="EvaluationObjectifs", mappedBy="formulaireProgression")
+     * @ORM\OneToMany(targetEntity="EvaluationObjectifs", mappedBy="formulaireProgression", cascade={"persist"})
      */
     private $evaluationObjectifs;
 
@@ -389,7 +389,7 @@ class FormulaireProgression
     }
 
     /**
-     * @ORM\OneToMany(targetEntity="FormationsSuivie", mappedBy="formulaireProgression")
+     * @ORM\OneToMany(targetEntity="FormationsSuivie", mappedBy="formulaireProgression", cascade={"persist"})
      */
     private $formationsSuivie;
 
@@ -404,7 +404,7 @@ class FormulaireProgression
         return $this;
     }
     /**
-     * @ORM\OneToMany(targetEntity="FormationsSouhaitees", mappedBy="formulaireProgression")
+     * @ORM\OneToMany(targetEntity="FormationsSouhaitees", mappedBy="formulaireProgression", cascade={"persist"})
      */
 
     private $formationsSouhaitees;
@@ -420,7 +420,7 @@ class FormulaireProgression
         return $this;
     }
        /**
-     * @ORM\OneToMany(targetEntity="ObjectifDefinition", mappedBy="formulaireProgression")
+     * @ORM\OneToMany(targetEntity="ObjectifDefinition", mappedBy="formulaireProgression", cascade={"persist"})
      */
 
     private $objectifDefinition;
@@ -436,7 +436,7 @@ class FormulaireProgression
         return $this;
     }
         /**
-     * @ORM\OneToMany(targetEntity="BilanCompetences", mappedBy="formulaireProgression")
+     * @ORM\OneToMany(targetEntity="BilanCompetences", mappedBy="formulaireProgression", cascade={"persist"})
      */
     private $bilanCompetences;
 
