@@ -247,19 +247,19 @@
         <p>(Environement de travail,communication,etc.)</p>
         <div class="col-12">
             <label for="remarques" class="form-label"></label>
-            <textarea class="form-control" id="remarques" rows="3     "></textarea>
+            {{ form_widget(form.remarquesActivites) }}
         </div>
         ​<h3>Comment évalues-tu ta charge de travail</h3>
         <p>(Adéquation de la charge de travail avec le nombre de jours travaillés, variabilité de l'activité, dépassement de forfait, atteinte des objectifs,etc.)</p>
         <div class="col-12">
             <label for="evaluation_charge" class="form-label"></label>
-            <textarea class="form-control" id="evaluation_charge" rows="3     "></textarea>
+            {{ form_widget(form.evalTravail, {'attr': {'class': 'form-control'}})}}
         </div>
         ​<h3>Quel est ton ressenti quant à l'articulation de ta vie privée vie professionnelle</h3>
         <p>(Conciliation vie professionnelle et vie personnelle, déconnexion, déplacements, etc.)</p>
         <div class="col-12">
             <label for="ressenti_articulation" class="form-label"></label>
-            <textarea class="form-control" id="ressenti_articulation" rows="3     "></textarea>
+            {{ form_widget(form.vieProPerso, {'attr': {'class': 'form-control'}})}}
         </div><br>
 
          <h2 class="bg-info text-white p-1">Synthèse</h2>
