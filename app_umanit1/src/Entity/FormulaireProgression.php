@@ -16,6 +16,9 @@ class FormulaireProgression
         $this->activites = new ArrayCollection();
         $this->evaluationObjectifs = new ArrayCollection();
         $this->bilanCompetences = new ArrayCollection();
+        $this->objectifDefinition = new ArrayCollection();
+        $this->formationsSouhaitees = new ArrayCollection();
+        $this->formationsSuivie = new ArrayCollection();
     }
 
     /**
