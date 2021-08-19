@@ -16,10 +16,6 @@
     padding: 0;
 }
 
-p {
-    color: #052854;
-}
-
 /******************************************************************
                             HEADER
 ******************************************************************/
@@ -182,7 +178,6 @@ main section table input :focus :active {
 }
 
 main section .table {
-    table-layout : fixed;
     border-color: none;
     border: 1px solid #052854;
 }
@@ -200,10 +195,6 @@ main table thead {
 
 main section table tr {
     vertical-align: middle;
-}
-
-main section table td {
-    border: none;
 }
 
 main section table tr td:last-of-type {
