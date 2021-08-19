@@ -16,6 +16,9 @@ class FormulaireProgression
         $this->activites = new ArrayCollection();
         $this->evaluationObjectifs = new ArrayCollection();
         $this->bilanCompetences = new ArrayCollection();
+        $this->objectifDefinition = new ArrayCollection();
+        $this->formationsSouhaitees = new ArrayCollection();
+        $this->formationsSuivie = new ArrayCollection();
     }
 
     /**
@@ -354,7 +357,7 @@ class FormulaireProgression
     }
 
     /**
-     * @ORM\OneToMany(targetEntity="Activites", mappedBy="formulaireProgression")
+     * @ORM\OneToMany(targetEntity="Activites", mappedBy="formulaireProgression", cascade={"persist"})
      */
     private $activites;
 
@@ -368,9 +371,18 @@ class FormulaireProgression
 
         return $this;
     }
+    public function addActivite(Activites $activite): void
+    {
+        $activite->setFormulaireProgression($this);
+        $this->activites->add($activite);
+    }
+    public function removeActivite(Activites $activite): void
+    {
+        $this->activites->removeElement($activite);
+    }
 
     /**
-     * @ORM\OneToMany(targetEntity="EvaluationObjectifs", mappedBy="formulaireProgression")
+     * @ORM\OneToMany(targetEntity="EvaluationObjectifs", mappedBy="formulaireProgression", cascade={"persist"})
      */
     private $evaluationObjectifs;
 
@@ -385,8 +397,18 @@ class FormulaireProgression
         return $this;
     }
 
+    public function addEvaluationObjectif(EvaluationObjectifs $evaluationObjectif): void
+    {
+        $evaluationObjectif->setFormulaireProgression($this);
+        $this->evaluationObjectifs->add($evaluationObjectif);
+    }
+    public function removeEvaluationObjectif(EvaluationObjectifs $evaluationObjectif): void
+    {
+        $this->evaluationObjectifs->removeElement($evaluationObjectif);
+    }
+
     /**
-     * @ORM\OneToMany(targetEntity="FormationsSuivie", mappedBy="formulaireProgression")
+     * @ORM\OneToMany(targetEntity="FormationsSuivie", mappedBy="formulaireProgression", cascade={"persist"})
      */
     private $formationsSuivie;
 
@@ -401,7 +423,7 @@ class FormulaireProgression
         return $this;
     }
     /**
-     * @ORM\OneToMany(targetEntity="FormationsSouhaitees", mappedBy="formulaireProgression")
+     * @ORM\OneToMany(targetEntity="FormationsSouhaitees", mappedBy="formulaireProgression", cascade={"persist"})
      */
 
     private $formationsSouhaitees;
@@ -417,7 +439,7 @@ class FormulaireProgression
         return $this;
     }
        /**
-     * @ORM\OneToMany(targetEntity="ObjectifDefinition", mappedBy="formulaireProgression")
+     * @ORM\OneToMany(targetEntity="ObjectifDefinition", mappedBy="formulaireProgression", cascade={"persist"})
      */
 
     private $objectifDefinition;
@@ -433,7 +455,7 @@ class FormulaireProgression
         return $this;
     }
         /**
-     * @ORM\OneToMany(targetEntity="BilanCompetences", mappedBy="formulaireProgression")
+     * @ORM\OneToMany(targetEntity="BilanCompetences", mappedBy="formulaireProgression", cascade={"persist"})
      */
     private $bilanCompetences;
 
@@ -446,5 +468,15 @@ class FormulaireProgression
         $this->bilanCompetences = $bilanCompetences;
 
         return $this;
+    }
+
+    public function addBilanCompetence(BilanCompetences $bilanCompetence): void
+    {
+        $bilanCompetence->setFormulaireProgression($this);
+        $this->bilanCompetences->add($bilanCompetence);
+    }
+    public function removeBilanCompetence(BilanCompetences $bilanCompetence): void
+    {
+        $this->bilanCompetences->removeElement($bilanCompetence);
     }
 }
