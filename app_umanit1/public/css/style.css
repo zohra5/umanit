@@ -199,11 +199,11 @@ main form a:hover {
     color: #3D98C6;
 }
 
-main .form-control {
+main .form-control, .cadre {
     border-radius: 0;
 } 
 
-main .form-control:focus {
+main .form-control:focus, .cadre:focus {
     border: 1px solid #052854;
     box-shadow: none;
 }

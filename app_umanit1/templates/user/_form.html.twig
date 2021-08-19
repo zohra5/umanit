@@ -1,4 +1,94 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Ajouter') }}</button>
-{{ form_end(form) }}
+<main>
+    <section>  
+
+        {{ form_start(form) }}
+
+        <!-- Informations personnelles -->
+        <h2 class="mt-5">Informations personnelles :</h2>
+            <hr>
+
+            <!-- Nom & Prénom -->
+            <div class="row px-3 mt-4">
+                <div class="col">
+                    <p>
+                        <b>{{ form_label(form.name, 'Nom : ')}}</b> {{ form_widget(form.name, {'attr': {'class': 'form-control w-50 d-inline'}})}}
+                    </p>
+                </div>
+
+                <div class="col">
+                    <p>
+                        <b>{{ form_label(form.firstname, 'Prénom : ')}}</b> {{ form_widget(form.firstname,  {'attr': {'class': 'form-control w-50 d-inline'}})}} 
+                    </p>
+                </div>
+            </div>
+
+            <!-- Anniversaire & Email -->
+            <div class="row px-3">
+                <div class="col">
+                    <p>
+                        <b>{{ form_label(form.birthday, 'Date de naissance : ')}}</b> {{ form_widget(form.birthday,  {'attr': {'class': 'form-control w-50 d-inline'}})}}
+                    </p>
+                </div>
+
+                <div class="col">
+                    <p>
+                        <b>{{ form_label(form.email, 'Email : ')}}</b> {{ form_widget(form.email,  {'attr': {'class': 'form-control w-50 d-inline'}})}}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Rôle -->
+            <div class="row px-3 mb-3">
+                <div class="col">
+                    <p>
+                        <b>{{ form_label(form.roles, 'Rôle : ')}}</b> {{ form_widget(form.roles)}}
+                    </p>
+                </div>
+
+                <div class="col">
+                    <p>
+                        <b>{{ form_label(form.password, 'Mot de passe : ')}}</b> {{ form_widget(form.password,  {'attr': {'class': 'form-control w-50 d-inline'}})}}
+                    </p>
+                </div>
+            </div>
+
+        <!-- Informations relatives au poste -->
+        <h2 class="mt-4">Informations relatives au poste :</h2>
+            <hr>
+
+            <!-- Service & Date d'embauche -->
+            <div class="row px-3 mt-4">
+                <div class="col">
+                    <p>
+                        <b>{{ form_label(form.service, 'Service : ')}}</b> {{ form_widget(form.service,  {'attr': {'class': 'form-control w-50 d-inline'}})}}
+                    </p>
+                </div>
+
+                <div class="col">
+                    <p>
+                        <b>{{ form_label(form.dateHire, 'Date d\'embauche : ')}}</b> {{ form_widget(form.dateHire,  {'attr': {'class': 'form-control w-50 d-inline'}})}}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Anniversaire & Mail -->
+            <div class="row px-3 mb-4">
+                <div class="col">
+                    <p>
+                        <b>{{ form_label(form.jobTitle, 'Intitulé du poste : ')}}</b> {{ form_widget(form.jobTitle,  {'attr': {'class': 'form-control w-50 d-inline'}})}}
+                    </p>
+                </div>
+
+                <div class="col">
+                    <p>
+                        <b>{{ form_label(form.accessionDate, 'Date d\'accession à ce poste : ')}}</b> {{ form_widget(form.accessionDate,  {'attr': {'class': 'form-control w-50 d-inline'}})}}
+                    </p>
+                </div>
+            </div>
+    
+            <button class="btn">{{ button_label|default('Ajouter') }}</button>
+            
+        {{ form_end(form) }}
+
+    </section>
+</main>

@@ -7,75 +7,91 @@
     <main>
         <section>
 
-            <h1 class="mt-5 mb-4">Consultation de {{ user.firstname }} {{ user.name }} </h1>
-
-            Rôle : {{ user.roles ? user.roles|json_encode : '' }}
+            <h1 class="mt-5 mb-4">Consultation de {{ user.name }} {{ user.firstname }} </h1>
 
             <!-- Informations personnelles -->
             <h2 class="mt-5">Informations personnelles :</h2>
                 <hr>
 
                 <!-- Nom & Prénom -->
-                <div class="row px-3 mb-4 mt-4">
+                <div class="row px-3 mt-4">
                     <div class="col">
-                        <label for="name">Nom :</label>
-                        {{ user.name }}        
+                        <p>
+                            <b>Nom :</b> {{ user.name }}
+                        </p>
                     </div>
 
                     <div class="col">
-                        <label for="firstname">Prénom :</label>
-                        {{ user.firstname }}
+                        <p>
+                            <b>Prénom :</b> {{ user.firstname }}
+                        </p>
                     </div>
                 </div>
 
                 <!-- Anniversaire & Email -->
-                <div class="row px-3 mb-4">
+                <div class="row px-3">
                     <div class="col">
-                        <label for="birthday">Date de naissance :</label>
-                        {{ user.birthday|date("m/d/Y") }}
+                        <p>
+                            <b>Date de naissance :</b> {{ user.birthday|date("m/d/Y") }}
+                        </p>
                     </div>
 
                     <div class="col">
-                        <label for="mail">Email :</label>
-                        {{ user.email }}
+                        <p>
+                            <b>Email :</b> {{ user.email }}
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Rôle -->
+                <div class="row px-3 mb-3">
+                    <div class="col">
+                        <p>
+                            <b>Rôle :</b>
+                            {% if user.roles|first == 'ROLE_RH' %} Administrateur {% endif %}
+                            {% if user.roles|first == 'ROLE_MANAGER' %} Manager {% endif %}
+                            {% if user.roles|first == 'ROLE_CONTRIBUTEUR' %} Contributeur {% endif %}
+                        </p>
                     </div>
                 </div>
 
             <!-- Informations relatives au poste -->
-            <h2 class="mt-5">Informations relatives au poste :</h2>
+            <h2 class="mt-4">Informations relatives au poste :</h2>
                 <hr>
 
                 <!-- Service & Date d'embauche -->
-                <div class="row px-3 mb-4 mt-4">
+                <div class="row px-3 mt-4">
                     <div class="col">
-                        <label for="service">Service :</label>
-                        {{ user.service }}        
+                        <p>
+                            <b>Service :</b> {{ user.service }}
+                        </p>
                     </div>
 
                     <div class="col">
-                        <label for="dateHire">Date d'embauche :</label>
-                        {{ user.dateHire|date("m/d/Y") }}
+                        <p>
+                            <b>Date d'embauche :</b> {{ user.dateHire|date("m/d/Y") }}
+                        </p>
                     </div>
                 </div>
 
                 <!-- Anniversaire & Mail -->
                 <div class="row px-3 mb-4">
                     <div class="col">
-                        <label for="jobTitle">Intitulé du poste :</label>
-                        {{ user.jobTitle }}
+                        <p>
+                            <b>Intitulé du poste :</b> {{ user.jobTitle }}
+                        </p>
                     </div>
 
                     <div class="col">
-                        <label for="accesssionDate">Date d'accession au poste :</label>
-                        {{ user.accessionDate|date("m/d/Y") }}
+                        <p>
+                            <b>Date d'accession au poste :</b> {{ user.accessionDate|date("m/d/Y") }}
+                        </p>
                     </div>
                 </div>
 
-            <div class="pt-3">
                 <a href="{{ path('user_index') }}" class="btn">Annuler</a>
                 <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn">Éditer</a>
                 {{ include('user/_delete_form.html.twig') }}
-            </div>
         
         </section>
     </main>

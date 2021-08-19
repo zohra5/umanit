@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,11 +20,13 @@ class UserType extends AbstractType
             ->add('email', EmailType::class)
             ->add('roles', ChoiceType::class, [
                 'choices' => [
-                    'RH' => 'ROLE_RH',
-                    'MANAGER' => 'ROLE_MANAGER',
-                    'CONTRIBUTEUR' => 'ROLE_CONTRIBUTEUR'
+                    'Administrateur' => 'ROLE_RH',
+                    'Manager' => 'ROLE_MANAGER',
+                    'Contributeur' => 'ROLE_CONTRIBUTEUR',
                 ],
-                'multiple' => 'true'
+                'expanded' => true,
+                'multiple' => true,
+                'required' => true,
             ])
             ->add('password', PasswordType::class,
             [
@@ -31,11 +34,20 @@ class UserType extends AbstractType
             ])
             ->add('name')
             ->add('firstname')
-            ->add('birthday')
+            ->add('birthday', DateType::class, [
+                'html5' => true,
+                'widget' => 'single_text',
+            ])
             ->add('service')
             ->add('jobTitle')
-            ->add('dateHire')
-            ->add('accessionDate')
+            ->add('dateHire', DateType::class, [
+                'html5' => true,
+                'widget' => 'single_text',
+            ])
+            ->add('accessionDate', DateType::class, [
+                'html5' => true,
+                'widget' => 'single_text',
+            ])
         ;
     }
 

@@ -17,6 +17,8 @@
                         <th>Email</th>
                         <th>Nom</th>
                         <th>Prénom</th>
+                        <th>Service</th>
+                        <th>Poste</th>
                         <th>Rôles</th>
                         <th>Edition</th>
                     </tr>
@@ -27,9 +29,15 @@
                     <tr>
                         <td>{{ user.id }}</td>
                         <td>{{ user.email }}</td>
-                        <td>{{ user.firstname }}</td>
                         <td>{{ user.name }}</td>
-                        <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                        <td>{{ user.firstname }}</td>
+                        <td>{{ user.service }}</td>
+                        <td>{{ user.jobTitle }}</td>
+                        <td>
+                            {% if user.roles|first == 'ROLE_RH' %} Administrateur {% endif %}
+                            {% if user.roles|first == 'ROLE_MANAGER' %} Manager {% endif %}
+                            {% if user.roles|first == 'ROLE_CONTRIBUTEUR' %} Contributeur {% endif %}
+                        </td>
                         <td>
                             <a href="{{ path('user_show', {'id': user.id}) }}" class="btn">Consulter</a>
                             <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn">Éditer</a>
