@@ -3,84 +3,369 @@
 {% block title %}Hello FormulaireProgressionController!{% endblock %}
 
 {% block body %}
+{% form_theme form 'formulaire_progression/theme.html.twig' %}
 
-<section>
-            <h1 class="mt-5 mb-5">Entretien de progression</h1>
 
-            {{form_start(form)}}
-                <div>
-                    <label for="dateToday">Date de l'entretien :</label>
-                    {{form_widget(form.dateEntretien)}}
-                </div>
-                <div>
-                    <label for="datePrecedent">Date du précédent entretien :</label>
-                    {{form_widget(form.datePrecedentEntretien)}}
-                </div>
+{{form_start(form)}}
 
-{#
-                <!-- Tableau formulaire-->
-                <table class="table mt-4" style="table-layout : fixed;">
+<main class="container">
+    <section>
+        <h1 class="mt-5 mb-5">Entretien de progression</h1>
 
-                    <thead class="text-center">
-                        <th colspan="2" class="bg-info">Collaborateur</th>
-                        <th colspan="2" class="bg-secondary">Responsable de l'entretien</th>
-                    </thead>
+        <form action="">
+            <div>
+                <label for="dateToday">Date de l'entretien :</label>
+                {{form_widget(form.dateEntretien)}}
+            </div>
+            <div>
+                <label for="datePrecedent">Date du précédent entretien :</label>
+                {{form_widget(form.datePrecedentEntretien)}}
+            </div>
 
-                    <tbody>
-                        <tr>
-                            <td>Nom :</td>
-                            <td><input type="text" id="name" name="collab_name"></td>
-                            <td>Nom :</td>
-                            <td><input type="text" id="name" name="manager_name"></td>
-                        </tr>
-                        <tr>
-                            <td>Prénom :</td>
-                            <td><input type="text" id="surname" name="collab_surname"></td>
-                            <td>Prénom :</td>
-                            <td><input type="text" id="surname" name="manager_surname"></td>
-                        </tr>
-                        <tr>
-                            <td>Date de naissance :</td>
-                            <td><input type="date" id="birthdate" name="birthdate"></td>
-                            <td>Fonction :</td>
-                            <td><input type="text" id="fonction" name="fonction_manager"></td>
-                        </tr>
-                        <tr>
-                            <td>Service :</td>
-                            <td><input type="text" id="service" name="service"></td>
-                            <td>En présence de :</td>
-                        </tr>
-                        <tr>
-                            <td>Intitulé du poste :</td>
-                            <td><input type="text" id="post" name="post_name"></td>
-                            <td>Nom :</td>
-                            <td><input type="text" id="name" name="collab_name"></td>
-                        </tr>
-                        <tr>
-                            <td>Date d'embauche :</td>
-                            <td><input type="date" id="date_hire" name="date_hire"></td>
-                            <td>Prénom :</td>
-                            <td><input type="text" id="surname" name="collab_surname"></td>
-                        </tr>
-                        <tr>
-                            <td>Date d'accession à ce poste :</td>
-                            <td><input type="date" id="date_access_post" name="date_access_post"></td>
-                            <td>Fonction :</td>
-                            <td><input type="text" id="fonction" name="fonction_collab"></td>
-                        </tr>
-                    </tbody>
 
-                </table>
-#}
+            <!-- Tableau formulaire-->
+            <table class="table mt-4" style="table-layout : fixed;">
+
+                <thead class="text-center">
+                    <th colspan="2" class="bg-info">Collaborateur</th>
+                    <th colspan="2" class="bg-secondary">Responsable de l'entretien</th>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Nom :</td>
+                        <td><input type="text" id="name" name="collab_name"></td>
+                        <td>Nom :</td>
+                        <td><input type="text" id="name" name="manager_name"></td>
+                    </tr>
+                    <tr>
+                        <td>Prénom :</td>
+                        <td><input type="text" id="surname" name="collab_surname"></td>
+                        <td>Prénom :</td>
+                        <td><input type="text" id="surname" name="manager_surname"></td>
+                    </tr>
+                    <tr>
+                        <td>Date de naissance :</td>
+                        <td><input type="date" id="birthdate" name="birthdate"></td>
+                        <td>Fonction :</td>
+                        <td><input type="text" id="fonction" name="fonction_manager"></td>
+                    </tr>
+                    <tr>
+                        <td>Service :</td>
+                        <td><input type="text" id="service" name="service"></td>
+                        <td>En présence de :</td>
+                    </tr>
+                    <tr>
+                        <td>Intitulé du poste :</td>
+                        <td><input type="text" id="post" name="post_name"></td>
+                        <td>Nom :</td>
+                        <td><input type="text" id="name" name="collab_name"></td>
+                    </tr>
+                    <tr>
+                        <td>Date d'embauche :</td>
+                        <td><input type="date" id="date_hire" name="date_hire"></td>
+                        <td>Prénom :</td>
+                        <td><input type="text" id="surname" name="collab_surname"></td>
+                    </tr>
+                    <tr>
+                        <td>Date d'accession à ce poste :</td>
+                        <td><input type="date" id="date_access_post" name="date_access_post"></td>
+                        <td>Fonction :</td>
+                        <td><input type="text" id="fonction" name="fonction_collab"></td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+
+            <h2 class="bg-info text-white p-1">Bien-être et QVT (Qualité de Vie au Travail)</h2>
+            <p>Sur une échelle de 1 à 10 (10 étant la note la plus positive)</p>
+            <h3>Comment te sens-tu dans ton travail ?</h3>
+            {{ form_widget(form.ressentiTravail) }}
+
+
+            <h3>Le poste que tu occupes te plaît-il ?</h3>
+            {{ form_widget(form.aimesTuPoste) }}
+
+            <h3>Les relations avec les autres membres de ton équipe sont-elles bonnes ?</h3>
+            {{ form_widget(form.relationsEquipe) }}
+
+            <h3>Les relations avec les autres membres de l'entreprise sont-elles bonnes ?</h3>
+            {{ form_widget(form.relationsEntreprise) }}
+
+            <div class="mb-3 col-6">
+                <label for="comments" class="form-label">Commentaires</label>
+                {{ form_widget(form.commentairesQVT) }}
+            </div>
+
+            <h2 class="bg-info text-white p-1">Bilan de l'année écoulée</h2>
+            <h3>Mission principales du poste :</h3>
+            <div class="mb-3 col-6">
+                <label for="missions" class="form-label"></label>
+                {{ form_widget(form.missionsPrincipales) }}
+            </div>
+
+
+            <h3 class="mb-3 mt-3">Quels sont les activités réalisées et faits marquants ?</h3>
+
+            <table class="activites table table-striped"
+                data-prototype="{{ form_widget(form.activites.vars.prototype)|e('html_attr') }}">
+
+                <thead>
+                    <th>Réalisations (parmi les plus représentatives)</th>
+                    <th>Réussites / Satisfactions rencontrées</th>
+                    <th>Difficultés rencontrées</th>
+                </thead>
+
+                {% for activite in form.activites %}
+                {{ form_widget(activite) }}
+                {% endfor %}
+            </table>
+            <button type="button" class="add_item_link" data-collection-holder-class="activites">Ajouter une
+                activité</button>
+
+
+            <h3 class="mb-3 mt-3">Évaluation des objectifs de l'année écoulée :</h3>
+
+            <table class="evaluationObjectifs table table-striped"
+                data-prototype="{{ form_widget(form.evaluationObjectifs.vars.prototype)|e('html_attr') }}">
+                <thead>
+                    <th>Objectifs</th>
+                    <th>Niveau de réalisation</th>
+                    <th>Moyens(prévus et attribués)</th>
+                    <th>Commentaires (collaborateur)</th>
+                    <th>Commentaires (manager)</th>
+                </thead>
+
+                {% for evaluationObjectif in form.evaluationObjectifs %}
+                {{ form_widget(evaluationObjectif) }}
+                {% endfor %}
+            </table>
+            <p>Évaluation: dépassé / atteint / partiellement atteint / non réalisé</p>
+
+            <button type="button" class="add_item_link" data-collection-holder-class="evaluationObjectifs">Ajouter un
+                objectif</button>
+
+            <h2 class="bg-info text-white p-1">Bilan des compétences attendues pour le poste occupé</h2>
+            <h3>Que réussis-tu le mieux dans ton poste actuel ?</h3>
+            <div class="mb-3 col-6">
+                <label for="postSuccess" class="form-label"></label>
+                {{ form_widget(form.reussitePoste) }}
+            </div>
+
+            <h3>Qu'aimes-tu le plus dans tes fonctions actuelles ?</h3>
+            <div class="mb-3 col-6">
+                <label for="fonctionsLike" class="form-label"></label>
+                {{ form_widget(form.aimesTuFonctions) }}
+            </div>
+
+            <h3>Quels sont tes points d'améliorations ou compétences à acquérir ?</h3>
+            <div class="mb-3 col-6">
+                <label for="improvement" class="form-label"></label>
+                {{ form_widget(form.pointsAmeliorations) }}
+            </div>
+
+            <h3>Bilan des compétences attendues</h3>
+            <p>Se référer à la fiche de poste</p>
+
+            <table class="bilanCompetences table table-striped"
+                data-prototype="{{ form_widget(form.bilanCompetences.vars.prototype)|e('html_attr') }}">
+
+                <thead>
+                    <th>Compétences</th>
+                    <th>Évaluation</th>
+                    <th>Commentaire</th>
+                    <th>Actions à mener</th>
+                </thead>
+
+                {% for bilanCompetence in form.bilanCompetences %}
+                {{ form_widget(bilanCompetence) }}
+                {% endfor %}
+            </table>
+            <button type="button" class="add_item_link" data-collection-holder-class="bilanCompetences">Ajouter une
+                compétence</button>
+
+            <p>Echelle d'évaluation : 0 à 4 (où 4 est la note la plus positive)</p>
+            <p>As-tu des compétences non utilisées susceptibles d'être mises à profit dans ta vie progessionnelle ?</p>
+            <div class="mb-3 col-6">
+                <label for="profitCompetence" class="form-label"></label>
+                {{ form_widget(form.competencesNonUtilisees) }}
+            </div>
+
+            <h2 class="bg-info text-white p-1">Perspectives pour l'année a venir </h2>
+            <h3>Définition des objectifs :</h3><br>
+
+            <table class="objectifDefinition table table-striped"
+                data-prototype="{{ form_widget(form.objectifDefinition.vars.prototype)|e('html_attr') }}">
+
+                <thead>
+                    <th>Objectifs</th>
+                    <th>Indicateur de réalisation</th>
+                    <th>Moyen a mettre en oeuvre </th>
+                    <th>Délais de réalisation</th>
+                </thead>
+
+                {% for objectifDefinitionn in form.objectifDefinition %}
+                {{ form_widget(objectifDefinitionn) }}
+                {% endfor %}
+            </table>
+            <button type="button" class="add_item_link" data-collection-holder-class="objectifDefinition">Ajouter un
+                objectif</button>
+
+            <br>
+            ​ <h2 class="bg-info text-white p-1">Formations</h2>
+            <h3>Formations suivies depuis le dernier entretien :</h3><br>
+
+            <table class="formationsSuivie table table-striped"
+                data-prototype="{{ form_widget(form.formationsSuivie.vars.prototype)|e('html_attr') }}">
+
+
+                <thead>
+                    <th>Intitulé</th>
+                    <th>Durée</th>
+                    <th>Objectif de la formation</th>
+                    <th>A-t-elle repondue a vos attentes</th>
+                    <th>Est-elle mise en pratique ?</th>
+                </thead>
+
+                {% for formationSuivie in form.formationsSuivie %}
+                {{ form_widget(formationSuivie) }}
+                {% endfor %}
+            </table>
+            <button type="button" class="add_item_link" data-collection-holder-class="formationsSuivie">Ajouter une
+                formation </button>
+
+            <table class="formationsSouhaitees table table-striped"
+                data-prototype="{{ form_widget(form.formationsSouhaitees.vars.prototype)|e('html_attr') }}">
+                <thead>
+                    <th>Par le salarié</th>
+                    <th>Objectif a atteindre</th>
+                    <th>Par le manager</th>
+                    <th>Objectif a atteindre</th>
+                </thead>
+
+            </table>
+            <button type="button" class="add_item_link" data-collection-holder-class="formationsSouhaitees">Ajouter une
+                formation </button><br>
+
+            ​<h2 class="bg-info text-white p-1">Condition d'activité et charge de travail</h2>
+            <h3>Quelles sont tes remarques, points d'amélioration ou suggestions d'amélioration liés à tes conditions
+                d'activité ?</h3>
+            <p>(Environement de travail,communication,etc.)</p>
+            <div class="col-12">
+                <label for="remarques" class="form-label"></label>
+                {{ form_widget(form.remarquesActivites) }}
+            </div>
+            ​<h3>Comment évalues-tu ta charge de travail</h3>
+            <p>(Adéquation de la charge de travail avec le nombre de jours travaillés, variabilité de l'activité,
+                dépassement de forfait, atteinte des objectifs,etc.)</p>
+            <div class="col-12">
+                <label for="evaluation_charge" class="form-label"></label>
+                {{ form_widget(form.evalTravail, {'attr': {'class': 'form-control'}})}}
+            </div>
+            ​<h3>Quel est ton ressenti quant à l'articulation de ta vie privée vie professionnelle</h3>
+            <p>(Conciliation vie professionnelle et vie personnelle, déconnexion, déplacements, etc.)</p>
+            <div class="col-12">
+                <label for="ressenti_articulation" class="form-label"></label>
+                {{ form_widget(form.vieProPerso, {'attr': {'class': 'form-control'}})}}
+            </div><br>
+
+            <h2 class="bg-info text-white p-1">Synthèse</h2>
+            <h3 class="bg-info text-white p-1">Commentaires du collaborateur</h3>
+            <p>(Points fort de l'entretien, réponses et propositions aux commentaires du manager)</p>
+            <div class="col-12">
+                <label for="commentaires_collaborateur" class="form-label"></label>
+                <textarea class="form-control" id="commentaires_collaborateur" rows="3     "></textarea>
+            </div><br>
+            <h3 class="bg-secondary text-white p-1">Commentaires du manager</h3>
+            <p>(Points forts de l'entretien, éléments de motivation et de satisfaction du collaborateur, demandes en
+                termes d'évolution professionnelle,etc.)</p>
+            <div class="mb-3 col-6">
+                <label for="commentaires_manager" class="form-label"></label>
+                <textarea class="form-control" id="commentaires_manager" rows="3     "></textarea>
+            </div><br>
+            <h2 class="bg-info text-white p-1">Signature</h2><br>
+            <table class="table table-striped">
+                <thead>
+                    <th class="bg-info">Nom et signature du collaborateur</th>
+                    <th class="bg-secondary">Nom et signature du manager</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="file" id="signature_collaborateur" name="avatar"
+                                accept="image/png, image/jpeg"></td>
+                        <td><input type="file" id="signature_manager" name="avatar" accept="image/png, image/jpeg"></td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <p class="border p-1">Ce document vise a constater la tenue de l'entretien et ne vaut pas engagement de
+                rréalisation des perspectives et souhaits évoqués.</p>
+            {% for formationSouhaitee in form.formationsSouhaitees %}
+            {{ form_widget(formationSouhaitee) }}
+            {% endfor %}
             <input type="submit" />
             {{ form_widget(form._token) }}
             {{form_end(form, {'render_rest': false})}}
-</section>
+        </form>
+    </section>
+</main> 
+            {% if data is not null %}
+            {{dump(data)}}
+            {{dump(data.activites)}}
+            {% else  %}
+            pas de data
+            {% endif %}
 
-{% if data is not null %}
-        {{dump(data)}}
-    {% else  %}
-        pas de data
-{% endif %}
+            {% endblock %}
+            {% block javascripts %}
+            {{ parent() }}
+<script>
+    jQuery(document).ready(function () {
 
+        // Get the ul that holds the collection of tags
+        var $CollectionHolder = $('table');
+
+        // count the current form inputs we have (e.g. 2), use that as the new
+        // index when inserting a new item (e.g. 2)
+
+        $CollectionHolder.data('index', $CollectionHolder.find('')
+            .length);
+
+
+        $('body').on('click', '.add_item_link', function (e) {
+            var $collectionHolderClass = $(e.currentTarget).data(
+                'collectionHolderClass');
+            // add a new tag form (see next code block)
+            addFormToCollection($collectionHolderClass);
+        })
+    });
+
+    function addFormToCollection($collectionHolderClass) {
+        // Get the ul that holds the collection of tags
+        var $collectionHolder = $('.' + $collectionHolderClass);
+
+        // Get the data-prototype explained earlier
+        var prototype = $collectionHolder.data('prototype');
+
+        // get the new index
+        var index = $collectionHolder.data('index');
+
+        var newForm = prototype;
+        // You need this only if you didn't set 'label' => false in your tags field in TaskType
+        // Replace '__name__label__' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        // newForm = newForm.replace(/__name__label__/g, index);
+
+        // Replace '__name__' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        newForm = newForm.replace(/__name__/g, index);
+
+        // increase the index with one for the next item
+        $collectionHolder.data('index', index + 1);
+
+        // Add the new form at the end of the list
+        $collectionHolder.append(newForm)
+    }
+</script>
 {% endblock %}
