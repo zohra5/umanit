@@ -16,6 +16,10 @@
     padding: 0;
 }
 
+p {
+    color: #052854;
+}
+
 /******************************************************************
                             HEADER
 ******************************************************************/
@@ -221,7 +225,14 @@ main section table tbody tr:nth-child(odd){
     background-color:#edf2ff;
 }
 
-main table thead, main table tbody {
+main table thead {
+        font-size: 1em;
+        color: white;
+        background-color: #052854;
+        border: #052854;
+}
+
+main table tbody {
     color: #052854;
 }
 
