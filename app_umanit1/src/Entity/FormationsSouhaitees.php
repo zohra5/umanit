@@ -92,21 +92,29 @@ class FormationsSouhaitees
         return $this;
     }
 
-    public function getFormulaireProgression(): ?FormulaireProgression
-    {
-        return $this->formulaireProgression;
-    }
-
-    public function setFormulaireProgression(?FormulaireProgression $formulaireProgression): self
-    {
-        $this->formulaireProgression = $formulaireProgression;
-
-        return $this;
-    }
     /**
      * @ORM\ManyToOne(targetEntity="FormulaireProgression", inversedBy="formationsSouhaitees")
      */
     private $formulaireProgression;
 
+    /**
+     * Get the value of formulaireProgression
+     */ 
+    public function getFormulaireProgression()
+    {
+        return $this->formulaireProgression;
+    }
+
+    /**
+     * Set the value of formulaireProgression
+     *
+     * @return  self
+     */ 
+    public function setFormulaireProgression($formulaireProgression)
+    {
+        $this->formulaireProgression = $formulaireProgression;
+
+        return $this;
+    }
     
 }

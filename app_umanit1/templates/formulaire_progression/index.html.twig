@@ -233,7 +233,7 @@
             </table>
             <button type="button" class="add_item_link" data-collection-holder-class="formationsSuivie">Ajouter une
                 formation </button>
-
+            <h3 class="mt-4">Formations souhaitées pour cette nouvelle année :</h3><br>
             <table class="formationsSouhaitees table table-striped"
                 data-prototype="{{ form_widget(form.formationsSouhaitees.vars.prototype)|e('html_attr') }}">
                 <thead>
@@ -242,7 +242,10 @@
                     <th>Par le manager</th>
                     <th>Objectif a atteindre</th>
                 </thead>
-
+                
+            {% for formationSouhaitee in form.formationsSouhaitees %}
+            {{ form_widget(formationSouhaitee) }}
+            {% endfor %}
             </table>
             <button type="button" class="add_item_link" data-collection-holder-class="formationsSouhaitees">Ajouter une
                 formation </button><br>
@@ -299,10 +302,8 @@
                 </tbody>
             </table>
             <p class="border p-1">Ce document vise a constater la tenue de l'entretien et ne vaut pas engagement de
-                rréalisation des perspectives et souhaits évoqués.</p>
-            {% for formationSouhaitee in form.formationsSouhaitees %}
-            {{ form_widget(formationSouhaitee) }}
-            {% endfor %}
+                réalisation des perspectives et souhaits évoqués.</p>
+            
             <input type="submit" />
             {{ form_widget(form._token) }}
             {{form_end(form, {'render_rest': false})}}
