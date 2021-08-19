@@ -108,6 +108,13 @@ class FormationsSuivie
         return $this;
     }
 
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="FormulaireProgression", inversedBy="formationsSuivie")
+     */
+    private $formulaireProgression;
+    
     public function getFormulaireProgression(): ?FormulaireProgression
     {
         return $this->formulaireProgression;
@@ -119,9 +126,4 @@ class FormationsSuivie
 
         return $this;
     }
-
-    /**
-     * @ORM\ManyToOne(targetEntity="FormulaireProgression", inversedBy="formationsSuivie")
-     */
-    private $formulaireProgression;
 }

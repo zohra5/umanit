@@ -115,4 +115,5 @@ class BilanCompetences
 
         return $this;
     }
+    
 }

@@ -422,6 +422,20 @@ class FormulaireProgression
 
         return $this;
     }
+
+    public function addFormationsSuivie(FormationsSuivie $formationsSuivie): void
+    {
+        $formationsSuivie->setFormulaireProgression($this);
+        $this->formationsSuivie->add($formationsSuivie);
+    }
+    public function removeFormationsSuivie(FormationsSuivie $formationsSuivie): void
+    {
+        $this->formationsSuivie->removeElement($formationsSuivie);
+    }
+
+
+
+
     /**
      * @ORM\OneToMany(targetEntity="FormationsSouhaitees", mappedBy="formulaireProgression", cascade={"persist"})
      */
@@ -438,6 +452,18 @@ class FormulaireProgression
 
         return $this;
     }
+
+    public function addFormationSouhaitee(FormationsSouhaitees $formationSouhaitee): void
+    {
+        $formationSouhaitee->setFormulaireProgression($this);
+        $this->formationsSouhaitees->add($formationSouhaitee);
+    }
+    public function removeFormationSouhaitee(FormationsSouhaitees $formationSouhaitee): void
+    {
+        $this->formationsSouhaitees->removeElement($formationSouhaitee);
+    }
+
+
        /**
      * @ORM\OneToMany(targetEntity="ObjectifDefinition", mappedBy="formulaireProgression", cascade={"persist"})
      */
@@ -453,6 +479,17 @@ class FormulaireProgression
         $this->objectifDefinition = $objectifDefinition;
 
         return $this;
+    }
+
+
+    public function addObjectifDefinition(ObjectifDefinition $objectifDefinition): void
+    {
+        $objectifDefinition->setFormulaireProgression($this);
+        $this->objectifDefinition->add($objectifDefinition);
+    }
+    public function removeObjectifDefinition(ObjectifDefinition $objectifDefinition): void
+    {
+        $this->objectifDefinition->removeElement($objectifDefinition);
     }
         /**
      * @ORM\OneToMany(targetEntity="BilanCompetences", mappedBy="formulaireProgression", cascade={"persist"})
@@ -479,4 +516,5 @@ class FormulaireProgression
     {
         $this->bilanCompetences->removeElement($bilanCompetence);
     }
+    
 }
