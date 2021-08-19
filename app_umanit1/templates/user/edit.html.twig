@@ -1,18 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}UmanIT - Edition de l'utilisateur{% endblock %}
+{% block title %}Edit User{% endblock %}
 
 {% block body %}
-    <main>
-        <section>
+    <h1>Edit User</h1>
 
-        <h1 class="mt-5 mb-4">Edition de l'utilisateur</h1>
-        
-            {{ include('user/_form.html.twig', {'button_label': 'Update'}) }} 
-            <a href="{{ path('user_index') }}" class="btn">Annuler</a>
-            {{ include('user/_delete_form.html.twig') }}
+    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
 
-        </section>
-    </main>
+    <a href="{{ path('user_index') }}">back to list</a>
 
+    {{ include('user/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,18 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}UmanIT - Ajout d'un utilisateur{% endblock %}
+{% block title %}New User{% endblock %}
 
 {% block body %}
+    <h1>Create new User</h1>
 
-    <main>
-        <section>
+    {{ include('user/_form.html.twig') }}
 
-    <h1 class="mt-5 mb-4">Ajout d'un utilisateur</h1>
-
-        {{ include('user/_form.html.twig') }}
-        <a href="{{ path('user_index') }}" class="btn">Annuler</a>
-
-        </section>
-    </main>
-    
+    <a href="{{ path('user_index') }}">back to list</a>
 {% endblock %}

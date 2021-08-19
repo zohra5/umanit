@@ -87,7 +87,6 @@
         <section>
             <h1 class="mt-5 mb-5">Formulaire Professionnel</h1>
 
-            <!-- En-tête Entretien -->
             <form action="">
                 <p>Date de l'entretien : JJ/MM/AAAA</p>
                 <p>
@@ -101,12 +100,12 @@
 
                     <input type="radio" id="autre" name="drone" value="autre">
                     <label for="autre">Autre :</label>
-                    <input class="form" type="text">
+                    <input type="text">
                 </p>
                 <p>Date du précédent entretien professionnel : JJ/MM/AAAA</p>
 
-                <!-- Tableau Collaborateur/Responsable -->
-                <table class="table mt-4">
+                <!-- Tableau formulaire-->
+                <table class="table mt-4" style="table-layout : fixed;">
 
                     <thead class="text-center">
                         <th colspan="2">Collaborateur</th>
@@ -116,38 +115,38 @@
                     <tbody>
                         <tr>
                             <td>Nom :</td>
-                            <td><input type="text" id="user_name" name="user_name"></td>
+                            <td><input type="text" id="name" name="user_name"></td>
                             <td>Nom :</td>
-                            <td><input type="text" id="responsable_name" name="responsable_name"></td>
+                            <td><input type="text" id="name" name="user_name"></td>
                         </tr>
                         <tr>
                             <td>Prénom :</td>
-                            <td><input type="text" id="user_firstname" name="user_firstname"></td>
+                            <td><input type="text" id="name" name="user_name"></td>
                             <td>Prénom :</td>
-                            <td><input type="text" id="responsable_firstname" name="responsable_firstname"></td>
+                            <td><input type="text" id="name" name="user_name"></td>
                         </tr>
                         <tr>
                             <td>Date de naissance :</td>
-                            <td><input type="text" id="user_birthday" name="user_birthday"></td>
+                            <td><input type="text" id="name" name="user_name"></td>
                             <td>Fonction :</td>
-                            <td><input type="text" id="responsable_fonction" name="responsable_fonction"></td>
+                            <td><input type="text" id="name" name="user_name"></td>
                         </tr>
                         <tr>
                             <td>Service :</td>
-                            <td><input type="text" id="user_service" name="user_service"></td>
-                            <td class="text-start" colspan="2">En présence de :</td>
+                            <td><input type="text" id="name" name="user_name"></td>
+                            <td colspan="2">En présence de :</td>
                         </tr>
                         <tr>
                             <td>Intitulé du poste :</td>
-                            <td><input type="text" id="user_jobTitle" name="user_jobTitle"></td>
+                            <td><input type="text" id="name" name="user_name"></td>
                             <td>Nom :</td>
-                            <td><input type="text" id="responsable2_name" name="responsable2_name"></td>
+                            <td><input type="text" id="name" name="user_name"></td>
                         </tr>
                         <tr>
                             <td>Date d'embauche :</td>
                             <td><input type="text" id="name" name="user_name"></td>
                             <td>Prénom :</td>
-                            <td><input type="text" id="responsable2_firstname" name="responsable2_firstname"></td>
+                            <td><input type="text" id="name" name="user_name"></td>
                         </tr>
                         <tr>
                             <td>Date d'accession à ce poste :</td>
@@ -158,162 +157,9 @@
                     </tbody>
 
                 </table>
-
-                <!-- <div class="text-center mt-5">
+                <div class="text-center mt-5">
                     <button type="submit">Remplir le formulaire</button>
-                </div> -->
-
-                <!-- Parcours de Formation (Initial et Continue) -->
-                
-                <table class="table mt-4">
-                    <thead>
-                        <th class="text-center">
-                            PARCOURS DE FORMATION (initiale et continue)
-                        </th>
-                    </thead>
-
-                    <tbody>
-                        <td>
-                            <textarea class="form-control" id="parcoursFormation" rows="5"></textarea>
-                        </td>
-                    </tbody>
-                </table>    
-                
-                <!-- Grandes étapes du Parcours Professionnel -->
-                
-                <table class="table mt-4">
-                    <thead>
-                        <th class="text-center" colspan="4">
-                            GRANDES ÉTAPES DU PARCOURS PROFESSIONNEL
-                        </th>
-                    </thead>
-
-                    <tbody>
-                        <tr class="text-center">
-                            <td>
-                                <label for="intitulePoste">Intitulé du poste</label>
-                            </td>
-                            <td>
-                                <label for="activiteExercee">Activités exercées</label>
-                            </td>
-                            <td>
-                                <label for="dateDebut">Date de début</label>
-                            </td>
-                            <td class="text-center">
-                                <label for="dateFin">Date de fin</label>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <input type="text" class="form-control" id="intitulePoste">
-                            </td>
-                            <td>
-                                <input type="text" class="form-control" id="activiteExercee">
-                            </td>
-                            <td>
-                                <input type="date" class="form-control" id="dateDebut">
-                            </td>
-                            <td>
-                                <input type="date" class="form-control" id="dateFin">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <input type="text" class="form-control" id="intitulePoste">
-                            </td>
-                            <td>
-                                <input type="text" class="form-control" id="activiteExercee">
-                            </td>
-                            <td>
-                                <input type="date" class="form-control" id="dateDebut">
-                            </td>
-                            <td>
-                                <input type="date" class="form-control" id="dateFin">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <!-- Situation Professionnel Actuelle -->
-
-                <table class="table mt-4">
-                    <thead>
-                        <th class="text-center" colspan="2">
-                            SITUATION PROFESSIONNELLE ACTUELLE
-                        </th>
-                    </thead>
-
-                    <tbody>
-                        <tr class="text-center">
-                            <td>
-                                <label for="missionActivitesExercees">Missions et activités exercées</label>
-                            </td>
-                            <td class="text-center">
-                                <label for="commentaireSalarie">Commentaire du salarié</label>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <input type="text" class="form-control" id="missionActivitesExercees">
-                            </td>
-                            <td>
-                                <input type="text" class="form-control" id="commentaireSalarie">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <input type="text" class="form-control" id="missionActivitesExercees">
-                            </td>
-                            <td>
-                                <input type="text" class="form-control" id="commentaireSalarie">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <input type="text" class="form-control" id="missionActivitesExercees">
-                            </td>
-                            <td>
-                                <input type="text" class="form-control" id="commentaireSalarie">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <input type="text" class="form-control" id="missionActivitesExercees">
-                            </td>
-                            <td>
-                                <input type="text" class="form-control" id="commentaireSalarie">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <!-- Bilan de l'Année Écoulée -->
-
-                <table class="table mt-4">
-                    <thead>
-                        <th class="text-center">
-                            BILAN DE L'ANNÉE ÉCOULÉE
-                        </th>
-                    </thead>
-                        
-                        <tbody>
-                            <td>
-                                <tr>
-                                    <label for="pointsFortsUser">Points forts des réalisations du collaborateur de l'année écoulée</label>
-                                    <textarea class="form-control" id="parcoursFormation" rows="5"></textarea>
-                                    
-                                </tr>
-                                
-                            </td>
-                        </tbody>
-                </table>
-
+                </div>
             </form>
         </section>
     </main>
