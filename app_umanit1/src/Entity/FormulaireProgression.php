@@ -371,6 +371,15 @@ class FormulaireProgression
 
         return $this;
     }
+    public function addActivite(Activites $activite): void
+    {
+        $activite->setFormulaireProgression($this);
+        $this->activites->add($activite);
+    }
+    public function removeActivite(Activites $activite): void
+    {
+        $this->activites->removeElement($activite);
+    }
 
     /**
      * @ORM\OneToMany(targetEntity="EvaluationObjectifs", mappedBy="formulaireProgression", cascade={"persist"})
@@ -386,6 +395,16 @@ class FormulaireProgression
         $this->evaluationObjectifs = $evaluationObjectifs;
 
         return $this;
+    }
+
+    public function addEvaluationObjectif(EvaluationObjectifs $evaluationObjectif): void
+    {
+        $evaluationObjectif->setFormulaireProgression($this);
+        $this->evaluationObjectifs->add($evaluationObjectif);
+    }
+    public function removeEvaluationObjectif(EvaluationObjectifs $evaluationObjectif): void
+    {
+        $this->evaluationObjectifs->removeElement($evaluationObjectif);
     }
 
     /**
@@ -449,5 +468,15 @@ class FormulaireProgression
         $this->bilanCompetences = $bilanCompetences;
 
         return $this;
+    }
+
+    public function addBilanCompetence(BilanCompetences $bilanCompetence): void
+    {
+        $bilanCompetence->setFormulaireProgression($this);
+        $this->bilanCompetences->add($bilanCompetence);
+    }
+    public function removeBilanCompetence(BilanCompetences $bilanCompetence): void
+    {
+        $this->bilanCompetences->removeElement($bilanCompetence);
     }
 }

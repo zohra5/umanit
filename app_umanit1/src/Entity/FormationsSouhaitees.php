@@ -107,4 +107,6 @@ class FormationsSouhaitees
      * @ORM\ManyToOne(targetEntity="FormulaireProgression", inversedBy="formationsSouhaitees")
      */
     private $formulaireProgression;
+
+    
 }

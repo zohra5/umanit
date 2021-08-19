@@ -95,4 +95,24 @@ class BilanCompetences
      */
 
     private $formulaireProgression;
+
+    /**
+     * Get the value of formulaireProgression
+     */ 
+    public function getFormulaireProgression()
+    {
+        return $this->formulaireProgression;
+    }
+
+    /**
+     * Set the value of formulaireProgression
+     *
+     * @return  self
+     */ 
+    public function setFormulaireProgression($formulaireProgression)
+    {
+        $this->formulaireProgression = $formulaireProgression;
+
+        return $this;
+    }
 }

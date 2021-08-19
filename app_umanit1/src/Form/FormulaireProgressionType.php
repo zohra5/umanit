@@ -103,12 +103,14 @@ class FormulaireProgressionType extends AbstractType
                 'entry_options' => ['label' => false],
                 'allow_add' => true,
                 'allow_delete' => true,
+                'by_reference' => false,
             ])
             ->add('evaluationObjectifs', CollectionType::class, [
                 'entry_type' => EvaluationObjectifsType::class,
                 'entry_options' => ['label' => false],
                 'allow_add' => true,
                 'allow_delete' => true,
+                'by_reference' => false,
             ])
             ->add('reussitePoste', TextareaType::class)
             ->add('aimesTuFonctions', TextareaType::class)
@@ -118,6 +120,7 @@ class FormulaireProgressionType extends AbstractType
                 'entry_options' => ['label' => false],
                 'allow_add' => true,
                 'allow_delete' => true,
+                'by_reference' => false,
             ])
             ->add('competencesNonUtilisees', TextareaType::class)
             ->add('objectifDefinition', CollectionType::class, [
