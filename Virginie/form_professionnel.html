@@ -134,7 +134,7 @@
                         <tr>
                             <td>Service :</td>
                             <td><input type="text" id="name" name="user_name"></td>
-                            <td colspan="2">En présence de :</td>
+                            <td colspan="2" class="text-start">En présence de :</td>
                         </tr>
                         <tr>
                             <td>Intitulé du poste :</td>
@@ -332,13 +332,13 @@
 
                     <div class="col-7">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="oui" value="option1">
-                            <label class="form-check-label" for="oui">Oui</label>
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ouiFormation" value="option1">
+                            <label class="form-check-label" for="ouiFormation">Oui</label>
                         </div>
 
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="non" value="option2">
-                            <label class="form-check-label" for="non">Non</label>
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="nonFormation" value="option2">
+                            <label class="form-check-label" for="nonFormation">Non</label>
                         </div>
                     </div>
                 </div>
@@ -393,27 +393,29 @@
 
                     <div class="col-7">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="oui" value="option1">
-                            <label class="form-check-label" for="oui">Oui</label>
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ouiAction" value="option1">
+                            <label class="form-check-label" for="ouiAction">Oui</label>
                         </div>
 
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="non" value="option2">
-                            <label class="form-check-label" for="non">Non</label>
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="nonAction" value="option2">
+                            <label class="form-check-label" for="nonAction">Non</label>
                         </div>
                     </div>
                 </div>
 
                 <table class="table">
                     <thead class="text-center">
-                        <th>
+                        <th width="40%">
                             <label for="actionType">Type d'action (Bilan de compétences, CEP, CIF, VAE, autre...)</label>
                         </th>
-                        <th width="15%"><label for="actionDateDebut">Date de début</label></th>
-                        <th width="15%">
-                            <label for="actionDateFin">Date de fin</label>
+                        <th>
+                            <label for="actionDateDebut">Date de début</label>
                         </th>
                         <th>
+                            <label for="actionDateFin">Date de fin</label>
+                        </th>
+                        <th width="40%">
                             <label for="actionCommentaire">Commentaires</label>
                         </th>
                     </thead>
@@ -421,36 +423,537 @@
                     <tbody>
                         <tr>
                             <td>
-                                <input type="text" class="form-control" id="intituleFormation">
+                                <input type="text" class="form-control" id="actionType">
                             </td>
                             <td>
-                                <input type="date" class="form-control" id="formationDateDebut">
+                                <input type="date" class="form-control" id="actionDateDebut">
                             </td>
                             <td>
-                                <input type="date" class="form-control" id="formationDateFin">
+                                <input type="date" class="form-control" id="actionDateFin">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="actionCommentaire">
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" class="form-control" id="intituleFormation">
+                                <input type="text" class="form-control" id="actionType">
                             </td>
-                            <td>                                <input type="date" class="form-control" id="formationDateDebut"></td>
-                            <td>                                <input type="date" class="form-control" id="formationDateFin"></td>
+                            <td>
+                                <input type="date" class="form-control" id="actionDateDebut">
+                            </td>
+                            <td>
+                                <input type="date" class="form-control" id="actionDateFin">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="actionCommentaire">
+                            </td>
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" class="form-control" id="intituleFormation">
+                                <input type="text" class="form-control" id="actionType">
                             </td>
-                            <td>                                <input type="date" class="form-control" id="formationDateDebut"></td>
-                            <td>                                <input type="date" class="form-control" id="formationDateFin"></td>
+                            <td>
+                                <input type="date" class="form-control" id="actionDateDebut">
+                            </td>
+                            <td>
+                                <input type="date" class="form-control" id="actionDateFin">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="actionCommentaire">
+                            </td>
                         </tr>
                     </tbody>
                 </table>
 
+                <label for="actionCommentaire">Commentaires :</label>
+                <input type="text" class="form-control"id="actionCommentaire">
+
                 <!-- Élément de certification -->
 
+                <div class="row mx-0 mt-5">
+                    <p class="col-9">Avez-vous obtenu un élément de certification ? (diplôme, titre professionnel...)</p>
 
+                    <div class="col-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ouiCertif" value="option1">
+                            <label class="form-check-label" for="ouiCertif">Oui</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="nonCertif" value="option2">
+                            <label class="form-check-label" for="nonCertif">Non</label>
+                        </div>
+                    </div>
                 </div>
+
+                <table class="table">
+                    <thead class="text-center">
+                        <th>
+                            <label for="elementCertif">Élément de certification</label>
+                        </th>
+                        <th>
+                            <label for="intituleCertif">Intitulé</label>
+                        </th>
+                        <th width="10%">
+                            <label for="niveauCertif">Niveau</label>
+                        </th>
+                        <th>
+                            <label for="dateCertif">Date d'obtention</label>
+                        </th>
+                        <th>
+                            <label for="dispositifCertif">Dispositif mobilisé (formation ou VAE ?)</label>
+                        </th>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" id="elementCertif">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="intituleCertif">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="niveauCertif">
+                            </td>
+                            <td>
+                                <input type="date" class="form-control" id="dateCertif">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="dispositifCertif">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" id="elementCertif">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="intituleCertif">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="niveauCertif">
+                            </td>
+                            <td>
+                                <input type="date" class="form-control" id="dateCertif">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="dispositifCertif">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" id="elementCertif">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="intituleCertif">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="niveauCertif">
+                            </td>
+                            <td>
+                                <input type="date" class="form-control" id="dateCertif">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="dispositifCertif">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <label for="certifCommentaire">Commentaires :</label>
+                <input type="text" class="form-control"id="certifCommentaire">
+
+                <!-- Question sur la progression -->
+
+                <div class="row mx-0 mt-5">
+                    <p class="col-6">Avez-vous bénéficié d'un progression salariale ?</p>
+
+                    <div class="col-6">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ouiSalariale" value="option1">
+                            <label class="form-check-label" for="ouiSalariale">Oui</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="nonSalariale" value="option2">
+                            <label class="form-check-label" for="nonSalariale">Non</label>
+                        </div>
+                    </div>
+
+                    <label for="salarialeCommentaire">Commentaires :</label>
+                    <input type="text" class="form-control"id="salarialeCommentaire">
+                </div>
+
+                <div class="row mx-0 mt-5">
+                    <p class="col-7">Avez-vous bénéficié d'une progression professionnelle ?</p>
+
+                    <div class="col-5">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ouiProfessionnel" value="option1">
+                            <label class="form-check-label" for="ouiProfessionnel">Oui</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="nonProfessionnel" value="option2">
+                            <label class="form-check-label" for="nonProfessionnel">Non</label>
+                        </div>
+                    </div>
+
+                    <label for="professionnelCommentaire">Commentaires :</label>
+                    <input type="text" class="form-control"id="professionnelCommentaire">
+                </div>
+
+            <!-- Besoin de formation -->
+
+            <table class="table mt-5">
+                <thead class="text-center">
+                    <th colspan="4">
+                        Besoins en formation / certifications (pour les 2 années à venir)
+                    </th>
+                </thead>
+
+                <tbody>
+                    <tr class="text-center">
+                        <td>
+                            <label for="objectifVise">Objectif visé</label>
+                        </td>
+                        <td>
+                            <label for="intituleSouhaitee">Intitulé de la formation ou certification souhaitée</label>
+                        </td>
+                        <td>
+                            <label for="avisResponsable">Avis du responsable</label>
+                        </td>
+                        <td class="text-center">
+                            <label for="delaiReal">Délai de réalisation</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" id="objectifVise">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="intituleSouhaitee">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="avisResponsable">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="delaiReal">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" id="objectifVise">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="intituleSouhaitee">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="avisResponsable">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="delaiReal">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Perspectives professionnelles -->
+
+            <h2 class="mt-5">Perspectives professionnelles</h2>
+
+            <table class="table mt-3">
+                <thead class="text-center">
+                    <th width="50%">
+                        Souhaits du collaborateur
+                    </th>
+                    <th>
+                        Proposition / avis du responsable
+                    </th>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="text-center">
+                            À court terme
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea class="form-control" id="collabCourt" rows="4"></textarea>
+                        </td>
+                        <td>
+                            <textarea class="form-control" id="responCourt" rows="4"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="text-center">
+                            À long terme
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea class="form-control" id="collabLong" rows="4"></textarea>
+                        </td>
+                        <td>
+                            <textarea class="form-control" id="responLong" rows="4"></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Synthèse -->
+
+            <h2 class="mt-5">Synthèse</h2>
+
+            <table class="table mt-3">
+                <thead class="text-center">
+                    <th width="50%">
+                        Commentaires du collaborateur
+                    </th>
+                    <th>
+                        Commentaires du responsable
+                    </th>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <textarea class="form-control" id="collabComment" rows="4"></textarea>
+                        </td>
+                        <td>
+                            <textarea class="form-control" id="responComment" rows="4"></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- État des lieux récapitulatif -->
+
+            <h2 class="mt-5">État des lieux récapitulatif</h2>
+
+            <div class="row mx-0 mt-3">
+                <p class="col-9">Durant les 6 dernières années, avez-vous bénéficié d'au moins 3 entretiens professionnels (incluant celui-ci) ?</p>
+
+                <div class="col-3">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ouiRecap" value="option1">
+                        <label class="form-check-label" for="ouiRecap">Oui</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="nonRecap" value="option2">
+                        <label class="form-check-label" for="nonRecap">Non</label>
+                    </div>
+                </div>
+
+                <label for="entretien1">Date de l'entretien 1 :</label>
+                <input class="form-control" type="date" id="entretien1">
+
+                <label for="entretien2">Date de l'entretien 2 :</label>
+                <input class="form-control" type="date" id="entretien2">
+
+                <label for="entretien3">Date de l'entretien 3 :</label>
+                <input class="form-control" type="date" id="entretien3">
+            </div>
+
+            <!-- Question 1 -->
+
+            <div class="row mx-0 mt-5">
+                <p class="col-9">Durant les 6 dernières années, avez-vous suivi au moins une formation ?</p>
+
+                <div class="col-3">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ouiCertif" value="option1">
+                        <label class="form-check-label" for="ouiCertif">Oui</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="nonCertif" value="option2">
+                        <label class="form-check-label" for="nonCertif">Non</label>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table">
+                <thead class="text-center">
+                    <th>
+                        <label for="formIntitule">Intitulé de la formation</label>
+                    </th>
+                    <th>
+                        <label for="formObligatoire">Obligatoire (Oui/Non)</label>
+                    </th>
+                    <th>
+                        <label for="formDateDebut">Date de début</label>
+                    </th>
+                    <th>
+                        <label for="formDateFin">Date de fin</label>
+                    </th>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" id="formIntitule">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="formObligatoire">
+                        </td>
+                        <td>
+                            <input type="date" class="form-control" id="formDateDebut">
+                        </td>
+                        <td>
+                            <input type="date" class="form-control" id="dateCertif">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" id="formIntitule">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="formObligatoire">
+                        </td>
+                        <td>
+                            <input type="date" class="form-control" id="formDateDebut">
+                        </td>
+                        <td>
+                            <input type="date" class="form-control" id="dateCertif">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Question 2 -->
+
+            <div class="row mx-0 mt-5">
+                <p class="col-10">Durant les 6 dernières années, avez-vous acquis un des éléments de certification professionnelle (diplôme, titre professionnel...) par la formation ou par une validation des acquis de l'expérience (VAE) ?</p>
+
+                <div class="col-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ouiDiplome" value="option1">
+                        <label class="form-check-label" for="ouiDiplome">Oui</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="nonDiplome" value="option2">
+                        <label class="form-check-label" for="nonDiplome">Non</label>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table">
+                <thead class="text-center">
+                    <th>
+                        <label for="formIntitule">Intitulé de la formation</label>
+                    </th>
+                    <th>
+                        <label for="formObligatoire">Obligatoire (Oui/Non)</label>
+                    </th>
+                    <th>
+                        <label for="formDateDebut">Date de début</label>
+                    </th>
+                    <th>
+                        <label for="formDateFin">Date de fin</label>
+                    </th>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" id="formIntitule">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="formObligatoire">
+                        </td>
+                        <td>
+                            <input type="date" class="form-control" id="formDateDebut">
+                        </td>
+                        <td>
+                            <input type="date" class="form-control" id="dateCertif">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" id="formIntitule">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="formObligatoire">
+                        </td>
+                        <td>
+                            <input type="date" class="form-control" id="formDateDebut">
+                        </td>
+                        <td>
+                            <input type="date" class="form-control" id="dateCertif">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Question 3 -->
+
+            <div class="row mx-0 mt-5">
+                <p class="col-10">Durant les 6 dernières années, avez-vous bénéficié d'une progression salariale ou professionnelle ?</p>
+
+                <div class="col-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ouiProg" value="option1">
+                        <label class="form-check-label" for="ouiProg">Oui</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="nonProg" value="option2">
+                        <label class="form-check-label" for="nonProg">Non</label>
+                    </div>
+                </div>
+
+                <label for="augmentation1">Date de l'augmentation 1 :</label>
+                <input class="form-control" type="date" id="augmentation1">
+                <label for="pourcentage1">Pourcentage d'augmentation :</label>
+                <input class="form-control" type="text" id="pourcentage1">
+
+
+                <label for="augmentation2">Date de l'augmentation 2 :</label>
+                <input class="form-control" type="date" id="augmentation2">
+                <label for="pourcentage2">Pourcentage d'augmentation :</label>
+                <input class="form-control" type="text" id="pourcentage2">
+
+                <label for="augmentation3">Date de l'augmentation 3 :</label>
+                <input class="form-control" type="date" id="augmentation3">
+                <label for="pourcentage3">Pourcentage d'augmentation :</label>
+                <input class="form-control" type="text" id="pourcentage3">
+
+            </div>
+            
+            <!-- Signature -->
+
+            <h2 class="mt-5">Signature</h2>
+
+            <table class="table mt-3">
+                <thead class="text-center">
+                    <th width="50%">
+                        Nom et signature du collaborateur
+                    </th>
+                    <th>
+                        Nom et signature du responsable
+                    </th>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            <textarea class="form-control" id="responComment" rows="4"></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Ce document vise à constater la tenue de l'entretien et ne vaut pas engagement de réalisation des perspectives et souhaits évoqués.</p>
+
+            
+
 
             </form>
         </section>

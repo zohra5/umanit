@@ -243,10 +243,10 @@
                     <th>Par le manager</th>
                     <th>Objectif a atteindre</th>
                 </thead>
-                
-            {% for formationSouhaitee in form.formationsSouhaitees %}
-            {{ form_widget(formationSouhaitee) }}
-            {% endfor %}
+
+                {% for formationSouhaitee in form.formationsSouhaitees %}
+                {{ form_widget(formationSouhaitee) }}
+                {% endfor %}
             </table>
             <button type="button" class="add_item_link" data-collection-holder-class="formationsSouhaitees">Ajouter une
                 formation </button><br>
@@ -304,23 +304,23 @@
             </table>
             <p class="border p-1">Ce document vise a constater la tenue de l'entretien et ne vaut pas engagement de
                 réalisation des perspectives et souhaits évoqués.</p>
-            
+
             <input type="submit" />
             {{ form_widget(form._token) }}
             {{form_end(form, {'render_rest': false})}}
         </form>
     </section>
-</main> 
-            {% if data is not null %}
-            {{dump(data)}}
-            {{dump(data.activites)}}
-            {% else  %}
-            pas de data
-            {% endif %}
+</main>
+{% if data is not null %}
+{{dump(data)}}
+{{dump(data.activites)}}
+{% else  %}
+pas de data
+{% endif %}
 
-            {% endblock %}
-            {% block javascripts %}
-            {{ parent() }}
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
 <script>
     jQuery(document).ready(function () {
 

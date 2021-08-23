@@ -1,4 +1,5 @@
 <header>
+{% if is_granted('ROLE_USER') %}     
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
             <div class="container-fluid">
@@ -76,4 +77,5 @@
                 </div>
             </div>
         </nav>
+    {% endif %}
 </header>
