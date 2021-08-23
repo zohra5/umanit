@@ -90,6 +90,12 @@ class ObjectifDefinition
         return $this;
     }
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity="FormulaireProgression", inversedBy="objectifDefinition")
+     */
+    private $formulaireProgression;
+
     public function getFormulaireProgression(): ?FormulaireProgression
     {
         return $this->formulaireProgression;
@@ -101,10 +107,5 @@ class ObjectifDefinition
 
         return $this;
     }
-
-    /**
-     * @ORM\ManyToOne(targetEntity="FormulaireProgression", inversedBy="objectifDefinition")
-     */
-    private $formulaireProgression;
 }
 

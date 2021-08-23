@@ -34,7 +34,7 @@
                 <tbody>
                     <tr>
                         <td>Nom :</td>
-                        <td><input type="text" id="name" name="collab_name"></td>
+                        <td>{{user.name}}</td>
                         <td>Nom :</td>
                         <td><input type="text" id="name" name="manager_name"></td>
                     </tr>
@@ -305,7 +305,8 @@
             <p class="border p-1">Ce document vise a constater la tenue de l'entretien et ne vaut pas engagement de
                 réalisation des perspectives et souhaits évoqués.</p>
             
-            <input type="submit" />
+            <input type="submit" name="action" value="save" />
+            <input type="submit" name="action" value="save-as-draft" />
             {{ form_widget(form._token) }}
             {{form_end(form, {'render_rest': false})}}
         </form>

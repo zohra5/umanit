@@ -516,5 +516,39 @@ class FormulaireProgression
     {
         $this->bilanCompetences->removeElement($bilanCompetence);
     }
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="formulairesProgressionAsCollaborateur")
+     */
+    private $collaborateur;
+
+    public function getCollaborateur(): User
+    {
+        return $this->collaborateur;
+    }
+    public function setCollaborateur($collaborateur): self
+    {
+        $this->collaborateur = $collaborateur;
+
+        return $this;
+    }
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="formulairesProgressionAsManager")
+     */
+    private $manager;
+
+    public function getManager(): User
+    {
+        return $this->manager;
+    }
+    public function setManager($manager): self
+    {
+        $this->manager = $manager;
+
+        return $this;
+    }
     
 }

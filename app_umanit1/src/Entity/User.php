@@ -255,4 +255,75 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    /**
+     * @ORM\OneToMany(targetEntity="FormulaireProgression", mappedBy="collaborateur")
+     */
+    private $formulairesProgressionAsCollaborateur;
+
+     /**
+     * Get the value of formulaireProgressionAsCollaborateur
+     */ 
+    public function getFormulairesProgressionAsCollaborateur()
+    {
+        return $this->formulairesProgressionAsCollaborateur;
+    }
+
+    /**
+     * Set the value of formulaireProgressionAsCollaborateur
+     *
+     * @return  self
+     */ 
+    public function setFormulairesProgressionAsCollaborateur($formulairesProgressionAsCollaborateur)
+    {
+        $this->formulairesProgressionAsCollaborateur = $formulairesProgressionAsCollaborateur;
+
+        return $this;
+    }
+
+    public function addFormulaireProgressionAsCollaborateur(FormulaireProgression $formulaireProgressionAsCollaborateur): void
+    {
+        $formulaireProgressionAsCollaborateur->setCollaborateur($this);
+        $this->formulairesProgressionAsCollaborateur->add($formulaireProgressionAsCollaborateur);
+    }
+    public function removeFormulaireProgressionAsCollaborateur(FormulaireProgression $formulaireProgressionAsCollaborateur): void
+    {
+        $this->$formulairesProgressionAsCollaborateur->removeElement($formulaireProgressionAsCollaborateur);
+    }
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="FormulaireProgression", mappedBy="manager")
+     */
+    private $formulairesProgressionAsManager;
+
+    /**
+     * Get the value of formulaireProgressionAsManager
+     */ 
+    public function getFormulairesProgressionAsManager()
+    {
+        return $this->formulairesProgressionAsManager;
+    }
+
+    /**
+     * Set the value of formulaireProgressionAsManager
+     *
+     * @return  self
+     */ 
+    public function setFormulairesProgressionAsManager($formulairesProgressionAsManager)
+    {
+        $this->formulairesProgressionAsManager = $formulairesProgressionAsManager;
+
+        return $this;
+    }
+
+    public function addFormulaireProgressionAsManager(FormulaireProgression $formulaireProgressionAsManager): void
+    {
+        $formulaireProgressionAsManager->setCollaborateur($this);
+        $this->formulairesProgressionAsCollaborateur->add($formulaireProgressionAsManager);
+    }
+    public function removeFormulaireProgressionAsManager(FormulaireProgression $formulaireProgressionAsManager): void
+    {
+        $this->$formulairesProgressionAsManager->removeElement($formulaireProgressionAsManager);
+    }
 }
