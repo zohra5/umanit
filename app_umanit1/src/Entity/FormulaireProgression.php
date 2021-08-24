@@ -517,4 +517,29 @@ class FormulaireProgression
         $this->bilanCompetences->removeElement($bilanCompetence);
     }
     
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $status = [];
+    
+
+    /**
+     * Get the value of status
+     */ 
+    public function getStatus(): array
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set the value of status
+     *
+     * @return  self
+     */ 
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
 }
