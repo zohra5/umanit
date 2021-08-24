@@ -20,12 +20,12 @@ class FormulaireProgressionController extends AbstractController
      */
     public function index(Request $request, $id = 'create', FormulaireProgressionRepository $formulaireProgressionRepository): Response
     {
-        $action = $request->get('action');
-        /** @var User $user */
+        // $action = $request->get('action');
+        // /** @var User $user */
         $user = $this->getUser();
-        if(!in_array("COLLABORATEUR", $user->getRoles())) {
-            $this->redirectToRoute("home");
-        }
+        // if(!in_array("COLLABORATEUR", $user->getRoles())) {
+        //     $this->redirectToRoute("home");
+        // }
         $entityManager = $this->getDoctrine()->getManager();
         $formulaireProgression = null;
         if ($id != 'create') {
@@ -36,10 +36,10 @@ class FormulaireProgressionController extends AbstractController
         $form->handleRequest($request);
        
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var FormulaireProgression $formulaireProgression */
+            // /** @var FormulaireProgression $formulaireProgression */
             $formulaireProgression = $form->getData();
-            $formulaireProgression->setCollaborateur($user);
-            $user->addFormulaireProgressionAsCollaborateur($formulaireProgression);
+            // $formulaireProgression->setManager($user);
+            // $user->addFormulaireProgressionAsManager($formulaireProgression);
 
             /*if(!$formulaireProgression->getStatus()) {
                 $formulaireProgression->setStatus("TO_COMPLETE");
