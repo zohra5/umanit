@@ -133,7 +133,7 @@ main h2 {
     color: #052854;
 }
 
-main section a:not(.image), 
+main section a.btn:not(.image), 
 main form .btn, 
 button {
     background-color: white;

@@ -93,14 +93,14 @@
             <h3>Les relations avec les autres membres de l'entreprise sont-elles bonnes ?</h3>
             {{ form_widget(form.relationsEntreprise) }}
 
-            <div class="mb-3 col-6">
+            <div class="mb-3 col-12">
                 <label for="comments" class="form-label">Commentaires</label>
                 {{ form_widget(form.commentairesQVT) }}
             </div>
 
             <h2 class="bg-info text-white p-1">Bilan de l'année écoulée</h2>
             <h3>Mission principales du poste :</h3>
-            <div class="mb-3 col-6">
+            <div class="mb-3 col-12">
                 <label for="missions" class="form-label"></label>
                 {{ form_widget(form.missionsPrincipales) }}
             </div>
@@ -148,22 +148,23 @@
 
             <h2 class="bg-info text-white p-1">Bilan des compétences attendues pour le poste occupé</h2>
             <h3>Que réussis-tu le mieux dans ton poste actuel ?</h3>
-            <div class="mb-3 col-6">
+            <div class="mb-3 col-12">
                 <label for="postSuccess" class="form-label"></label>
                 {{ form_widget(form.reussitePoste) }}
             </div>
 
             <h3>Qu'aimes-tu le plus dans tes fonctions actuelles ?</h3>
-            <div class="mb-3 col-6">
+            <div class="mb-3 col-12">
                 <label for="fonctionsLike" class="form-label"></label>
                 {{ form_widget(form.aimesTuFonctions) }}
             </div>
 
             <h3>Quels sont tes points d'améliorations ou compétences à acquérir ?</h3>
-            <div class="mb-3 col-6">
+            <div class="mb-3 col-12">
                 <label for="improvement" class="form-label"></label>
                 {{ form_widget(form.pointsAmeliorations) }}
             </div>
+            
 
             <h3>Bilan des compétences attendues</h3>
             <p>Se référer à la fiche de poste</p>
@@ -187,7 +188,7 @@
 
             <p>Echelle d'évaluation : 0 à 4 (où 4 est la note la plus positive)</p>
             <p>As-tu des compétences non utilisées susceptibles d'être mises à profit dans ta vie progessionnelle ?</p>
-            <div class="mb-3 col-6">
+            <div class="mb-3 col-12">
                 <label for="profitCompetence" class="form-label"></label>
                 {{ form_widget(form.competencesNonUtilisees) }}
             </div>
@@ -278,14 +279,14 @@
             <p>(Points fort de l'entretien, réponses et propositions aux commentaires du manager)</p>
             <div class="col-12">
                 <label for="commentaires_collaborateur" class="form-label"></label>
-                <textarea class="form-control" id="commentaires_collaborateur" rows="3     "></textarea>
+               {{ form_widget(form.syntheseCollab, {'attr': {'class': 'form-control'}})}}
             </div><br>
             <h3 class="bg-secondary text-white p-1">Commentaires du manager</h3>
             <p>(Points forts de l'entretien, éléments de motivation et de satisfaction du collaborateur, demandes en
                 termes d'évolution professionnelle,etc.)</p>
-            <div class="mb-3 col-6">
+            <div class="mb-3 col-12">
                 <label for="commentaires_manager" class="form-label"></label>
-                <textarea class="form-control" id="commentaires_manager" rows="3     "></textarea>
+                {{ form_widget(form.syntheseManager, {'attr': {'class': 'form-control'}})}}
             </div><br>
             <h2 class="bg-info text-white p-1">Signature</h2><br>
             <table class="table table-striped">

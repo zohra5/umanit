@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use App\Entity\Activites;
 use App\Entity\EvaluationObjectifs;
 use App\Entity\FormulaireProgression;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -96,8 +97,8 @@ class FormulaireProgressionType extends AbstractType
                 ],
                 'expanded' => true
             ])
-            ->add('commentairesQVT', TextareaType::class)
-            ->add('missionsPrincipales', TextareaType::class)
+            ->add('commentairesQVT', CKEditorType::class)
+            ->add('missionsPrincipales', CKEditorType::class)
             ->add('activites', CollectionType::class, [
                 'entry_type' => ActivitesType::class,
                 'entry_options' => ['label' => false],
@@ -122,7 +123,7 @@ class FormulaireProgressionType extends AbstractType
                 'allow_delete' => true,
                 'by_reference' => false,
             ])
-            ->add('competencesNonUtilisees', TextareaType::class)
+            ->add('competencesNonUtilisees', CKEditorType::class)
             ->add('objectifDefinition', CollectionType::class, [
                 "entry_type"=>ObjectifDefinitionType::class,
                 "entry_options"=>["label"=>false],
@@ -144,14 +145,14 @@ class FormulaireProgressionType extends AbstractType
                 "allow_delete"=>true,
                 'by_reference' => false]
                 )/**GAB */
-            ->add('reussitePoste')
-            ->add('aimesTuFonctions')
-            ->add('pointsAmeliorations')
-            ->add('remarquesActivites', TextareaType::class)
-            ->add('evalTravail', TextareaType::class)
-            ->add('vieProPerso', TextareaType::class)
-            ->add('syntheseCollab')
-            ->add('syntheseManager')
+            ->add('reussitePoste', CKEditorType::class)
+            ->add('aimesTuFonctions', CKEditorType::class)
+            ->add('pointsAmeliorations', CKEditorType::class)
+            ->add('remarquesActivites', CKEditorType::class)
+            ->add('evalTravail', CKEditorType::class)
+            ->add('vieProPerso', CKEditorType::class)
+            ->add('syntheseCollab', CKEditorType::class)
+            ->add('syntheseManager', CKEditorType::class)
             ->add('signatureCollab')
             ->add('signatureManager')
         ;
