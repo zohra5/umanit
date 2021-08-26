@@ -16,7 +16,7 @@ class FormulaireProgressionController extends AbstractController
      */
     public function index(Request $request, $id = 'create', FormulaireProgressionRepository $formulaireProgressionRepository): Response
     {
-
+        $action = $request->get('action');
         $entityManager = $this->getDoctrine()->getManager();
         $formulaireProgression = null;
         if ($id != 'create') {
@@ -27,6 +27,13 @@ class FormulaireProgressionController extends AbstractController
         $form->handleRequest($request);
        
         if ($form->isSubmitted() && $form->isValid()) {
+            if($formulaireProgression->getStatus() == "A_COMPLETER" && $action="save") {
+        
+                $formulaireProgression->setStatus("EN_REVISION");
+            }
+            //  else if($formulaireProgression->getStatus() == "TO_REVIEW" && $action = "save" && )
+
+
             $formulaireProgression = $form->getData();
             $entityManager->persist($formulaireProgression);
             $entityManager->flush();

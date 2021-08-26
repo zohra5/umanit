@@ -305,8 +305,10 @@
             <p class="border p-1">Ce document vise a constater la tenue de l'entretien et ne vaut pas engagement de
                 réalisation des perspectives et souhaits évoqués.</p>
 
-            <input type="submit" />
+            <input type="submit" action="valid"/>
             {{ form_widget(form._token) }}
+
+            {{dump(data)}}
             {{form_end(form, {'render_rest': false})}}
         </form>
     </section>

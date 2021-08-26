@@ -518,9 +518,10 @@ class FormulaireProgression
     }
     
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="json", nullable=true)
      */
     private $status = [];
+    
     
 
     /**
@@ -528,7 +529,10 @@ class FormulaireProgression
      */ 
     public function getStatus(): array
     {
-        return $this->status;
+        $status = $this->status;
+        $status[] = 'A_COMPLETER';
+
+        return array_unique($status);
     }
 
     /**
