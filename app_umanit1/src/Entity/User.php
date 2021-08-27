@@ -293,37 +293,37 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
 
     /**
-     * @ORM\OneToMany(targetEntity="FormulaireProgression", mappedBy="manager")
+     * @ORM\OneToMany(targetEntity="FormulaireProgression", mappedBy="responsable")
      */
-    private $formulairesProgressionAsManager;
+    private $formulairesProgressionAsResponsable;
 
     /**
-     * Get the value of formulaireProgressionAsManager
+     * Get the value of formulaireProgressionAsResponsable
      */ 
-    public function getFormulairesProgressionAsManager()
+    public function getFormulairesProgressionAsResponsable()
     {
-        return $this->formulairesProgressionAsManager;
+        return $this->formulairesProgressionAsResponsable;
     }
 
     /**
-     * Set the value of formulaireProgressionAsManager
+     * Set the value of formulaireProgressionAsResponsable
      *
      * @return  self
      */ 
-    public function setFormulairesProgressionAsManager($formulairesProgressionAsManager)
+    public function setFormulairesProgressionAsResponsable($formulairesProgressionAsResponsable)
     {
-        $this->formulairesProgressionAsManager = $formulairesProgressionAsManager;
+        $this->formulairesProgressionAsResponsable = $formulairesProgressionAsResponsable;
 
         return $this;
     }
 
-    public function addFormulaireProgressionAsManager(FormulaireProgression $formulaireProgressionAsManager): void
+    public function addFormulaireProgressionAsResponsable(FormulaireProgression $formulaireProgressionAsResponsable): void
     {
-        $formulaireProgressionAsManager->setCollaborateur($this);
-        $this->formulairesProgressionAsCollaborateur->add($formulaireProgressionAsManager);
+        $formulaireProgressionAsResponsable->setCollaborateur($this);
+        $this->formulairesProgressionAsResponsable->add($formulaireProgressionAsResponsable);
     }
-    public function removeFormulaireProgressionAsManager(FormulaireProgression $formulaireProgressionAsManager): void
+    public function removeFormulaireProgressionAsResponsable(FormulaireProgression $formulaireProgressionAsResponsable): void
     {
-        $this->$formulairesProgressionAsManager->removeElement($formulaireProgressionAsManager);
+        $this->$formulairesProgressionAsResponsable->removeElement($formulaireProgressionAsResponsable);
     }
 }

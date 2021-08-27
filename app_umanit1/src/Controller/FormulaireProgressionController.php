@@ -41,13 +41,8 @@ class FormulaireProgressionController extends AbstractController
             // $formulaireProgression->setManager($user);
             // $user->addFormulaireProgressionAsManager($formulaireProgression);
 
-            /*if(!$formulaireProgression->getStatus()) {
-                $formulaireProgression->setStatus("TO_COMPLETE");
-            } else if($formulaireProgression->getStatus() == "TO_COMPLETE" && $action="save") {
-                $formulaireProgression->setStatus("TO_REVIEW");
-            }*/
             $this->entityManager->persist($formulaireProgression);
-            $this->entityManager->persist($user);
+            // $this->entityManager->persist($user);
             $this->entityManager->flush();
             // ... do your form processing, like saving the Task and Tag entities
         }

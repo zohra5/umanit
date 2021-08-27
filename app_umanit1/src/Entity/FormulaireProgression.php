@@ -536,25 +536,22 @@ class FormulaireProgression
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="formulairesProgressionAsManager")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="formulairesProgressionAsResponsable")
      */
-    private $manager;
+    private $responsable;
 
-    public function getManager(): User
+    public function getResponsable(): User
     {
-        return $this->manager;
+        return $this->responsable;
     }
-    public function setManager($manager): self
+    public function setResponsable($responsable): self
     {
-        $this->manager = $manager;
+        $this->responsable = $responsable;
 
         return $this;
     }
 
     private $status;
-
-    
-    
 
     /**
      * Get the value of status
