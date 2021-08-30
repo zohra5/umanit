@@ -46,9 +46,14 @@
 
 {% block _formulaire_progression_formationsSouhaitees_entry_widget %} 
 <tr class="formationSouhaitee">
-    <td>{{ form_widget(form.parLeSalarie) }}</td>
-    <td>{{ form_widget(form.objectifsAAtteindre) }}</td>
-    <td>{{ form_widget(form.parLeManager) }}</td>
-    <td>{{ form_widget(form.objectifsAAtteindreManager) }}</td>
+    {% if is_granted('ROLE_CONTRIBUTEUR') %}
+        <td>{{ form_widget(form.parLeSalarie) }}</td>
+        <td>{{ form_widget(form.objectifsAAtteindre) }}</td>
+    {% endif %}
+
+    {% if is_granted('ROLE_MANAGER') or is_granted('ROLE_RH') %}
+        <td>{{ form_widget(form.parLeManager) }}</td>
+        <td>{{ form_widget(form.objectifsAAtteindreManager) }}</td>
+    {% endif %}
 </tr>
 {% endblock %}

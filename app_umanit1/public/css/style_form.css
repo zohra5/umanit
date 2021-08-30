@@ -16,14 +16,6 @@
     padding: 0;
 }
 
-p {
-    color: #052854;
-}
-
-.bold {
-    font-weight: bold;
-}
-
 /******************************************************************
                             HEADER
 ******************************************************************/
@@ -151,7 +143,7 @@ button {
     display: inline-block;
 }
 
-main .btn:hover, 
+main .btn, 
 button:hover {
     transition: none;
     color: #052854;
@@ -164,54 +156,8 @@ main :visited:not(.image) {
     box-shadow: none;
 }
 
-main section img {
-    width: 180px;
-}
-
-.accueil {
-    margin-top: 150px;
-}
-
-main section .formulaire {
-    background-color: #e2e3f2;
-    padding: 80px 0px;
-}
-
-main section .equipe {
-    border: 3px solid #052854;
-    margin: 0 25px;
-}
-
-main section .equipe p {
-    font-size: 1.5em;
-    margin-top: 10px;
-    text-transform: uppercase;
-    color: #052854;
-    font-weight: 600;
-}
-
-/*** FORMULAIRE LOGIN ***/ 
-
-main form a {
-    color: #052854;
-    text-decoration: none;
-}
-
-main form a:hover {
-    color: #3D98C6;
-}
-
-main .form-control, .cadre {
-    border-radius: 0;
-} 
-
-main .form-control:focus, .cadre:focus {
-    border: 1px solid #052854;
-    box-shadow: none;
-}
-
 .motif label {
-    margin-right: 30px;
+    margin-right: 25px;
     margin-left: 5px;
 }
 
@@ -222,28 +168,31 @@ main section table {
     font-size: 0.9em;
 }
 
+main section table input {
+    width: 100%;
+    padding: 5px;
+    border-radius: none;
+}
+
+main section table input :focus :active {
+    outline: none;
+    background-color: none;
+}
+
 main section .table {
     border-color: none;
     border: 1px solid #052854;
 }
 
-main section table tbody tr:nth-child(odd){
+main section table tbody td:nth-child(odd){
     background-color:#edf2ff;
 }
 
 main table thead {
-        font-size: 1em;
-        color: white;
-        background-color: #052854;
-        border: #052854;
-}
-
-main table tbody {
-    color: #052854;
-}
-
-main section table tbody tr:hover {
-    background-color: #c6ecff;
+    font-size: 1.2em;
+    color: white;
+    background-color: #052854;
+    border: #052854;
 }
 
 main section table tr {
@@ -253,3 +202,7 @@ main section table tr {
 main section table tr td:last-of-type {
     text-align: right;
 }
+
+/******************************************************************
+                            FOOTER
+******************************************************************/

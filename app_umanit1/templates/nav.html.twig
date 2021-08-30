@@ -1,5 +1,6 @@
 <header>
 {% if is_granted('ROLE_USER') %}     
+
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
             <div class="container-fluid">
@@ -27,7 +28,7 @@
                                     <a class="dropdown-item" href="#">professionnel</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">progression</a>
+                                    <a class="dropdown-item" href="{{ path('formulaire_progression')}}">progression</a>
                                 </li>
                             </ul>
                         </li>
@@ -77,5 +78,6 @@
                 </div>
             </div>
         </nav>
+        
     {% endif %}
 </header>

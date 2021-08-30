@@ -20,18 +20,18 @@
                 </div>
                 <!-- Bouton Historique -->
                 <div class="row">
-                        <a href="{{ path('historique') }}">Historique</a>
+                        <a class="btn" href="{{ path('historique') }}">Historique</a>
                 </div>
 
                 <!-- Bouton Session et Gestion -->
                 <div class="row mt-3">
                     <div class="col">
                         {% if is_granted('ROLE_RH') or is_granted('ROLE_MANAGER')%}
-                            <a class="w-100" href="session.html">Ouvrir une Session</a>
+                            <a class="w-100 btn" href="session.html">Ouvrir une Session</a>
                         {% endif %}
                         
                         {% if is_granted('ROLE_RH') %}
-                            <a class="w-100 mt-3" href="{{ path('user_index') }}">Gestion des utilisateurs</a>
+                            <a class="w-100 mt-3 btn" href="{{ path('user_index') }}">Gestion des utilisateurs</a>
                         {% endif %}
                     </div>
                 </div>

@@ -16,7 +16,8 @@ class FormulaireProgressionController extends AbstractController
      */
     public function index(Request $request, $id = 'create', FormulaireProgressionRepository $formulaireProgressionRepository): Response
     {
-
+        $user = $this->getUser();
+        
         $entityManager = $this->getDoctrine()->getManager();
         $formulaireProgression = null;
         if ($id != 'create') {
@@ -36,6 +37,7 @@ class FormulaireProgressionController extends AbstractController
         return $this->render('formulaire_progression/index.html.twig', [
             'data' => $formulaireProgression,
             'form' => $form->createView(),
+            'user' => $user,
         ]);
     }
 }
