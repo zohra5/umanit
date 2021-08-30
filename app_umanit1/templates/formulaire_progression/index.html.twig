@@ -2,326 +2,429 @@
 
 {% block title %}UmanIT - Formulaire de progression{% endblock %}
 
+{% block stylesheets %}
+    {# Style #}
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('css/style_form.css')}}" />
+
+    {# Icone onglet  #}
+    <link rel="icon" type="image/png" href="{{ asset('img/FAVICONE_UMANIT.png')}}">
+{% endblock %}
+
 {% block body %}
-{% form_theme form 'formulaire_progression/theme.html.twig' %}
+
+    <main class="container w-50">
+        <section>
+
+            <h1 class="mt-5 mb-5">Formulaire de progression</h1>
+
+            {{form_start(form)}}
+            {% form_theme form 'formulaire_progression/theme.html.twig' %}
+
+            <form action="">
+
+                {# Dates des entretiens #}
+
+                <p>
+                    {{ form_label(form.dateEntretien, 'Date de l\'entretien :')}}
+                    {{ form_widget(form.dateEntretien) }}
+                </p>
+
+                <p>
+                    {{ form_label(form.datePrecedentEntretien, 'Date du précédent entretien :')}}
+                    {{form_widget(form.datePrecedentEntretien)}}
+                </p>
 
 
-{{form_start(form)}}
+                {# Tableau Collaborateur/Responsable #}
 
-<main class="container">
-    <section>
-        <h1 class="mt-5 mb-5">Formulaire de progression</h1>
+                <table class="table mt-4">
 
-        <form action="">
-            <div>
-                <label for="dateToday">Date de l'entretien :</label>
-                {{form_widget(form.dateEntretien)}}
-            </div>
-            <div>
-                <label for="datePrecedent">Date du précédent entretien :</label>
-                {{form_widget(form.datePrecedentEntretien)}}
-            </div>
+                    <thead class="text-center">
+                        <th colspan="2" width="50%">Collaborateur</th>
+                        <th colspan="2">Responsable de l'entretien</th>
+                    </thead>
 
+                    <tbody>
+                        <tr>
+                            <td width="25%">Nom :</td>
+                            <td>{{ user.name }}</td>
+                            <td width="25%">Nom :</td>
+                            <td><input type="text" id="name" name="manager_name"></td>
+                        </tr>
+                        <tr>
+                            <td>Prénom :</td>
+                            <td>{{ user.firstname }}</td>
+                            <td>Prénom :</td>
+                            <td><input type="text" id="surname" name="manager_surname"></td>
+                        </tr>
+                        <tr>
+                            <td>Date de naissance :</td>
+                            <td>{{ user.birthday|date("m/d/Y") }}</td>
+                            <td>Fonction :</td>
+                            <td><input type="text" id="fonction" name="fonction_manager"></td>
+                        </tr>
+                        <tr>
+                            <td>Service :</td>
+                            <td>{{ user.service }}</td>
+                            <td colspan="2" class="text-start">En présence de :</td>
+                        </tr>
+                        <tr>
+                            <td>Intitulé du poste :</td>
+                            <td>{{ user.jobTitle }}</td>
+                            <td>Nom :</td>
+                            <td><input type="text" id="name" name="collab_name"></td>
+                        </tr>
+                        <tr>
+                            <td>Date d'embauche :</td>
+                            <td>{{ user.dateHire|date("m/d/Y") }}</td>
+                            <td>Prénom :</td>
+                            <td><input type="text" id="surname" name="collab_surname"></td>
+                        </tr>
+                        <tr>
+                            <td>Date d'accession à ce poste :</td>
+                            <td>{{ user.accessionDate|date("m/d/Y") }}</td>
+                            <td>Fonction :</td>
+                            <td><input type="text" id="fonction" name="fonction_collab"></td>
+                        </tr>
+                    </tbody>
 
-            <!-- Tableau formulaire-->
-            <table class="table mt-4" style="table-layout : fixed;">
+                </table>
 
-                <thead class="text-center">
-                    <th colspan="2" class="bg-info">Collaborateur</th>
-                    <th colspan="2" class="bg-secondary">Responsable de l'entretien</th>
-                </thead>
+                {# Bien-être et QVT #}
 
-                <tbody>
-                    <tr>
-                        <td>Nom :</td>
-                        <td><input type="text" id="name" name="collab_name"></td>
-                        <td>Nom :</td>
-                        <td><input type="text" id="name" name="manager_name"></td>
-                    </tr>
-                    <tr>
-                        <td>Prénom :</td>
-                        <td><input type="text" id="surname" name="collab_surname"></td>
-                        <td>Prénom :</td>
-                        <td><input type="text" id="surname" name="manager_surname"></td>
-                    </tr>
-                    <tr>
-                        <td>Date de naissance :</td>
-                        <td><input type="date" id="birthdate" name="birthdate"></td>
-                        <td>Fonction :</td>
-                        <td><input type="text" id="fonction" name="fonction_manager"></td>
-                    </tr>
-                    <tr>
-                        <td>Service :</td>
-                        <td><input type="text" id="service" name="service"></td>
-                        <td>En présence de :</td>
-                    </tr>
-                    <tr>
-                        <td>Intitulé du poste :</td>
-                        <td><input type="text" id="post" name="post_name"></td>
-                        <td>Nom :</td>
-                        <td><input type="text" id="name" name="collab_name"></td>
-                    </tr>
-                    <tr>
-                        <td>Date d'embauche :</td>
-                        <td><input type="date" id="date_hire" name="date_hire"></td>
-                        <td>Prénom :</td>
-                        <td><input type="text" id="surname" name="collab_surname"></td>
-                    </tr>
-                    <tr>
-                        <td>Date d'accession à ce poste :</td>
-                        <td><input type="date" id="date_access_post" name="date_access_post"></td>
-                        <td>Fonction :</td>
-                        <td><input type="text" id="fonction" name="fonction_collab"></td>
-                    </tr>
-                </tbody>
+                <h2 class="mt-5">Bien-être et QVT (Qualité de Vie au Travail)</h2>
+                <p class="mb-4"><em>Sur une échelle de 1 à 10 (10 étant la note la plus positive).</em></p>
 
-            </table>
+                {{ form_label(form.ressentiTravail, 'Comment te sens-tu dans ton travail ?')}}
+                <div class="mt-3 mb-5">
+                    {{ form_widget(form.ressentiTravail, { 'attr' : { 'class': 'motif' }}) }}
+                </div>
 
+                {{ form_label(form.aimesTuPoste, 'Le poste que tu occupes te plaît-il ?')}}
+                <div class="mt-3 mb-5">
+                    {{ form_widget(form.aimesTuPoste, { 'attr' : { 'class': 'motif' }}) }}
+                </div>
 
-            <h2 class="bg-info text-white p-1">Bien-être et QVT (Qualité de Vie au Travail)</h2>
-            <p>Sur une échelle de 1 à 10 (10 étant la note la plus positive)</p>
-            <h3>Comment te sens-tu dans ton travail ?</h3>
-            {{ form_widget(form.ressentiTravail) }}
+                {{ form_label(form.relationsEquipe, 'Les relations avec les autres membres de ton équipe sont-elles bonnes ?')}}
+                <div class="mt-3 mb-5">
+                    {{ form_widget(form.relationsEquipe, { 'attr' : { 'class': 'motif' }}) }}
+                </div>
 
+                {{ form_label(form.relationsEntreprise, 'Les relations avec les autres membres de l\'entreprise sont-elles bonnes ?')}}
+                <div class="mt-3 mb-5">
+                    {{ form_widget(form.relationsEntreprise, { 'attr' : { 'class': 'motif' }}) }}
+                </div>
 
-            <h3>Le poste que tu occupes te plaît-il ?</h3>
-            {{ form_widget(form.aimesTuPoste) }}
-
-            <h3>Les relations avec les autres membres de ton équipe sont-elles bonnes ?</h3>
-            {{ form_widget(form.relationsEquipe) }}
-
-            <h3>Les relations avec les autres membres de l'entreprise sont-elles bonnes ?</h3>
-            {{ form_widget(form.relationsEntreprise) }}
-
-            <div class="mb-3 col-6">
-                <label for="comments" class="form-label">Commentaires</label>
-                {{ form_widget(form.commentairesQVT) }}
-            </div>
-
-            <h2 class="bg-info text-white p-1">Bilan de l'année écoulée</h2>
-            <h3>Mission principales du poste :</h3>
-            <div class="mb-3 col-6">
-                <label for="missions" class="form-label"></label>
-                {{ form_widget(form.missionsPrincipales) }}
-            </div>
+                {{ form_label(form.commentairesQVT, 'Commentaires :')}}
+                <div class="mt-3 mb-4">
+                    {{ form_widget(form.commentairesQVT) }}
+                </div>
 
 
-            <h3 class="mb-3 mt-3">Quels sont les activités réalisées et faits marquants ?</h3>
+                {# Bilan de l'année #}
 
-            <table class="activites table table-striped"
-                data-prototype="{{ form_widget(form.activites.vars.prototype)|e('html_attr') }}">
+                <h2 class="mt-5 mb-4">Bilan de l'année écoulée</h2>
 
-                <thead>
-                    <th>Réalisations (parmi les plus représentatives)</th>
-                    <th>Réussites / Satisfactions rencontrées</th>
-                    <th>Difficultés rencontrées</th>
-                </thead>
+                {{ form_label(form.missionsPrincipales, 'Missions principales du poste :')}}
+                <div class="mt-3 mb-4">
+                    {{ form_widget(form.missionsPrincipales) }}
+                </div>
 
-                {% for activite in form.activites %}
-                {{ form_widget(activite) }}
-                {% endfor %}
-            </table>
-            <button type="button" class="add_item_link" data-collection-holder-class="activites">Ajouter une
-                activité</button>
+                <div class="my-3 mt-5">
+                    {{ form_label(form.activites.vars.prototype, 'Quels sont les activités réalisées et faits marquants ?') }}
 
+                    <table class="activites table mt-3" data-prototype="{{ form_widget(form.activites.vars.prototype)|e('html_attr') }}">
 
-            <h3 class="mb-3 mt-3">Évaluation des objectifs de l'année écoulée :</h3>
+                        <thead>
+                            <th>Réalisations (parmi les plus représentatives)</th>
+                            <th>Réussites / Satisfactions rencontrées</th>
+                            <th>Difficultés rencontrées</th>
+                        </thead>
 
-            <table class="evaluationObjectifs table table-striped"
-                data-prototype="{{ form_widget(form.evaluationObjectifs.vars.prototype)|e('html_attr') }}">
-                <thead>
-                    <th>Objectifs</th>
-                    <th>Niveau de réalisation</th>
-                    <th>Moyens(prévus et attribués)</th>
-                    <th>Commentaires (collaborateur)</th>
-                    <th>Commentaires (manager)</th>
-                </thead>
+                        <tbody>
+                                {% for activite in form.activites %}
+                                    {{ form_widget(activite) }}
+                                {% endfor %}
+                        </tbody>
+                    </table>
 
-                {% for evaluationObjectif in form.evaluationObjectifs %}
-                {{ form_widget(evaluationObjectif) }}
-                {% endfor %}
-            </table>
-            <p>Évaluation: dépassé / atteint / partiellement atteint / non réalisé</p>
-
-            <button type="button" class="add_item_link" data-collection-holder-class="evaluationObjectifs">Ajouter un
-                objectif</button>
-
-            <h2 class="bg-info text-white p-1">Bilan des compétences attendues pour le poste occupé</h2>
-            <h3>Que réussis-tu le mieux dans ton poste actuel ?</h3>
-            <div class="mb-3 col-6">
-                <label for="postSuccess" class="form-label"></label>
-                {{ form_widget(form.reussitePoste) }}
-            </div>
-
-            <h3>Qu'aimes-tu le plus dans tes fonctions actuelles ?</h3>
-            <div class="mb-3 col-6">
-                <label for="fonctionsLike" class="form-label"></label>
-                {{ form_widget(form.aimesTuFonctions) }}
-            </div>
-
-            <h3>Quels sont tes points d'améliorations ou compétences à acquérir ?</h3>
-            <div class="mb-3 col-6">
-                <label for="improvement" class="form-label"></label>
-                {{ form_widget(form.pointsAmeliorations) }}
-            </div>
-
-            <h3>Bilan des compétences attendues</h3>
-            <p>Se référer à la fiche de poste</p>
-
-            <table class="bilanCompetences table table-striped"
-                data-prototype="{{ form_widget(form.bilanCompetences.vars.prototype)|e('html_attr') }}">
-
-                <thead>
-                    <th>Compétences</th>
-                    <th>Évaluation</th>
-                    <th>Commentaire</th>
-                    <th>Actions à mener</th>
-                </thead>
-
-                {% for bilanCompetence in form.bilanCompetences %}
-                {{ form_widget(bilanCompetence) }}
-                {% endfor %}
-            </table>
-            <button type="button" class="add_item_link" data-collection-holder-class="bilanCompetences">Ajouter une
-                compétence</button>
-
-            <p>Echelle d'évaluation : 0 à 4 (où 4 est la note la plus positive)</p>
-            <p>As-tu des compétences non utilisées susceptibles d'être mises à profit dans ta vie progessionnelle ?</p>
-            <div class="mb-3 col-6">
-                <label for="profitCompetence" class="form-label"></label>
-                {{ form_widget(form.competencesNonUtilisees) }}
-            </div>
-
-            <h2 class="bg-info text-white p-1">Perspectives pour l'année a venir </h2>
-            <h3>Définition des objectifs :</h3><br>
-
-            <table class="objectifDefinition table table-striped"
-                data-prototype="{{ form_widget(form.objectifDefinition.vars.prototype)|e('html_attr') }}">
-
-                <thead>
-                    <th>Objectifs</th>
-                    <th>Indicateur de réalisation</th>
-                    <th>Moyen a mettre en oeuvre </th>
-                    <th>Délais de réalisation</th>
-                </thead>
-
-                {% for objectifDefinitionn in form.objectifDefinition %}
-                {{ form_widget(objectifDefinitionn) }}
-                {% endfor %}
-            </table>
-            <button type="button" class="add_item_link" data-collection-holder-class="objectifDefinition">Ajouter un
-                objectif</button>
-
-            <br>
-            ​ <h2 class="bg-info text-white p-1">Formations</h2>
-            <h3>Formations suivies depuis le dernier entretien :</h3><br>
-
-            <table class="formationsSuivie table table-striped"
-                data-prototype="{{ form_widget(form.formationsSuivie.vars.prototype)|e('html_attr') }}">
+                    <button type="button" class="add_item_link" data-collection-holder-class="activites">Ajouter une
+                    activité</button>
+                </div>
 
 
-                <thead>
-                    <th>Intitulé</th>
-                    <th>Durée</th>
-                    <th>Objectif de la formation</th>
-                    <th>A-t-elle repondue a vos attentes</th>
-                    <th>Est-elle mise en pratique ?</th>
-                </thead>
+                {# Évaluation des objectifs #}
 
-                {% for formationSuivie in form.formationsSuivie %}
-                {{ form_widget(formationSuivie) }}
-                {% endfor %}
-            </table>
-            <button type="button" class="add_item_link" data-collection-holder-class="formationsSuivie">Ajouter une
-                formation </button>
-            <h3 class="mt-4">Formations souhaitées pour cette nouvelle année :</h3><br>
-            <table class="formationsSouhaitees table table-striped"
-                data-prototype="{{ form_widget(form.formationsSouhaitees.vars.prototype)|e('html_attr') }}">
-                <thead>
-                    <th>Par le salarié</th>
-                    <th>Objectif a atteindre</th>
-                    <th>Par le manager</th>
-                    <th>Objectif a atteindre</th>
-                </thead>
+                <p class="mb-3 mt-5">Évaluation des objectifs de l'année écoulée :<br>
+                <em>Évaluation : dépassé / atteint / partiellement atteint / non réalisé</em></p>
 
-                {% for formationSouhaitee in form.formationsSouhaitees %}
-                {{ form_widget(formationSouhaitee) }}
-                {% endfor %}
-            </table>
-            <button type="button" class="add_item_link" data-collection-holder-class="formationsSouhaitees">Ajouter une
-                formation </button><br>
+                <table class="evaluationObjectifs table" data-prototype="{{ form_widget(form.evaluationObjectifs.vars.prototype)|e('html_attr') }}">
 
-            ​<h2 class="bg-info text-white p-1">Condition d'activité et charge de travail</h2>
-            <h3>Quelles sont tes remarques, points d'amélioration ou suggestions d'amélioration liés à tes conditions
-                d'activité ?</h3>
-            <p>(Environement de travail,communication,etc.)</p>
-            <div class="col-12">
-                <label for="remarques" class="form-label"></label>
-                {{ form_widget(form.remarquesActivites) }}
-            </div>
-            ​<h3>Comment évalues-tu ta charge de travail</h3>
-            <p>(Adéquation de la charge de travail avec le nombre de jours travaillés, variabilité de l'activité,
-                dépassement de forfait, atteinte des objectifs,etc.)</p>
-            <div class="col-12">
-                <label for="evaluation_charge" class="form-label"></label>
-                {{ form_widget(form.evalTravail, {'attr': {'class': 'form-control'}})}}
-            </div>
-            ​<h3>Quel est ton ressenti quant à l'articulation de ta vie privée vie professionnelle</h3>
-            <p>(Conciliation vie professionnelle et vie personnelle, déconnexion, déplacements, etc.)</p>
-            <div class="col-12">
-                <label for="ressenti_articulation" class="form-label"></label>
-                {{ form_widget(form.vieProPerso, {'attr': {'class': 'form-control'}})}}
-            </div><br>
+                    <thead>
+                        <th>Objectifs</th>
+                        <th>Niveau de réalisation</th>
+                        <th>Moyens(prévus et attribués)</th>
+                        <th>Commentaires (collaborateur)</th>
+                        <th>Commentaires (manager)</th>
+                    </thead>
 
-            <h2 class="bg-info text-white p-1">Synthèse</h2>
-            <h3 class="bg-info text-white p-1">Commentaires du collaborateur</h3>
-            <p>(Points fort de l'entretien, réponses et propositions aux commentaires du manager)</p>
-            <div class="col-12">
-                <label for="commentaires_collaborateur" class="form-label"></label>
-                <textarea class="form-control" id="commentaires_collaborateur" rows="3     "></textarea>
-            </div><br>
-            <h3 class="bg-secondary text-white p-1">Commentaires du manager</h3>
-            <p>(Points forts de l'entretien, éléments de motivation et de satisfaction du collaborateur, demandes en
-                termes d'évolution professionnelle,etc.)</p>
-            <div class="mb-3 col-6">
-                <label for="commentaires_manager" class="form-label"></label>
-                <textarea class="form-control" id="commentaires_manager" rows="3     "></textarea>
-            </div><br>
-            <h2 class="bg-info text-white p-1">Signature</h2><br>
-            <table class="table table-striped">
-                <thead>
-                    <th class="bg-info">Nom et signature du collaborateur</th>
-                    <th class="bg-secondary">Nom et signature du manager</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input type="file" id="signature_collaborateur" name="avatar"
-                                accept="image/png, image/jpeg"></td>
-                        <td><input type="file" id="signature_manager" name="avatar" accept="image/png, image/jpeg"></td>
-                    </tr>
+                    {% for evaluationObjectif in form.evaluationObjectifs %}
+                        {{ form_widget(evaluationObjectif) }}
+                    {% endfor %}
 
-                </tbody>
-            </table>
-            <p class="border p-1">Ce document vise a constater la tenue de l'entretien et ne vaut pas engagement de
-                réalisation des perspectives et souhaits évoqués.</p>
+                </table>
 
-            <input type="submit" />
-            {{ form_widget(form._token) }}
-            {{form_end(form, {'render_rest': false})}}
-        </form>
-    </section>
-</main>
-{% if data is not null %}
-{{dump(data)}}
-{{dump(data.activites)}}
-{% else  %}
-pas de data
-{% endif %}
+                <button type="button" class="add_item_link" data-collection-holder-class="evaluationObjectifs">Ajouter un
+                    objectif</button>
+
+
+                {# Bilan des compétences #}
+
+                <h2 class="mt-5 mb-4">Bilan des compétences attendues pour le poste occupé</h2>
+
+                <div class="mb-4">
+                    <div class="mb-3">
+                        {{ form_label(form.reussitePoste, 'Que réussis-tu le mieux dans ton poste actuel ?') }}
+                    </div>
+                    {{ form_widget(form.reussitePoste) }}
+                </div>
+
+                <div class="mb-4">
+                    <div class="mt-5 mb-3">
+                        {{ form_label(form.aimesTuFonctions, 'Qu\'aimes-tu le plus dans tes fonctions actuelles ?') }}
+                    </div>
+                    {{ form_widget(form.aimesTuFonctions) }}
+                </div>
+
+                <div class="mb-4">
+                    <div class="mt-5 mb-3">{{ form_label(form.pointsAmeliorations, 'Quels sont tes points d\'améliorations ou compétences à acquérir ?') }}</div>
+                    {{ form_widget(form.pointsAmeliorations) }}
+                </div>
+
+                
+                {# Bilan des compétences attentues #}
+
+                <h2 class="mt-5 mb-3">Bilan des compétences attendues</h2>
+                <p><em>Se référer à la fiche de poste.<br>
+                Échelle d'évaluation : 0 à 4 (où 4 est la note la plus positive).</em></p>
+
+                <table class="bilanCompetences table"
+                    data-prototype="{{ form_widget(form.bilanCompetences.vars.prototype)|e('html_attr') }}">
+
+                    <thead>
+                        <th>Compétences</th>
+                        <th>Évaluation</th>
+                        <th>Commentaire</th>
+                        <th>Actions à mener</th>
+                    </thead>
+
+                    {% for bilanCompetence in form.bilanCompetences %}
+                        {{ form_widget(bilanCompetence) }}
+                    {% endfor %}
+                </table>
+
+                <button type="button" class="add_item_link" data-collection-holder-class="bilanCompetences">Ajouter une                    compétence</button>
+
+                <div class="mt-5">
+                    <div class="mb-3">
+                        {{ form_label(form.competencesNonUtilisees, 'As-tu des compétences non utilisées susceptibles d\'être mises à profit dans ta vie professionnelle ?') }}
+                    </div>
+                    {{ form_widget(form.competencesNonUtilisees) }}
+                </div>
+
+                {# Perspectives pour l'année à venir #}
+
+                <h2 class="mt-5">Perspectives pour l'année a venir </h2>
+
+                {# Objectifs #}
+
+                <p class="mt-4">Définition des objectifs :</p>
+
+                <table class="objectifDefinition table table-striped"
+                    data-prototype="{{ form_widget(form.objectifDefinition.vars.prototype)|e('html_attr') }}">
+
+                    <thead>
+                        <th>Objectifs</th>
+                        <th>Indicateur de réalisation</th>
+                        <th>Moyen à mettre en oeuvre </th>
+                        <th>Délais de réalisation</th>
+                    </thead>
+
+                    {% for objectifDefinitionn in form.objectifDefinition %}
+                        {{ form_widget(objectifDefinitionn) }}
+                    {% endfor %}
+                </table>
+                <button type="button" class="add_item_link" data-collection-holder-class="objectifDefinition">Ajouter un
+                    objectif</button>
+
+
+                {# Formations #}
+                ​ 
+                <h2 class="mt-5">Formations</h2>
+
+                <p class="mt-4">Formations suivies depuis le dernier entretien :</p>
+
+                <table class="formationsSuivie table table-striped" data-prototype="{{ form_widget(form.formationsSuivie.vars.prototype)|e('html_attr') }}">
+
+                    <thead>
+                        <th>Intitulé</th>
+                        <th>Durée</th>
+                        <th>Objectifs de la formation</th>
+                        <th>A-t-elle répondu à vos attentes ?</th>
+                        <th>Est-elle mise en pratique ?</th>
+                    </thead>
+
+                    {% for formationSuivie in form.formationsSuivie %}
+                        {{ form_widget(formationSuivie) }}
+                    {% endfor %}
+                </table>
+
+                <button type="button" class="add_item_link" data-collection-holder-class="formationsSuivie">Ajouter une
+                    formation </button>
+
+                <p class="mt-5">Formations souhaitées pour cette nouvelle année :</p>
+
+                <table class="formationsSouhaitees table table-striped" data-prototype="{{ form_widget(form.formationsSouhaitees.vars.prototype)|e('html_attr') }}">
+
+                    <thead>
+                        {% if is_granted('ROLE_CONTRIBUTEUR') %}
+                            <th>Par le salarié</th>
+                            <th>Objectif a atteindre</th>
+                        {% endif %}
+
+                        {% if is_granted('ROLE_MANAGER') or is_granted('ROLE_RH') %}
+                            <th>Par le manager</th>
+                            <th>Objectif a atteindre</th>
+                        {% endif %}
+                    </thead>
+
+                    {% for formationSouhaitee in form.formationsSouhaitees %}
+                        {{ form_widget(formationSouhaitee) }}
+                    {% endfor %}
+
+                </table>
+
+                <button type="button" class="add_item_link" data-collection-holder-class="formationsSouhaitees">Ajouter une formation</button>
+
+                
+                {# Conditions d'activité et charge de travail #}
+
+                ​<h2 class="mt-5 mb-3">Condition d'activité et charge de travail</h2>
+
+                <div class="mb-4">
+                    {{ form_label(form.evalTravail, 'Quelles sont tes remarques, points d\'amélioration ou suggestions d\'amélioration liés à tes conditions d\'activité ?') }}
+                    <p><em>(Environement de travail, communication, etc.)</em></p>
+                    {{ form_widget(form.remarquesActivites) }}
+                </div>
+
+                <div class="mb-4">
+                    {{ form_label(form.evalTravail, 'Comment évalues-tu ta charge de travail ?') }}
+                    <p><em>(Adéquation de la charge de travail avec le nombre de jours travaillés, variabilité de l'activité, dépassement de forfait, atteinte des objectifs,etc.)</em></p>
+                    {{ form_widget(form.evalTravail, {'attr': {'class': 'form-control'}})}}
+                </div>
+       
+                <div class="mb-4">
+                    {{ form_label(form.vieProPerso, 'Quel est ton ressenti quant à l\'articulation de ta vie privée vie professionnelle ?') }}
+                    <p><em>(Conciliation vie professionnelle et vie personnelle, déconnexion, déplacements, etc.)</em></p>
+                    {{ form_widget(form.vieProPerso, {'attr': {'class': 'form-control'}})}}
+                </div>
+
+
+                {# Synthèse #}
+
+                <h2 class="mt-5">Synthèse</h2>
+
+                {# Collaborateur #}
+
+                {% if is_granted('ROLE_CONTRIBUTEUR') %}
+                    <table class="table">
+                        <thead class="text-center">
+                            <th>{{ form_label(form.syntheseCollab, 'Commentaires du collaborateur') }}</th>
+                        </thead>
+
+                        <tbody>
+                            <td>     
+                                <p class="text-start"><em>(Points fort de l'entretien, réponses et propositions aux commentaires du manager)</em></p>
+                                {{ form_widget(form.syntheseCollab) }}
+                            </td>
+                        </tbody>
+                    </table>
+                {% endif %}
+
+                {# Manager #}
+
+                {% if is_granted('ROLE_MANAGER') or is_granted('ROLE_RH') %}
+                    <table class="table">
+                        <thead class="text-center">
+                            <th>{{ form_label(form.syntheseManager, 'Commentaires du manager') }}</th>
+                        </thead>
+
+                        <tbody>
+                            <td>     
+                                <p class="text-start"><em>(Points forts de l'entretien, éléments de motivation et de satisfaction du collaborateur, demandes en
+                                    termes d'évolution professionnelle,etc.)</em></p>
+                                {{ form_widget(form.syntheseManager) }}
+                            </td>
+                        </tbody>
+                    </table> 
+                {% endif %}               
+                
+
+                {# Signature #}
+
+                <h2 class="mt-5">Signature</h2>
+
+                <table class="table">
+
+                    <thead>
+                        {% if is_granted('ROLE_CONTRIBUTEUR') %}
+                            <th>Nom et signature du collaborateur</th>
+                        {% endif %}
+                        {% if is_granted('ROLE_MANAGER') or is_granted('ROLE_RH') %}
+                            <th>Nom et signature du manager</th>
+                        {% endif %}
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            {% if is_granted('ROLE_CONTRIBUTEUR') %}
+                                <td><input type="file" id="signature_collaborateur" name="avatar" accept="image/png, image/jpeg"></td>
+                            {% endif %}
+                            {% if is_granted('ROLE_MANAGER') or is_granted('ROLE_RH') %}
+                                <td><input type="file" id="signature_manager" name="avatar" accept="image/png, image/jpeg"></td>
+                            {% endif %}
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <p><em>Ce document vise a constater la tenue de l'entretien et ne vaut pas engagement de réalisation des perspectives et souhaits évoqués.</em></p>
+
+                <input type="submit" />
+                
+                {{ form_widget(form._token) }}
+                {{form_end(form, {'render_rest': false})}}
+            </form>
+
+        </section>
+    </main>
+
+    {% if data is not null %}
+        {{dump(data)}}
+        {{dump(data.activites)}}
+    {% else  %}
+        No data
+    {% endif %}
 
 {% endblock %}
+
+{# Javascripts #}
+
 {% block javascripts %}
-{{ parent() }}
-<script>
+    {{ parent() }}
+    <script>
     jQuery(document).ready(function () {
 
         // Get the ul that holds the collection of tags
@@ -368,5 +471,6 @@ pas de data
         // Add the new form at the end of the list
         $collectionHolder.append(newForm)
     }
-</script>
+
+    </script>
 {% endblock %}

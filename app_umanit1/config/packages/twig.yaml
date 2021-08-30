@@ -1,6 +1,10 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
-
-when@test:
-    twig:
-        strict_variables: true
+    form_themes:
+        - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+        
+fos_ck_editor:
+    configs:
+        main_config:
+            toolbar:
+                - { name: "styles", items: [ 'Format', 'Font', 'Styles','Bold', 'Italic', 'Underline','TextColor' ] }
