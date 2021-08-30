@@ -28,9 +28,9 @@ class FormulaireProgressionController extends AbstractController
         // }
         $entityManager = $this->getDoctrine()->getManager();
         $formulaireProgression = null;
-        if ($id != 'create') {
-            $formulaireProgression = $formulaireProgressionRepository->find($id);
-        }
+        // if ($id != 'create') {
+        //     $formulaireProgression = $formulaireProgressionRepository->find($id);
+        // }
         $form = $this->createForm(FormulaireProgressionType::class, $formulaireProgression);
 
         $form->handleRequest($request);
