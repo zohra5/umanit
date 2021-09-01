@@ -1,0 +1,55 @@
+framework:
+    workflows:
+        toy_request:
+            type: 'workflow'
+            audit_trail:
+                enabled: true
+            marking_store:
+                type: 'method'
+                property: 'status'
+            supports:
+                - App\Entity\FormulaireProgressionEntity
+            initial_marking: a_remplir
+            places:
+                - a_remplir
+                - attente_validation_collaborateur
+                - premiere_validation_collaborateur
+                - attente_validation_manager
+                - premiere_validation_collaborateur
+                - fusionne
+                - revision_collaborateur
+                - validation_collaborateur
+                - validation_manager
+                - signature
+ 
+            transitions:
+                to_en_attente:
+                    from: a_remplir
+                    to:   [attente_validation_collaborateur, attente_validation_manager]
+                to_premiere_validation_collaborateur:
+                    guard: "is_granted('COLLABORATEUR')"
+                    from: attente_validation_collaborateur
+                    to: premiere_validation_collaborateur
+                to_premiere_validation_manager:
+                    guard: "is_granted('MANAGER')"
+                    from: attente_validation_manager
+                    to: premiere_validation_manager
+                to_a_fusionner:
+                    guard: "is_granted('MANAGER')"
+                    from: [premiere_validation_collaborateur, premiere_validation_manager]
+                    to:   fusionne
+                to_revision_collaborateur:
+                    from: fusionne
+                    to:   revision_collaborateur
+                to_validation_collaborateur:
+                    guard: "is_granted('COLLABORATEUR')"
+                    from: revision_collaborateur
+                    to:   validation_collaborateur
+                to_validation_manager:
+                    guard: "is_granted('MANAGER')"
+                    from: validation_collaborateur
+                    to: validation_manager
+                to_signature:
+                    guard: "is_granted('COLLABORATEUR), is_granted('MANAGER')"
+                    from: validation_manager
+                    to: signature

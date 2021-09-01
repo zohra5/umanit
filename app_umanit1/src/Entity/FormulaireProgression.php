@@ -123,6 +123,12 @@ class FormulaireProgression
      */
     private $signatureManager;
 
+    /**
+    * @ORM\Column(type="array", nullable=true)
+    */
+    private $status;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -517,4 +523,14 @@ class FormulaireProgression
         $this->bilanCompetences->removeElement($bilanCompetence);
     }
     
+    public function getStatus()
+    {
+        return $this->status;
+    }
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
 }
