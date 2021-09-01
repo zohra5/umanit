@@ -128,6 +128,7 @@ class FormulaireProgression
     */
     private $status;
 
+    
 
     public function getId(): ?int
     {
@@ -533,4 +534,6 @@ class FormulaireProgression
 
         return $this;
     }
+
+
 }

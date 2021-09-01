@@ -403,6 +403,28 @@
                 <p><em>Ce document vise a constater la tenue de l'entretien et ne vaut pas engagement de réalisation des perspectives et souhaits évoqués.</em></p>
 
                 <input type="submit" />
+
+
+                {% if workflow_can(formulaire, 'premiere_validation_collaborateur') %}
+                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire_progression.id, 'to': 'premiere_validation_collaborateur'}) }}">Validation Collaborateur</a>
+                {% endif %}
+            
+        
+                {% if workflow_can(formulaire, 'premiere_validation_manager') %}
+                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire_progression.id, 'to': 'premiere_validation_manager'}) }}">Validation Manager1</a>
+                {% endif %}
+        
+                {% if workflow_can(formulaire, 'validation_manager') %}
+                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire_progression.id, 'to': 'validation_manager'}) }}">Validation Manager</a>
+                {% endif %}
+        
+                {% if workflow_can(formulaire, 'validation_collaborateur') %}
+                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire_progression.id, 'to': 'validation_collaborateur'}) }}">Validation Collaborateur</a>
+                {% endif %}
+        
+                {% if workflow_can(formulaire, 'signature') %}
+                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire_progression.id, 'to': 'signature'}) }}">Signer</a>
+                {% endif %}
                 
                 {{ form_widget(form._token) }}
                 {{form_end(form, {'render_rest': false})}}
