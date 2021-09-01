@@ -16,7 +16,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class FormulaireProgressionController extends AbstractController
 {
     /**
-     * @Route("/home/formulaire/progression/{id}", name="formulaire_progression")
+     * @Route("/home/formulaire/progression/{id}", name="formulaire_progression", requirements={"id"="\d+"})
      */
     public function index(Request $request, $id = 'create', FormulaireProgressionRepository $formulaireProgressionRepository): Response
     {
@@ -28,9 +28,9 @@ class FormulaireProgressionController extends AbstractController
         // }
         $entityManager = $this->getDoctrine()->getManager();
         $formulaireProgression = null;
-        // if ($id != 'create') {
-        //     $formulaireProgression = $formulaireProgressionRepository->find($id);
-        // }
+        if ($id != 'create') {
+            $formulaireProgression = $formulaireProgressionRepository->find($id);
+        }
         $form = $this->createForm(FormulaireProgressionType::class, $formulaireProgression);
 
         $form->handleRequest($request);
