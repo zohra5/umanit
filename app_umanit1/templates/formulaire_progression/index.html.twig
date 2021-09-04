@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}UmanIT - Formulaire de progression{% endblock %}
-
 {% block stylesheets %}
     {# Style #}
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}" />
@@ -20,9 +19,8 @@
 
             {{form_start(form)}}
             {% form_theme form 'formulaire_progression/theme.html.twig' %}
-
+            
             <form action="">
-
                 {# Dates des entretiens #}
 
                 <p>
@@ -151,6 +149,9 @@
 
                     <button type="button" class="add_item_link" data-collection-holder-class="activites">Ajouter une
                     activité</button>
+
+                    <button type="button" class="remove_item_link" data-collection-holder-class="activites">supprimer une
+                    activité</button>
                 </div>
 
 
@@ -246,8 +247,8 @@
 
                     <thead>
                         <th>Objectifs</th>
+
                         <th>Indicateur de réalisation</th>
-                        <th>Moyen à mettre en oeuvre </th>
                         <th>Délais de réalisation</th>
                     </thead>
 
@@ -321,9 +322,9 @@
                 <div class="mb-4">
                     {{ form_label(form.evalTravail, 'Comment évalues-tu ta charge de travail ?') }}
                     <p><em>(Adéquation de la charge de travail avec le nombre de jours travaillés, variabilité de l'activité, dépassement de forfait, atteinte des objectifs,etc.)</em></p>
+                        <th>Moyen à mettre en oeuvre </th>
                     {{ form_widget(form.evalTravail, {'attr': {'class': 'form-control'}})}}
                 </div>
-       
                 <div class="mb-4">
                     {{ form_label(form.vieProPerso, 'Quel est ton ressenti quant à l\'articulation de ta vie privée vie professionnelle ?') }}
                     <p><em>(Conciliation vie professionnelle et vie personnelle, déconnexion, déplacements, etc.)</em></p>
@@ -389,6 +390,7 @@
                     <tbody>
                         <tr>
                             {% if is_granted('ROLE_CONTRIBUTEUR') %}
+       
                                 <td><input type="file" id="signature_collaborateur" name="avatar" accept="image/png, image/jpeg"></td>
                             {% endif %}
                             {% if is_granted('ROLE_MANAGER') or is_granted('ROLE_RH') %}
@@ -444,7 +446,29 @@
             addFormToCollection($collectionHolderClass);
         })
     });
+    /***************** AJOUT DE GAB ******************/
 
+    const tags = document.querySelectorAll('ul.tags')
+    tags.forEach((tag) => {
+    addTagFormDeleteLink(tag)})
+    function addFormToCollection() {
+
+    // add a delete link to the new form
+    addTagFormDeleteLink(item);
+}
+const addTagFormDeleteLink = (tagFormLi) => {
+    const removeFormButton = document.createElement('button')
+    removeFormButton.classList
+    removeFormButton.innerText = 'Delete this tag'
+    tagFormLi.append(removeFormButton);
+    removeFormButton.addEventListener('click', '.remove_item_link', function (e) {
+        e.preventDefault()
+        // remove the li for the tag form
+        tagFormLi.remove();
+    });
+}
+
+    /***************** FIN DE L'AJOUT DE GAB ******************/
     function addFormToCollection($collectionHolderClass) {
         // Get the ul that holds the collection of tags
         var $collectionHolder = $('.' + $collectionHolderClass);

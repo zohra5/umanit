@@ -407,6 +407,7 @@ class FormulaireProgression
         $this->evaluationObjectifs->removeElement($evaluationObjectif);
     }
 
+    
     /**
      * @ORM\OneToMany(targetEntity="FormationsSuivie", mappedBy="formulaireProgression", cascade={"persist"})
      */
