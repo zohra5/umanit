@@ -354,7 +354,7 @@
 
                 {# Manager #}
 
-                {% if is_granted('ROLE_MANAGER') or is_granted('ROLE_RH') %}
+                {# {% if is_granted('ROLE_MANAGER') or is_granted('ROLE_RH') %} #}
                     <table class="table">
                         <thead class="text-center">
                             <th>{{ form_label(form.syntheseManager, 'Commentaires du manager') }}</th>
@@ -368,7 +368,7 @@
                             </td>
                         </tbody>
                     </table> 
-                {% endif %}               
+                {# {% endif %}                #}
                 
 
                 {# Signature #}
@@ -404,26 +404,51 @@
 
                 <input type="submit" />
 
+                {% for transition in workflow_transitions(formulaire) %}
+                    <a href="{{ path('formulaire_progression', {id: formulaire.id, transition: transition.name}) }}">{{ transition.name }}</a>
+                {% else %}
+                    No actions available.
+                {% endfor %}
+
+                {% if workflow_can(formulaire, 'en_attente') %}
+                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'en_attente'}) }}">Validation Collaborateur</a>
+                {% endif %}
 
                 {% if workflow_can(formulaire, 'premiere_validation_collaborateur') %}
-                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire_progression.id, 'to': 'premiere_validation_collaborateur'}) }}">Validation Collaborateur</a>
+                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'premiere_validation_collaborateur'}) }}">Validation Collaborateur</a>
                 {% endif %}
             
         
                 {% if workflow_can(formulaire, 'premiere_validation_manager') %}
-                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire_progression.id, 'to': 'premiere_validation_manager'}) }}">Validation Manager1</a>
+                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'premiere_validation_manager'}) }}">Validation Manager1</a>
                 {% endif %}
-        
+
+                {% if workflow_can(formulaire, 'a_fusionner') %}
+                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'a_fusionner'}) }}">Fusionner</a>
+                {% endif %}
+
+                {% if workflow_can(formulaire, 'revision_manager') %}
+                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'revision_manager'}) }}">Revision Manager</a>
+                {% endif %}
+
+                {% if workflow_can(formulaire, 'revision_collaborateur') %}
+                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'revision_collaborateur'}) }}">Revision Collaborateur</a>
+                {% endif %}
+
+                {% if workflow_can(formulaire, 'retour_revision_manager') %}
+                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'retour_revision_manager'}) }}">Retour Revision Manager</a>
+                {% endif %}
+                
                 {% if workflow_can(formulaire, 'validation_manager') %}
-                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire_progression.id, 'to': 'validation_manager'}) }}">Validation Manager</a>
+                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'validation_manager'}) }}">Validation Manager</a>
                 {% endif %}
         
                 {% if workflow_can(formulaire, 'validation_collaborateur') %}
-                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire_progression.id, 'to': 'validation_collaborateur'}) }}">Validation Collaborateur</a>
+                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'validation_collaborateur'}) }}">Validation Collaborateur</a>
                 {% endif %}
         
                 {% if workflow_can(formulaire, 'signature') %}
-                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire_progression.id, 'to': 'signature'}) }}">Signer</a>
+                    <a type="button" class="btn btn-primary btn-lg" href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'signature'}) }}">Signer</a>
                 {% endif %}
                 
                 {{ form_widget(form._token) }}
@@ -433,12 +458,11 @@
         </section>
     </main>
 
-    {% if data is not null %}
-        {{dump(data)}}
-        {{dump(data.activites)}}
-    {% else  %}
-        No data
-    {% endif %}
+        {{dump(user)}}
+        {{dump(formulaire.status)}}
+        {{dump(workflow_can(formulaire, 'en_attente'))}}
+        {{dump(formulaire.id)}}
+
 
 {% endblock %}
 
@@ -464,6 +488,12 @@
                 'collectionHolderClass');
             // add a new tag form (see next code block)
             addFormToCollection($collectionHolderClass);
+        })
+        $('body').on('click', '.remove_item_link', function (e) {
+            var $collectionHolderClass = $(e.currentTarget).data(
+                'collectionHolderClass');
+            // add a new tag form (see next code block)
+            removeFormToCollection($collectionHolderClass);
         })
     });
 

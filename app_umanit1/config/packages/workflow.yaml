@@ -1,6 +1,6 @@
 framework:
     workflows:
-        toy_request:
+        formulaire_progression:
             type: 'workflow'
             audit_trail:
                 enabled: true
@@ -8,48 +8,55 @@ framework:
                 type: 'method'
                 property: 'status'
             supports:
-                - App\Entity\FormulaireProgressionEntity
-            initial_marking: a_remplir
+                - App\Entity\FormulaireProgression
+            initial_marking: creation
             places:
-                - a_remplir
+                - creation
                 - attente_validation_collaborateur
                 - premiere_validation_collaborateur
                 - attente_validation_manager
-                - premiere_validation_collaborateur
+                - premiere_validation_manager
                 - fusionne
+                - revision_manager
                 - revision_collaborateur
                 - validation_collaborateur
                 - validation_manager
                 - signature
  
             transitions:
-                to_en_attente:
-                    from: a_remplir
+                en_attente:
+                    from: creation
                     to:   [attente_validation_collaborateur, attente_validation_manager]
-                to_premiere_validation_collaborateur:
-                    guard: "is_granted('COLLABORATEUR')"
+                premiere_validation_collaborateur:
+                    guard: "is_granted('ROLE_CONTRIBUTEUR')"
                     from: attente_validation_collaborateur
                     to: premiere_validation_collaborateur
-                to_premiere_validation_manager:
-                    guard: "is_granted('MANAGER')"
+                premiere_validation_manager:
+                    guard: "is_granted('ROLE_MANAGER')"
                     from: attente_validation_manager
                     to: premiere_validation_manager
-                to_a_fusionner:
-                    guard: "is_granted('MANAGER')"
+                a_fusionner:
+                    guard: "is_granted('ROLE_MANAGER')"
                     from: [premiere_validation_collaborateur, premiere_validation_manager]
                     to:   fusionne
-                to_revision_collaborateur:
+                revision_manager:
                     from: fusionne
+                    to:   revision_manager
+                revision_collaborateur:
+                    from: revision_manager
                     to:   revision_collaborateur
-                to_validation_collaborateur:
-                    guard: "is_granted('COLLABORATEUR')"
+                retour_revision_manager:
+                    from: revision_collaborateur
+                    to: revision_manager
+                validation_collaborateur:
+                    guard: "is_granted('ROLE_CONTRIBUTEUR')"
                     from: revision_collaborateur
                     to:   validation_collaborateur
-                to_validation_manager:
-                    guard: "is_granted('MANAGER')"
+                validation_manager:
+                    guard: "is_granted('ROLE_MANAGER')"
                     from: validation_collaborateur
                     to: validation_manager
-                to_signature:
-                    guard: "is_granted('COLLABORATEUR), is_granted('MANAGER')"
+                signature:
+                    guard: "is_granted('ROLE_MANAGER')"
                     from: validation_manager
                     to: signature
