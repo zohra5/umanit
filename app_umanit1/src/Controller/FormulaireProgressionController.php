@@ -22,7 +22,7 @@ class FormulaireProgressionController extends AbstractController
         $this->formulaireProgressionWorkflow = $formulaireProgressionWorkflow;
     }
     /**
-     * @Route("/home/formulaire/progression/{id}", name="formulaire_progression")
+     * @Route("/home/formulaire/progression/{id}", name="formulaire_progression", requirements={"id"="\d+"})
      */
     public function index(Request $request, EntityManagerInterface $entityManager, $id = 'create', FormulaireProgressionRepository $formulaireProgressionRepository): Response
     {
@@ -34,10 +34,6 @@ class FormulaireProgressionController extends AbstractController
         
         $form = $this->createForm(FormulaireProgressionType::class, $formulaireProgression);
         var_dump($this->formulaireProgressionWorkflow->getEnabledTransitions($formulaireProgression));
-        
-        // $workflow = $this->container->get('workflow.formulaire_progression');
-        // $transitions = $workflow->getEnabledTransitions($formulaireProgression);
-        // var_dump($transitions);
 
         $form->handleRequest($request);
        
@@ -62,32 +58,6 @@ class FormulaireProgressionController extends AbstractController
         ]);
     }
 
-
-    // /**
-    // * @Route("/home/formulaire/progression/{id}", name="formulaire_progression_id")
-    // */
-
-
-
-    // /**
-    // * @Route("/home/formulaire/progression/manager/{id}", name="formulaire_progression_manager")
-    // */
-    // public function manager(FormulaireProgressionRepository $formulaireProgressionRepository, $id): Response
-    // {
-    //     $formulaire = $formulaireProgressionRepository->find($id);
-    //     return $this->redirectToRoute('formulaire_progression');
-    // }
-
-    // /**
-    // * @Route("/home/formulaire/progression/collaborateur/{id}", name="formulaire_progression_collaborateur")
-    // */
-    // public function collaborateur(FormulaireProgressionRepository $formulaireProgressionRepository, $id): Response
-    // {
-    //     return $this->render('formulaire_progression/index.html.twig', [
-    //         'formulaire' => $formulaireProgressionRepository->find($id),
-    //     ]);
-    // }
-
     /**
     * @Route("/home/formulaire/progression/change/{id}/{to}", name="formulaire_progression_change")
     */
@@ -98,7 +68,7 @@ class FormulaireProgressionController extends AbstractController
         } catch (LogicException $exception) {
             //
         }
-     
+        
     
         $entityManager->persist($formulaireProgression);
         $entityManager->flush();
