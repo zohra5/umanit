@@ -372,7 +372,7 @@
                 
 
                 {# Signature #}
-
+                {% if workflow_can(formulaire, 'signature') %}
                 <h2 class="mt-5">Signature</h2>
 
                 <table class="table">
@@ -399,10 +399,11 @@
                     </tbody>
 
                 </table>
+                {% endif %}
 
                 <p><em>Ce document vise a constater la tenue de l'entretien et ne vaut pas engagement de réalisation des perspectives et souhaits évoqués.</em></p>
 
-                <input type="submit" />
+                <input type="submit" formnovalidate="formnovalidate" value="Brouillon">
    
                 {% if formulaire.id != null %}  <!-- Permet de créer la vue sans le blocage du workflow_can qui vérifiait l'id -->
                 {% for transition in workflow_transitions(formulaire) %}
