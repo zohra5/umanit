@@ -37,6 +37,7 @@ class FormulaireProgressionController extends AbstractController
 
         $form->handleRequest($request);
        
+       
         if ($form->isSubmitted() && $form->isValid()) {
             $formulaireProgression = $form->getData();
 
