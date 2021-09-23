@@ -1,0 +1,60 @@
+<main class="container w-75">
+    <section>
+
+        {{ form_start(form) }}
+
+        <!-- Type de formulaires -->
+
+        <h2 class="mt-5">Informations :</h2>
+        <hr>
+
+        <div class="row px-3 mt-4">
+            <div class="col">
+                <p>
+                    <b>{{ form_label(form.formulaire, 'Formulaires souhaités : ')}}</b> 
+                    {{ form_widget(form.formulaire, { 'attr' : { 'class' : 'motif' }}) }}
+                </p>
+            </div>
+        </div>
+
+        <!-- Dates d'ouverture et de fermeture -->        
+        
+        <div class="row px-3 mt-4">
+            <div class="col">
+                <p>
+                    <b>{{ form_label(form.startDate, 'Date de début : ')}}</b> 
+                    {{ form_widget(form.startDate, {'attr': {'class': 'form-control w-50 d-inline'}})}}
+                </p>
+            </div>
+
+            <div class="col">
+                <p>
+                    <b>{{ form_label(form.endDate, 'Date de fin : ')}}</b> 
+                    {{ form_widget(form.endDate,  {'attr': {'class': 'form-control w-50 d-inline'}})}} 
+                </p>
+            </div>
+        </div>
+
+        <!-- Utilisateurs souhaités -->
+
+        <div class="row px-3 mt-4">
+            <div class="col">
+                <p>
+                    <b>{{ form_label(form.contributor, 'Utilisateurs souhaités : ')}}</b> 
+                    {{ form_widget(form.contributor, { 'attr' : { 'class' : 'motif' }}) }}
+                </p>
+            </div>
+        </div>
+
+        <!-- Bouton de validation -->
+
+        <div class="mt-5">
+            <button class="btn">{{ button_label|default('Ouvrir la session') }}</button>
+            <a href="{{ path('session_index') }}" class="btn">Annuler</a>
+        </div>
+
+        {{ form_end(form) }}
+
+    </section>
+</main>
+

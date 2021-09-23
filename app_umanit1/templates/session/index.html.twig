@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UmanIT - Gestion des sessions{% endblock %}
+
+{% block body %}
+    <main class="container w-75">
+        <section>
+
+            <h1 class="mt-5 mb-4">Gestion des sessions</h1>
+                    <a href="{{ path('session_new') }}" class="btn my-2 mb-3">Nouvelle session</a>
+
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Formulaires</th>
+                        <th>Date de début</th>
+                        <th>Date de fin</th>
+                        <th>Utilisateurs</th>
+                        <th width="28%">Edition</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                {% for session in sessions %}
+                    <tr>
+                        <td>{{ session.id }}</td>
+                        <td>{{ session.formulaire ? session.formulaire|join(', ') : '' }}</td>
+                        <td>{{ session.startDate ? session.startDate|date('Y-m-d') : '' }}</td>
+                        <td>{{ session.endDate ? session.endDate|date('Y-m-d') : '' }}</td>
+                        <td></td>
+
+                        <td>
+                            <a href="{{ path('session_show', {'id': session.id}) }}" class="btn">Consulter</a>
+                            <a href="{{ path('session_edit', {'id': session.id}) }}" class="btn">Éditer</a>
+                            {{ include('session/_delete_form.html.twig') }}
+                        </td>
+                {% else %}
+                    <tr>
+                        <td colspan="5">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+
+        </section>
+    </main>
+
+{% endblock %}
