@@ -37,8 +37,8 @@ class SessionController extends AbstractController
         }
         $form = $this->createForm(SessionType::class, $session);
         $form->handleRequest($request);
-        $contributeur = $session->getContributor();
-        $contributeurId = $contributeur[0]->getId();
+        // $contributeur = $session->getContributor();
+        // $contributeurId = $contributeur[0]->getId();
 
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -52,7 +52,7 @@ class SessionController extends AbstractController
         return $this->renderForm('session/new.html.twig', [
             'session' => $session,
             'form' => $form,
-            'user_id' => $contributeurId,
+            // 'user_id' => $contributeurId,
             'session_id' => $id
         ]);
     }
