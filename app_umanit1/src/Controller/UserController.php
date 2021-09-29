@@ -15,7 +15,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 /**
  * @Route("/home/user")
  *
- * @IsGranted("ROLE_RH", message="Vous n'avez pas les droits d'accès à cette page.")
  */
 
 class UserController extends AbstractController
