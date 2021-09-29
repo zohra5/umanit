@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UmanIT - Édition de la session{% endblock %}
+
+{% block body %}
+
+    <main class="container w-75">
+        <section>
+
+            <h1 class="mt-5 mb-4">Édition de la session</h1>
+
+            {{ include('session/_form.html.twig', {'button_label': 'Update'})}}
+            {{ include('session/_delete_form.html.twig') }}
+
+        </section>
+    </main>
+
+{% endblock %}
