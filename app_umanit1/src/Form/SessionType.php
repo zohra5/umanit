@@ -36,12 +36,12 @@ class SessionType extends AbstractType
         ])
         ->add('contributor', EntityType::class, [
                 'class' => User::class,
-                // 'query_builder' => function (UserRepository $ur) {
-                //     return $ur->createQueryBuilder('u')
-                //         ->where('u.roles = :role_contributeur')
-                //         ->setParameter('role_contributeur', '{"roles" : "ROLE_CONTRIBUTEUR"}')
-                //         ->orderBy('u.firstname', 'ASC');
-                // },
+                'query_builder' => function (UserRepository $ur) {
+                    return $ur->createQueryBuilder('u')
+                        ->where('u.id = :id')
+                        ->setParameter('id', 2)
+                        ->orderBy('u.firstname', 'ASC');
+                },
                 'choice_label' => function($user) {
                     $firstname = $user->getFirstname();
                     $fullname =  $firstname . " " . $user->getName();
@@ -49,6 +49,7 @@ class SessionType extends AbstractType
                 'expanded' => true,    
                 'multiple' => true,
                 'required' => true,
+                
         ]);
     }
 

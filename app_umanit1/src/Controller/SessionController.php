@@ -29,24 +29,31 @@ class SessionController extends AbstractController
     /**
      * @Route("/new", name="session_new", methods={"GET","POST"})
      */
-    public function new(Request $request, UserRepository $userRepository): Response
+    public function new(Request $request,$id = 'create', SessionRepository $sessionRepository): Response
     {
-
         $session = new Session();
+        if ($id != 'create') {
+            $id = $sessionRepository->find($id);
+        }
         $form = $this->createForm(SessionType::class, $session);
         $form->handleRequest($request);
+        $contributeur = $session->getContributor();
+        $contributeurId = $contributeur[0]->getId();
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($session);
             $entityManager->flush();
-
+            
             return $this->redirectToRoute('session_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('session/new.html.twig', [
             'session' => $session,
             'form' => $form,
+            'user_id' => $contributeurId,
+            'session_id' => $id
         ]);
     }
 
