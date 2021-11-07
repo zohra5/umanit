@@ -48,44 +48,97 @@
                 <tbody>
                     <tr>
                         <td width="25%">Nom :</td>
-                        <td>{{ user.name }}</td>
+                        {% if is_granted('ROLE_CONTRIBUTEUR') %}
+                            <td>{{ user.name }}</td>
+                        {% else %}
+                            <td><input type="text" id="collab_name" name="collab_name"></td>
+                        {% endif %}
+
                         <td width="25%">Nom :</td>
-                        <td><input type="text" id="name" name="manager_name"></td>
+                        {% if is_granted('ROLE_MANAGER') %}
+                            <td>{{ user.name }}</td>
+                        {% else %}
+                            <td><input type="text" id="manager_name" name="manager_name"></td>
+                        {% endif %}
                     </tr>
                     <tr>
                         <td>Prénom :</td>
-                        <td>{{ user.firstname }}</td>
+                        {% if is_granted('ROLE_CONTRIBUTEUR') %}
+                            <td>{{ user.firstname }}</td>
+                        {% else %}
+                            <td><input type="text" id="collab_surname" name="collab_surname"></td>
+                        {% endif %}
                         <td>Prénom :</td>
-                        <td><input type="text" id="surname" name="manager_surname"></td>
+                        {% if is_granted('ROLE_MANAGER') %}
+                            <td>{{ user.firstname }}</td>
+                        {% else %}
+                            <td><input type="text" id="manager_surname" name="manager_surname"></td>
+                        {% endif %}
                     </tr>
                     <tr>
                         <td>Date de naissance :</td>
-                        <td>{{ user.birthday|date("m/d/Y") }}</td>
+                        {% if is_granted('ROLE_CONTRIBUTEUR') %}
+                            <td>{{ user.birthday|date("m/d/Y") }}</td>
+                        {% else %}
+                            <td><input type="date" id="birthday" name="birthday"></td>
+                        {% endif %}
                         <td>Fonction :</td>
-                        <td><input type="text" id="fonction" name="fonction_manager"></td>
+                        {% if is_granted('ROLE_MANAGER') %}
+                            <td>{{ user.jobTitle}}</td>
+                        {% else %}
+                            <td><input type="text" id="fonction" name="fonction_manager"></td>
+                        {% endif %}
                     </tr>
                     <tr>
                         <td>Service :</td>
-                        <td>{{ user.service }}</td>
+                        {% if is_granted('ROLE_CONTRIBUTEUR') %}
+                            <td>{{ user.service }}</td>
+                        {% else %}
+                            <td><input type="text" id="service" name="service"></td>
+                        {% endif %}
                         <td colspan="2" class="text-start">En présence de :</td>
                     </tr>
                     <tr>
                         <td>Intitulé du poste :</td>
-                        <td>{{ user.jobTitle }}</td>
+                        {% if is_granted('ROLE_CONTRIBUTEUR') %}
+                            <td>{{ user.jobTitle }}</td>
+                        {% else %}
+                            <td><input type="text" id="jobTitle" name="jobTitle"></td>
+                        {% endif %}
                         <td>Nom :</td>
-                        <td><input type="text" id="name" name="collab_name"></td>
+                        {% if is_granted('ROLE_CONTRIBUTEUR') %}
+                            <td>{{ user.name }}</td>
+                        {% else %}
+                            <td><input type="text" id="name" name="collab_name"></td>
+                        {% endif %}
                     </tr>
                     <tr>
                         <td>Date d'embauche :</td>
-                        <td>{{ user.dateHire|date("m/d/Y") }}</td>
+                        {% if is_granted('ROLE_CONTRIBUTEUR') %}
+                            <td>{{ user.dateHire|date("m/d/Y") }}</td>
+                        {% else %}
+                            <td><input type="date" id="dateHire" name="dateHire"></td>
+                        {% endif %}
                         <td>Prénom :</td>
-                        <td><input type="text" id="surname" name="collab_surname"></td>
+                        {% if is_granted('ROLE_CONTRIBUTEUR') %}
+                            <td>{{ user.firstname }}</td>
+                        {% else %}
+                            <td><input type="text" id="surname" name="collab_surname"></td>
+                        {% endif %}
                     </tr>
                     <tr>
                         <td>Date d'accession à ce poste :</td>
-                        <td>{{ user.accessionDate|date("m/d/Y") }}</td>
+                        {% if is_granted('ROLE_CONTRIBUTEUR') %}
+                            <td>{{ user.accessionDate|date("m/d/Y") }}</td>
+                        {% else %}
+                            <td><input type="date" id="accessionDate" name="accessionDate"></td>
+                        {% endif %}
                         <td>Fonction :</td>
-                        <td><input type="text" id="fonction" name="fonction_collab"></td>
+                        {% if is_granted('ROLE_CONTRIBUTEUR') %}
+                            <td>{{ user.jobTitle}}</td>
+                        {% else %}
+                            <td><input type="text" id="fonction" name="fonction_collab"></td>
+                        {% endif %}
                     </tr>
                 </tbody>
 
@@ -418,7 +471,9 @@
 
 
             {% if formulaire.id is same as null %}
-                <input type="submit" formnovalidate="formnovalidate" value="Création">
+                {% if is_granted('ROLE_MANAGER', 'ROLE_RH') %}
+                    <input type="submit" formnovalidate="formnovalidate" value="Création">
+                {% endif %}
             {% else %}
                 {% if (workflow_can(formulaire, 'premiere_validation_collaborateur')  or workflow_can(formulaire, 'premiere_validation_manager')) %}
                     <input type="submit" formnovalidate="formnovalidate" value="Brouillon">
@@ -441,14 +496,22 @@
                 {% endif %}
 
 
-                {% if workflow_can(formulaire, 'premiere_validation_manager') %}
+                {# {% if workflow_can(formulaire, 'premiere_validation_manager') %}
                     <a type="button" class="btn btn-primary btn-lg"
                     href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'premiere_validation_manager'}) }}">Première Validation Manager</a>
+                {% endif %} #}
+                {% if workflow_can(formulaire, 'premiere_validation_manager') %}
+                    <button type="submit" class="btn btn-primary btn-lg" 
+                    formaction="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'premiere_validation_manager'}) }}">Première Validation Manager</button>
                 {% endif %}
 
-                {% if workflow_can(formulaire, 'a_fusionner') %}
+                {# {% if workflow_can(formulaire, 'a_fusionner') %}
                     <a type="button" class="btn btn-primary btn-lg"
                     href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'a_fusionner'}) }}">Fusionner</a>
+                {% endif %} #}
+                {% if workflow_can(formulaire, 'a_fusionner') %}
+                    <button type="submit" class="btn btn-primary btn-lg" 
+                    formaction="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'a_fusionner'}) }}">Fusionner</button>
                 {% endif %}
 
                 {# {% if wo345678910rkflow_can(formulaire, 'revision_manager') %}
@@ -462,10 +525,14 @@
                     formaction="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'revision_manager'}) }}">Revision Manager</button>
                 {% endif %}
 
-                {% if workflow_can(formulaire, 'revision_collaborateur') %}
+                {# {% if workflow_can(formulaire, 'revision_collaborateur') %}
                     <a type="button" class="btn btn-primary btn-lg"
                     href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'revision_collaborateur'}) }}">Revision
                     Collaborateur</a>
+                {% endif %} #}
+                {% if workflow_can(formulaire, 'revision_collaborateur') %}
+                    <button type="submit" class="btn btn-primary btn-lg" 
+                    formaction="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'revision_collaborateur'}) }}">Revision Collaborateur</button>
                 {% endif %}
 
                 {% if workflow_can(formulaire, 'retour_revision_manager') %}
@@ -473,22 +540,41 @@
                     href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'retour_revision_manager'}) }}">Retour
                     Revision Manager</a>
                 {% endif %}
+                {# {% if workflow_can(formulaire, 'retour_revision_manager') %}
+                    <button type="submit" class="btn btn-primary btn-lg" 
+                    formaction="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'retour_revision_manager'}) }}">Retour Revision Collaborateur</button>
+                {% endif %} #}
+                
 
-                {% if workflow_can(formulaire, 'validation_manager') %}
+                {# {% if workflow_can(formulaire, 'validation_manager') %}
                     <a type="button" class="btn btn-primary btn-lg"
                     href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'validation_manager'}) }}">Validation
                     Manager</a>
+                {% endif %} #}
+                {% if workflow_can(formulaire, 'validation_manager') %}
+                    <button type="submit" class="btn btn-primary btn-lg" 
+                    formaction="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'validation_manager'}) }}">Validation Manager</button>
                 {% endif %}
+                
 
-                {% if workflow_can(formulaire, 'validation_collaborateur') %}
+                {# {% if workflow_can(formulaire, 'validation_collaborateur') %}
                     <a type="button" class="btn btn-primary btn-lg"
                     href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'validation_collaborateur'}) }}">Validation
                     Collaborateur</a>
+                {% endif %} #}
+                {% if workflow_can(formulaire, 'validation_collaborateur') %}
+                    <button type="submit" class="btn btn-primary btn-lg" 
+                    formaction="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'validation_collaborateur'}) }}">Validation Collaborateur</button>
                 {% endif %}
 
-                {% if workflow_can(formulaire, 'signature') %}
+
+                {# {% if workflow_can(formulaire, 'signature') %}
                     <a type="button" class="btn btn-primary btn-lg"
                     href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'signature'}) }}">Signer</a>
+                {% endif %} #}
+                {% if workflow_can(formulaire, 'signature') %}
+                    <button type="submit" class="btn btn-primary btn-lg" 
+                    formaction="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'signature'}) }}">Signer</button>
                 {% endif %}
 
                 {% if workflow_has_marked_place(formulaire, 'signature') %}
