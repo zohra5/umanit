@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Session;
+use App\Entity\User;
 use App\Form\SessionType;
 use App\Repository\SessionRepository;
 use App\Repository\UserRepository;
@@ -29,31 +30,35 @@ class SessionController extends AbstractController
     /**
      * @Route("/new", name="session_new", methods={"GET","POST"})
      */
-    public function new(Request $request,$id = 'create', SessionRepository $sessionRepository): Response
+    public function new(Request $request, SessionRepository $sessionRepository): Response
     {
         $session = new Session();
-        if ($id != 'create') {
-            $id = $sessionRepository->find($id);
-        }
+        // if ($id != 'create') {
+        //     $id = $sessionRepository->find($id);
+        // }
         $form = $this->createForm(SessionType::class, $session);
         $form->handleRequest($request);
-        // $contributeur = $session->getContributor();
-        // $contributeurId = $contributeur[0]->getId();
 
+        $users = $this->getUser();
+
+        
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            dump($session);
+            $session->addContributor($users);
+
             $entityManager->persist($session);
+
             $entityManager->flush();
-            
-            return $this->redirectToRoute('session_index', [], Response::HTTP_SEE_OTHER);
+            dump($session);
+
+            // return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('session/new.html.twig', [
             'session' => $session,
-            'form' => $form,
-            // 'user_id' => $contributeurId,
-            'session_id' => $id
+            'form' => $form
         ]);
     }
 
@@ -62,6 +67,8 @@ class SessionController extends AbstractController
      */
     public function show(Session $session): Response
     {
+        dump($session->getContributor());
+
         return $this->render('session/show.html.twig', [
             'session' => $session,
         ]);
@@ -74,6 +81,7 @@ class SessionController extends AbstractController
     {
         $form = $this->createForm(SessionType::class, $session);
         $form->handleRequest($request);
+        
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();

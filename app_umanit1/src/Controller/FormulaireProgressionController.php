@@ -28,23 +28,27 @@ class FormulaireProgressionController extends AbstractController
     {
         $formulaireProgression = new FormulaireProgression();
         $user = $this->getUser();
+        dump($user);
         if ($id != 'create') {
                  $formulaireProgression = $formulaireProgressionRepository->find($id);
         }
         
         $form = $this->createForm(FormulaireProgressionType::class, $formulaireProgression);
+        
         var_dump($this->formulaireProgressionWorkflow->getEnabledTransitions($formulaireProgression));
 
         $form->handleRequest($request);
+        dump($form);
        
        
         if ($form->isSubmitted() && $form->isValid()) {
             $formulaireProgression = $form->getData();
+            dump($form);
 
             try {
                 $this->formulaireProgressionWorkflow->apply($formulaireProgression, 'creation');
             } catch (LogicException $exception) {
-                //
+                 echo $exception->getMessage();
             }
           
             
@@ -62,15 +66,21 @@ class FormulaireProgressionController extends AbstractController
     /**
     * @Route("/home/formulaire/progression/change/{id}/{to}", name="formulaire_progression_change")
     */
-    public function change(FormulaireProgression $formulaireProgression, String $to, EntityManagerInterface $entityManager): Response
+    public function change(Request $request, FormulaireProgression $formulaireProgression, String $to, EntityManagerInterface $entityManager): Response
     {
+        $form = $this->createForm(FormulaireProgressionType::class, $formulaireProgression);
+
+        $formulaireProgression = $form->getData();
+        $form->handleRequest($request);
+
+        dump($formulaireProgression);
+
         try {
             $this->formulaireProgressionWorkflow->apply($formulaireProgression, $to);
         } catch (LogicException $exception) {
-            //
+            echo $exception->getMessage();
         }
         
-    
         $entityManager->persist($formulaireProgression);
         $entityManager->flush();
     

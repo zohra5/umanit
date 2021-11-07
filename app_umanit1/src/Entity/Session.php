@@ -6,9 +6,12 @@ use App\Repository\SessionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinTable;
+use Doctrine\ORM\Mapping\Table;
 
 /**
  * @ORM\Entity(repositoryClass=SessionRepository::class)
+ * @ORM\Table("session")
  */
 class Session
 {
@@ -35,7 +38,8 @@ class Session
     private $endDate;
 
     /**
-     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="sessions")
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="sessions")
+     * @JoinTable(name="`session_user`")
      */
     private $contributor;
 

@@ -8,6 +8,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\ORM\Mapping\JoinTable;
+
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -74,7 +76,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $accessionDate;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Session::class, mappedBy="contributor")
+     * @ORM\ManyToMany(targetEntity="Session", inversedBy="contributor")
+     * @JoinTable(name="`session_user`")
      */
     private $sessions;
 

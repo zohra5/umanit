@@ -22,11 +22,13 @@ class FormulaireProgressionType extends AbstractType
 
             ->add('dateEntretien', DateType::class, [
                 'html5' => true,
-                'widget' => 'single_text'
+                'widget' => 'single_text',
+                'required' => true
             ])
             ->add('datePrecedentEntretien', DateType::class, [
                 'html5' => true,
-                'widget' => 'single_text'
+                'widget' => 'single_text',
+                'required' => 'true'
             ])
             ->add('ressentiTravail',  ChoiceType::class, 
             [

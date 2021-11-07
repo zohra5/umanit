@@ -21,7 +21,7 @@
         {{form_start(form)}}
         {% form_theme form 'formulaire_progression/theme.html.twig' %}
 
-        <form action="">
+        <form>
 
             {# Dates des entretiens #}
 
@@ -339,6 +339,7 @@
                 {{ form_widget(form.vieProPerso, {'attr': {'class': 'form-control'}})}}
             </div>
 
+            {% if workflow_can(formulaire, 'signature') %}
 
             {# Synthèse #}
 
@@ -383,7 +384,6 @@
 
 
             {# Signature #}
-            {% if workflow_can(formulaire, 'signature') %}
             <h2 class="mt-5">Signature</h2>
 
             <table class="table">
@@ -416,33 +416,34 @@
             <p><em>Ce document vise a constater la tenue de l'entretien et ne vaut pas engagement de réalisation des
                     perspectives et souhaits évoqués.</em></p>
 
-            <input type="submit" formnovalidate="formnovalidate" value="Brouillon">
 
-            {% if formulaire.id != null %}
-            <!-- Permet de créer la vue sans le blocage du workflow_can qui vérifiait l'id -->
-                {% for transition in workflow_transitions(formulaire) %}
+            {% if formulaire.id is same as null %}
+                <input type="submit" formnovalidate="formnovalidate" value="Création">
+            {% else %}
+                {% if (workflow_can(formulaire, 'premiere_validation_collaborateur')  or workflow_can(formulaire, 'premiere_validation_manager')) %}
+                    <input type="submit" formnovalidate="formnovalidate" value="Brouillon">
+                {% endif %}
+                {# {% for transition in workflow_transitions(formulaire) %}
                 <a
                     href="{{ path('formulaire_progression', {id: formulaire.id, transition: transition.name}) }}">{{ transition.name }}</a>
                 {% else %}
                     No actions available.
-                {% endfor %}
+                {% endfor %} #}
+                
 
-                {% if workflow_can(formulaire, 'en_attente') %}
+                {# {% if workflow_can(formulaire, 'premiere_validation_collaborateur') %}
                     <a type="button" class="btn btn-primary btn-lg"
-                    href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'en_attente'}) }}">Creation</a>
-                {% endif %}
-
+                    href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'premiere_validation_collaborateur'}) }}">Première Validation Collaborateur</a>
+                {% endif %} #}
                 {% if workflow_can(formulaire, 'premiere_validation_collaborateur') %}
-                    <a type="button" class="btn btn-primary btn-lg"
-                    href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'premiere_validation_collaborateur'}) }}">Validation
-                    Collaborateur1</a>
+                    <button type="submit" class="btn btn-primary btn-lg" 
+                    formaction="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'premiere_validation_collaborateur'}) }}">Première Validation Collaborateur</button>
                 {% endif %}
 
 
                 {% if workflow_can(formulaire, 'premiere_validation_manager') %}
                     <a type="button" class="btn btn-primary btn-lg"
-                    href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'premiere_validation_manager'}) }}">Validation
-                    Manager1</a>
+                    href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'premiere_validation_manager'}) }}">Première Validation Manager</a>
                 {% endif %}
 
                 {% if workflow_can(formulaire, 'a_fusionner') %}
@@ -450,10 +451,15 @@
                     href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'a_fusionner'}) }}">Fusionner</a>
                 {% endif %}
 
-                {% if workflow_can(formulaire, 'revision_manager') %}
+                {# {% if wo345678910rkflow_can(formulaire, 'revision_manager') %}
                     <a type="button" class="btn btn-primary btn-lg"
                     href="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'revision_manager'}) }}">Revision
                     Manager</a>
+                {% endif %} #}
+
+                {% if workflow_can(formulaire, 'revision_manager') %}
+                    <button type="submit" class="btn btn-primary btn-lg" 
+                    formaction="{{ path('formulaire_progression_change', {'id': formulaire.id, 'to': 'revision_manager'}) }}">Revision Manager</button>
                 {% endif %}
 
                 {% if workflow_can(formulaire, 'revision_collaborateur') %}
@@ -496,11 +502,6 @@
 
     </section>
 </main>
-
-{{dump(user)}}
-{{dump(formulaire.status)}}
-{{dump(workflow_can(formulaire, 'en_attente'))}}
-{{dump(formulaire.id)}}
 
 
 {% endblock %}

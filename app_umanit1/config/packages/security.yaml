@@ -36,5 +36,6 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
          - { path: ^/home, roles: [ROLE_RH, ROLE_MANAGER, ROLE_CONTRIBUTEUR] }
+         - { path: ^/home/formulaire/progression, roles: [ROLE_RH, ROLE_MANAGER] }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }

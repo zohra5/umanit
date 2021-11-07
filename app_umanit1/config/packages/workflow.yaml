@@ -9,9 +9,8 @@ framework:
                 property: 'status'
             supports:
                 - App\Entity\FormulaireProgression
-            initial_marking: creation
+            initial_marking: [attente_validation_collaborateur, attente_validation_manager]
             places:
-                - creation
                 - attente_validation_collaborateur
                 - premiere_validation_collaborateur
                 - attente_validation_manager
@@ -24,9 +23,6 @@ framework:
                 - signature
  
             transitions:
-                en_attente:
-                    from: creation
-                    to:   [attente_validation_collaborateur, attente_validation_manager]
                 premiere_validation_collaborateur:
                     guard: "is_granted('ROLE_CONTRIBUTEUR')"
                     from: attente_validation_collaborateur
