@@ -28,11 +28,11 @@ framework:
                     from: attente_validation_collaborateur
                     to: premiere_validation_collaborateur
                 premiere_validation_manager:
-                    guard: "is_granted('ROLE_MANAGER')"
+                    guard: "is_granted('ROLE_MANAGER', 'ROLE_RH')"
                     from: attente_validation_manager
                     to: premiere_validation_manager
                 a_fusionner:
-                    guard: "is_granted('ROLE_MANAGER')"
+                    guard: "is_granted('ROLE_MANAGER', 'ROLE_RH')"
                     from: [premiere_validation_collaborateur, premiere_validation_manager]
                     to:   fusionne
                 revision_manager:
@@ -49,10 +49,10 @@ framework:
                     from: revision_collaborateur
                     to:   validation_collaborateur
                 validation_manager:
-                    guard: "is_granted('ROLE_MANAGER')"
+                    guard: "is_granted('ROLE_MANAGER', 'ROLE_RH')"
                     from: validation_collaborateur
                     to: validation_manager
                 signature:
-                    guard: "is_granted('ROLE_MANAGER')"
+                    guard: "is_granted('ROLE_MANAGER', 'ROLE_RH')"
                     from: validation_manager
                     to: signature
